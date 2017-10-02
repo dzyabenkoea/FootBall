@@ -15,18 +15,13 @@ using System.Windows.Shapes;
 namespace Football
 {
     /// <summary>
-    /// Логика взаимодействия для AddEditTournament.xaml
+    /// Логика взаимодействия для addedit_game_event.xaml
     /// </summary>
-    public partial class AddEditTournament : Window
+    public partial class addedit_game_event : Window
     {
-        public AddEditTournament()
+        public addedit_game_event()
         {
             InitializeComponent();
-        }
-        public AddEditTournament(int rowID,DataGridRow dr)//Конструктор для сценария редактирования
-        {
-            InitializeComponent();
-
         }
     }
 }
