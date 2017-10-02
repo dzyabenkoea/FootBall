@@ -58,6 +58,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Manage Roundof 16 Games.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ManageQuarter-FinalGames.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="ManageTournaments.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -69,6 +77,8 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Manage Roundof 16 Games.xaml.cs" />
+    <Compile Include="ManageQuarter-FinalGames.xaml.cs" />
     <Compile Include="ManageTournaments.xaml.cs">
       <DependentUpon>ManageTournaments.xaml</DependentUpon>
       <SubType>Code</SubType>
