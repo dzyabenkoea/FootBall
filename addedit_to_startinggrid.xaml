@@ -1,0 +1,19 @@
+﻿<Window x:Class="WpfApp2.addedit_to_startinggfrid"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp2"
+        mc:Ignorable="d"
+        Title="addedit_to_startinggfrid" Height="242.857" Width="445.455">
+    <Grid Margin="0,0,2,2">
+        <Label Content="Team Switzerland" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,29,0,0" FontFamily="Tahoma"/>
+        <Label Content="Player" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,72,0,0" RenderTransformOrigin="0.271,0.588" FontFamily="Tahoma"/>
+        <Label Content="Position" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,120,0,0" FontFamily="Tahoma"/>
+        <ComboBox HorizontalAlignment="Left" VerticalAlignment="Top" Width="311" Margin="100,76,0,0"/>
+        <ComboBox HorizontalAlignment="Left" Margin="100,120,0,0" VerticalAlignment="Top" Width="311"/>
+        <Button Content="ОК" HorizontalAlignment="Left" VerticalAlignment="Top" Width="79" Margin="240,160,0,0" Height="30" FontFamily="Tahoma"/>
+        <Button Content="Cancel" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="336,160,0,0" Height="30" FontFamily="Tahoma"/>
+
+    </Grid>
+</Window>
