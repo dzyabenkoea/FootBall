@@ -55,7 +55,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="AddEditTournament.xaml">
+    <Page Include="addedit_game_event.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="addedit_to_startinggrid.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="editgame_starting_grid.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -71,8 +79,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Compile Include="AddEditTournament.xaml.cs">
-      <DependentUpon>AddEditTournament.xaml</DependentUpon>
+    <Compile Include="addedit_game_event.xaml.cs">
+      <DependentUpon>addedit_game_event.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="addedit_to_startinggrid.xaml.cs">
+      <DependentUpon>addedit_to_startinggrid.xaml</DependentUpon>
     </Compile>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
@@ -83,6 +94,9 @@
     </Compile>
     <Compile Include="ManageSemiFinalGames.xaml.cs">
       <DependentUpon>ManageSemiFinalGames.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="editgame_starting_grid.xaml.cs">
+      <DependentUpon>editgame_starting_grid.xaml</DependentUpon>
     </Compile>
     <Compile Include="ManageTournaments.xaml.cs">
       <DependentUpon>ManageTournaments.xaml</DependentUpon>
