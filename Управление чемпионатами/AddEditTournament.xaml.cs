@@ -15,11 +15,16 @@ using System.Windows.Shapes;
 namespace Football
 {
     /// <summary>
-    /// Логика взаимодействия для editgame_starting_grid.xaml
+    /// Логика взаимодействия для AddEditTournament.xaml
     /// </summary>
-    public partial class editgame_starting_grid : Window
+    public partial class AddEditTournament : Window
     {
-        public editgame_starting_grid()
+        public AddEditTournament()
+        {
+            InitializeComponent();
+        }
+
+        public AddEditTournament(DataGridRow dataGridRow)
         {
             InitializeComponent();
         }

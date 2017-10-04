@@ -55,50 +55,65 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="addedit_game_event.xaml">
+    <Page Include="Управление чемпионатами\AddEditTournament.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="addedit_to_startinggrid.xaml">
+    <Page Include="MainWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="editgame_starting_grid.xaml">
+    <Page Include="Редактирование матча\AddEditGameEvent.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="ManageFinalGame.xaml">
+    <Page Include="Редактирование матча\AddEditStartingGrid.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Редактирование матча\EditGameStartingGrid.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Финал и полуфинал\ManageFinalGame.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="ManageSemiFinalGames.xaml">
+    <Page Include="Финал и полуфинал\ManageSemiFinalGames.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="ManageTournaments.xaml">
+    <Page Include="Управление чемпионатами\ManageTournaments.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Compile Include="addedit_game_event.xaml.cs">
-      <DependentUpon>addedit_game_event.xaml</DependentUpon>
+    <Compile Include="DBAdapter.cs" />
+    <Compile Include="Управление чемпионатами\AddEditTournament.xaml.cs">
+      <DependentUpon>AddEditTournament.xaml</DependentUpon>
     </Compile>
-    <Compile Include="addedit_to_startinggrid.xaml.cs">
-      <DependentUpon>addedit_to_startinggrid.xaml</DependentUpon>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Редактирование матча\AddEditGameEvent.xaml.cs">
+      <DependentUpon>AddEditGameEvent.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Редактирование матча\AddEditStartingGrid.xaml.cs">
+      <DependentUpon>AddEditStartingGrid.xaml</DependentUpon>
     </Compile>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="ManageFinalGame.xaml.cs">
+    <Compile Include="Финал и полуфинал\ManageFinalGame.xaml.cs">
       <DependentUpon>ManageFinalGame.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ManageSemiFinalGames.xaml.cs">
+    <Compile Include="Финал и полуфинал\ManageSemiFinalGames.xaml.cs">
       <DependentUpon>ManageSemiFinalGames.xaml</DependentUpon>
     </Compile>
-    <Compile Include="editgame_starting_grid.xaml.cs">
-      <DependentUpon>editgame_starting_grid.xaml</DependentUpon>
+    <Compile Include="Редактирование матча\EditGameStartingGrid.xaml.cs">
+      <DependentUpon>EditGameStartingGrid.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ManageTournaments.xaml.cs">
+    <Compile Include="Управление чемпионатами\ManageTournaments.xaml.cs">
       <DependentUpon>ManageTournaments.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
@@ -128,6 +143,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Главная форма\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -17,9 +17,9 @@ namespace Football
     /// <summary>
     /// Логика взаимодействия для addedit_game_event.xaml
     /// </summary>
-    public partial class addedit_game_event : Window
+    public partial class AddEditGameEvent : Window
     {
-        public addedit_game_event()
+        public AddEditGameEvent()
         {
             InitializeComponent();
         }

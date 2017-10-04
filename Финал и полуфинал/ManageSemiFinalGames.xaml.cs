@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace UEFA
+namespace Football
 {
     /// <summary>
     /// Логика взаимодействия для MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class ManageSemiFinal : Window
     {
-        public MainWindow()
+        public ManageSemiFinal()
         {
             InitializeComponent();
         }

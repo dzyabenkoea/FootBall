@@ -18,9 +18,9 @@ namespace Football
     /// <summary>
     /// Логика взаимодействия для MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class ManageTournaments : Window
     {
-        public MainWindow()
+        public ManageTournaments()
         {
             InitializeComponent();
             FillTableWithCountries();
@@ -37,7 +37,7 @@ namespace Football
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            new AddEditTournament(tournamentsTable.SelectedIndex, tournamentsTable.SelectedItem as DataGridRow);
+            new AddEditTournament(tournamentsTable.SelectedItem as DataGridRow).Show();
         }
 
         private void tournamentsTable_SelectionChanged(object sender, SelectionChangedEventArgs e)
