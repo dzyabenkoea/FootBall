@@ -5,8 +5,30 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Football"
         mc:Ignorable="d"
-        Title="MainWindow" Height="300" Width="300">
+        Title="Tournament Dashboard" Height="764.899" Width="765.237">
     <Grid>
-        
+        <ToolBar x:Name="toolBar"  VerticalAlignment="Top">
+            <Button>File</Button>
+            <Button>Manage</Button>
+        </ToolBar>
+        <Label x:Name="NameForm" Content="European Championship 2016" HorizontalAlignment="Left" Margin="16,36,0,0" VerticalAlignment="Top" FontFamily="Tahoma " FontSize="16"/>
+        <Label x:Name="DateLabel" Content="10.06.2016 - 10.07.2017" HorizontalAlignment="Left" Margin="18,64,0,0" VerticalAlignment="Top" FontFamily="Tahoma "/>
+        <DataGrid x:Name="dataGridRound" HorizontalAlignment="Left" Margin="18,93,0,0" VerticalAlignment="Top" Height="177" Width="219"/>
+        <DataGrid x:Name="dataGridQuarterfinals" HorizontalAlignment="Left" Margin="286,93,0,0" VerticalAlignment="Top" Height="177" Width="117"/>
+        <DataGrid x:Name="dataGridSemiFinal" HorizontalAlignment="Left" Margin="442,105,0,0" VerticalAlignment="Top" Height="75" Width="117"/>
+        <DataGrid x:Name="dataGridSemiFinal1" HorizontalAlignment="Left" Margin="442,187,0,0" VerticalAlignment="Top" Height="75" Width="117"/>
+        <DataGrid x:Name="dataGridFinal" HorizontalAlignment="Left" Margin="590,148,0,0" VerticalAlignment="Top" Height="74" Width="118"/>
+        <DataGrid x:Name="dataGridA" HorizontalAlignment="Left" Margin="18,299,0,0" VerticalAlignment="Top" Height="177" Width="219"/>
+        <DataGrid x:Name="dataGridD" HorizontalAlignment="Left" Margin="18,494,0,0" VerticalAlignment="Top" Height="177" Width="219"/>
+        <DataGrid x:Name="dataGridE" HorizontalAlignment="Left" Margin="264,494,0,0" VerticalAlignment="Top" Height="177" Width="219"/>
+        <DataGrid x:Name="dataGridB" HorizontalAlignment="Left" Margin="264,299,0,0" VerticalAlignment="Top" Height="177" Width="219"/>
+        <DataGrid x:Name="dataGridC" HorizontalAlignment="Left" Margin="510,299,0,0" VerticalAlignment="Top" Height="177" Width="219"/>
+        <DataGrid x:Name="dataGridF" HorizontalAlignment="Left" Margin="510,494,0,0" VerticalAlignment="Top" Height="177" Width="219"/>
+        <Label x:Name="TournamentName" Content="Tournament" HorizontalAlignment="Left" Margin="18,696,0,0" VerticalAlignment="Top" FontFamily="Tahoma "/>
+        <ComboBox x:Name="cbTournament" HorizontalAlignment="Left" Margin="117,696,0,0" VerticalAlignment="Top" Width="120" FontFamily="Tahoma"/>
+        <Button x:Name="ManageTournaments" Content="Manage Tournaments" HorizontalAlignment="Left" Margin="264,696,0,0" VerticalAlignment="Top" Width="124" FontFamily="Tahoma" Height="20"/>
+        <Button x:Name="ManageTeams" Content="Manage Teams" HorizontalAlignment="Left" Margin="400,696,0,0" VerticalAlignment="Top" Width="111" FontFamily="Tahoma" Height="20"/>
+        <Button x:Name="ManageExecution" Content="Manage Execution" HorizontalAlignment="Left" Margin="525,696,0,0" VerticalAlignment="Top" Width="111" FontFamily="Tahoma" Height="20"/>
+
     </Grid>
 </Window>
