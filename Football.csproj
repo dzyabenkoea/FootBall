@@ -70,11 +70,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="Редактирование матча\ManageGroupStageResults.xaml">
+    <Page Include="Редактирование результата матча\ManageGroupStageResults.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Управление чемпионатами\AllocateTeamsToGroups.xaml">
+    <Page Include="Редактирование результата матча\AllocateTeamsToGroups.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -119,10 +119,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Compile Include="DBAdapter.cs" />
-    <Compile Include="Редактирование матча\ManageGroupStageResults.xaml.cs">
+    <Compile Include="Редактирование результата матча\ManageGroupStageResults.xaml.cs">
       <DependentUpon>ManageGroupStageResults.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Управление чемпионатами\AllocateTeamsToGroups.xaml.cs">
+    <Compile Include="Редактирование результата матча\AllocateTeamsToGroups.xaml.cs">
       <DependentUpon>AllocateTeamsToGroups.xaml</DependentUpon>
     </Compile>
     <Compile Include="Управления командами\AddEditTeam.xaml.cs">
@@ -208,5 +208,6 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
