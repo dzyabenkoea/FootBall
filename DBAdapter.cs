@@ -16,7 +16,7 @@ namespace DBAdapter
 
         public DB()
         {
-            connection = new SqlConnection("Data Source=DESKTOP-4E4QD9H;Initial Catalog=ProjectBank;Integrated Security=True");//Егор
+            connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\FootballBase.mdf;Integrated Security = True");//Егор
         }
 
         public static DB GetInstance()
