@@ -29,6 +29,7 @@
         <Button x:Name="ManageTournaments" Content="Manage Tournaments" HorizontalAlignment="Left" Margin="265,479,0,0" VerticalAlignment="Top" Width="124" FontFamily="Tahoma" Height="20"/>
         <Button x:Name="ManageTeams" Content="Manage Teams" HorizontalAlignment="Left" Margin="401,479,0,0" VerticalAlignment="Top" Width="111" FontFamily="Tahoma" Height="20"/>
         <Button x:Name="ManageExecution" Content="Manage Execution" HorizontalAlignment="Left" Margin="526,479,0,0" VerticalAlignment="Top" Width="111" FontFamily="Tahoma" Height="20"/>
+        <Label x:Name="connectionLabel" Content="     " HorizontalAlignment="Left" VerticalAlignment="Top" Margin="721,32,0,0"/>
 
     </Grid>
 </Window>

@@ -35,6 +35,20 @@ namespace DBAdapter
             return dt;
         }
 
+        internal bool CheckConnection()
+        {
+            try
+            {
+                connection.Open();
+                return true;
+            }
+            catch 
+            {
+                connection.Close();
+                return false;
+            }
+        }
+
         public bool RunInsert(string command)
         {
 

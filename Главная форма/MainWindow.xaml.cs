@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using DBAdapter;
 
 namespace Football
 {
@@ -19,9 +20,20 @@ namespace Football
     /// </summary>
     public partial class MainWindow : Window
     {
+        DB db;
         public MainWindow()
         {
             InitializeComponent();
+            db = DB.GetInstance();
+            if (db.CheckConnection())
+            {
+                connectionLabel.Background = new SolidColorBrush(Colors.LightGreen);
+            }
+            else
+            {
+                connectionLabel.Background = new SolidColorBrush(Colors.Red);
+            }
+
         }
     }
 }
