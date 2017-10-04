@@ -70,6 +70,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="Редактирование матча\ManageGroupStageResults.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Управление чемпионатами\AllocateTeamsToGroups.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Управления командами\AddEditTeam.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -111,6 +119,12 @@
       <SubType>Designer</SubType>
     </Page>
     <Compile Include="DBAdapter.cs" />
+    <Compile Include="Редактирование матча\ManageGroupStageResults.xaml.cs">
+      <DependentUpon>ManageGroupStageResults.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Управление чемпионатами\AllocateTeamsToGroups.xaml.cs">
+      <DependentUpon>AllocateTeamsToGroups.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Управления командами\AddEditTeam.xaml.cs">
       <DependentUpon>AddEditTeam.xaml</DependentUpon>
     </Compile>
