@@ -1,11 +1,11 @@
-﻿<Window x:Name="Add_Edit_Player" x:Class="Football.ManageExecutionMenu"
+﻿<Window x:Class="Football.ManageExecutionMenu"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Football"
         mc:Ignorable="d"
-        Title="Add/Edit Player" Height="352.333" Width="418" FontFamily="Tahoma">
+         Title="Add/Edit Player" Height="352.333" Width="418" FontFamily="Tahoma">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="508*"/>
@@ -29,3 +29,4 @@
 
     </Grid>
 </Window>
+

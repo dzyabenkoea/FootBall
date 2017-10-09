@@ -70,19 +70,19 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="AddEditPlayer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ManageExecutionMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Редактирование результата матча\ManageGroupStageResults.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Редактирование результата матча\AllocateTeamsToGroups.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="AddEditPlayer.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="ManageExecutionMenu.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -126,18 +126,18 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Compile Include="DBAdapter.cs" />
     <Compile Include="AddEditPlayer.xaml.cs">
       <DependentUpon>AddEditPlayer.xaml</DependentUpon>
     </Compile>
-    <Compile Include="DBAdapter.cs" />
+    <Compile Include="ManageExecutionMenu.xaml.cs">
+      <DependentUpon>ManageExecutionMenu.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Редактирование результата матча\ManageGroupStageResults.xaml.cs">
       <DependentUpon>ManageGroupStageResults.xaml</DependentUpon>
     </Compile>
     <Compile Include="Редактирование результата матча\AllocateTeamsToGroups.xaml.cs">
       <DependentUpon>AllocateTeamsToGroups.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="ManageExecutionMenu.xaml.cs">
-      <DependentUpon>ManageExecutionMenu.xaml</DependentUpon>
     </Compile>
     <Compile Include="Управления командами\AddEditTeam.xaml.cs">
       <DependentUpon>AddEditTeam.xaml</DependentUpon>
@@ -171,9 +171,6 @@
       <DependentUpon>EditGameStartingGrid.xaml</DependentUpon>
     </Compile>
     <Compile Include="Управление чемпионатами\ManageTournaments.xaml.cs">
-    <Compile Include="Manage Roundof 16 Games.xaml.cs" />
-    <Compile Include="ManageQuarter-FinalGames.xaml.cs" />
-    <Compile Include="ManageTournaments.xaml.cs">
       <DependentUpon>ManageTournaments.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
