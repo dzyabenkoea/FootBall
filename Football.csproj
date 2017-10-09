@@ -70,6 +70,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="AddEditPlayer.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ManageExecutionMenu.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Управления командами\AddEditTeam.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -110,7 +118,13 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Compile Include="AddEditPlayer.xaml.cs">
+      <DependentUpon>AddEditPlayer.xaml</DependentUpon>
+    </Compile>
     <Compile Include="DBAdapter.cs" />
+    <Compile Include="ManageExecutionMenu.xaml.cs">
+      <DependentUpon>ManageExecutionMenu.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Управления командами\AddEditTeam.xaml.cs">
       <DependentUpon>AddEditTeam.xaml</DependentUpon>
     </Compile>
