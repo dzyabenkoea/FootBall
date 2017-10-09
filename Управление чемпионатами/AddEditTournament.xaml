@@ -1,0 +1,31 @@
+﻿<Window x:Class="Football.AddEditTournament"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Football"
+        mc:Ignorable="d"
+        Title="AddEditTournament" Height="240" Width="355">
+    <Grid>
+        <Label Content="Label" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0"/>
+        <TextBox x:Name="tournamentNameTextBox" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" Margin="10,36,0,0"/>
+        <DatePicker x:Name="startDate" HorizontalAlignment="Left" Margin="135,35,0,0" VerticalAlignment="Top"/>
+        <DatePicker x:Name="endDate" HorizontalAlignment="Left" Margin="240,35,0,0" VerticalAlignment="Top"/>
+        <Label Content="Label" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="135,9,0,0"/>
+        <Label Content="Label" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="240,10,0,0"/>
+        <DataGrid x:Name="countriesSelectionTable" Height="111" Margin="135,64,7,34" Width="205"/>
+        <GroupBox x:Name="filterGroupBox" Header="GroupBox" HorizontalAlignment="Left" Height="111" VerticalAlignment="Top" Width="120" Margin="10,64,0,0">
+            <StackPanel HorizontalAlignment="Stretch">
+                <RadioButton Content="All"/>
+                <RadioButton Content="Africa"/>
+                <RadioButton Content="America"/>
+                <RadioButton Content="Asia"/>
+                <RadioButton Content="Europe"/>
+                <RadioButton Content="others"/>
+            </StackPanel>
+        </GroupBox>
+        <Button x:Name="saveAndCloseButton" Content="Save &amp; close" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="75" Margin="0,0,87,9"/>
+        <Button x:Name="closeButton" Content="Close" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="75" Margin="0,0,7,9"/>
+
+    </Grid>
+</Window>
