@@ -70,6 +70,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="Редактирование результата матча\ManageGroupStageResults.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Редактирование результата матча\AllocateTeamsToGroups.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="AddEditPlayer.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -122,6 +130,12 @@
       <DependentUpon>AddEditPlayer.xaml</DependentUpon>
     </Compile>
     <Compile Include="DBAdapter.cs" />
+    <Compile Include="Редактирование результата матча\ManageGroupStageResults.xaml.cs">
+      <DependentUpon>ManageGroupStageResults.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Редактирование результата матча\AllocateTeamsToGroups.xaml.cs">
+      <DependentUpon>AllocateTeamsToGroups.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ManageExecutionMenu.xaml.cs">
       <DependentUpon>ManageExecutionMenu.xaml</DependentUpon>
     </Compile>
@@ -157,6 +171,9 @@
       <DependentUpon>EditGameStartingGrid.xaml</DependentUpon>
     </Compile>
     <Compile Include="Управление чемпионатами\ManageTournaments.xaml.cs">
+    <Compile Include="Manage Roundof 16 Games.xaml.cs" />
+    <Compile Include="ManageQuarter-FinalGames.xaml.cs" />
+    <Compile Include="ManageTournaments.xaml.cs">
       <DependentUpon>ManageTournaments.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
@@ -208,5 +225,6 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
