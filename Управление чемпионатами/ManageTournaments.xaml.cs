@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using DBAdapter;
 
 namespace Football
 {
@@ -20,16 +21,24 @@ namespace Football
     /// </summary>
     public partial class ManageTournaments : Window
     {
+        DB db;
         public ManageTournaments()
         {
             InitializeComponent();
+            db = DB.GetInstance();
             FillTableWithCountries();
+        }
+
+        void UpdateTable()
+        {
+            tournamentsTable.ItemsSource =  db.SelectEntireTable("Tournaments").DefaultView;
         }
 
         void FillTableWithCountries()
         {
-          //  foreach(string s in )
+            //  foreach(string s in )
         }
+
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             new AddEditTournament().Show();

@@ -35,5 +35,10 @@ namespace Football
             }
 
         }
+
+        private void ManageTournaments_Click(object sender, RoutedEventArgs e)
+        {
+            new ManageTournaments().Show();
+        }
     }
 }
