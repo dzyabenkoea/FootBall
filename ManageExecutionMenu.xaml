@@ -11,7 +11,7 @@
             <ColumnDefinition Width="508*"/>
             <ColumnDefinition Width="9*"/>
         </Grid.ColumnDefinitions>
-        <Button x:Name="button" Content="Allocate Teams to Group" HorizontalAlignment="Left" Margin="23,49,0,0" VerticalAlignment="Top" Width="166"/>
+        <Button x:Name="button" Content="Allocate Teams to Group" HorizontalAlignment="Left" Margin="23,49,0,0" VerticalAlignment="Top" Width="166" Click="button_Click"/>
         <Button x:Name="button1" Content="Manage Group Stage Games" HorizontalAlignment="Left" Margin="23,133,0,0" VerticalAlignment="Top" Width="166"/>
         <Button x:Name="button2" Content="Manage Round of 16 Games" HorizontalAlignment="Left" Margin="23,165,0,0" VerticalAlignment="Top" Width="166"/>
         <Button x:Name="button3" Content="Manage Quarter-Final Games" HorizontalAlignment="Left" Margin="23,194,0,0" VerticalAlignment="Top" Width="166"/>

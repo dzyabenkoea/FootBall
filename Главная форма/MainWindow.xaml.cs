@@ -40,5 +40,10 @@ namespace Football
         {
             new ManageTournaments().Show();
         }
+
+        private void ManageExecution_Click(object sender, RoutedEventArgs e)
+        {
+            new ManageExecutionMenu().Show();
+        }
     }
 }
