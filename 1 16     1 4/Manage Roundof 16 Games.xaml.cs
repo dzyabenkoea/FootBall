@@ -10,16 +10,17 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace UEFA
+namespace Football
 {
     /// <summary>
-    /// Логика взаимодействия для Window1.xaml
+    /// Логика взаимодействия для MainWindow.xaml
     /// </summary>
-    public partial class Window1 : Window
+    public partial class ManageRoundOf16Games : Window
     {
-        public Window1()
+        public ManageRoundOf16Games()
         {
             InitializeComponent();
         }

@@ -12,11 +12,11 @@ namespace DBAdapter
     {
         static DB instance;
 
-        SqlConnection connection;
+        static SqlConnection connection =  new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\FootballBase.mdf;Integrated Security = True");//Егор;
 
         public DB()
         {
-            connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\FootballBase.mdf;Integrated Security = True");//Егор
+
         }
 
         public static DB GetInstance()
@@ -25,7 +25,7 @@ namespace DBAdapter
                 instance = new DB();
             return instance;
         }
-        public DataTable RunSelect(string zapros)
+        public static DataTable RunSelect(string zapros)
         {
             SqlDataAdapter dataadapter = new SqlDataAdapter(zapros, connection);
             DataTable dt = new DataTable();
@@ -35,7 +35,7 @@ namespace DBAdapter
             return dt;
         }
 
-        internal bool CheckConnection()
+        internal static bool CheckConnection()
         {
             try
             {
@@ -49,7 +49,7 @@ namespace DBAdapter
             }
         }
 
-        public bool RunInsert(string command)
+        public static bool RunInsert(string command)
         {
 
             SqlCommand cmd = new SqlCommand(command, connection);
@@ -67,7 +67,7 @@ namespace DBAdapter
             }
         }
 
-        public bool AddEntry(string[] values, string tableTitle) //false если не удалось добавить запись
+        public static bool AddEntry(string[] values, string tableTitle) //false если не удалось добавить запись
         {
             string command = "insert into " + tableTitle + " values ('" + values[0];
             for (int i = 1; i < values.Length; i++)
@@ -85,7 +85,7 @@ namespace DBAdapter
 
         }
 
-        public DataTable SelectEntireTable(string tableName)
+        public static DataTable SelectEntireTable(string tableName)
         {
             SqlCommand cmd = new SqlCommand("select * from " + tableName, connection);
             SqlDataAdapter adapter = new SqlDataAdapter(cmd);
@@ -95,7 +95,7 @@ namespace DBAdapter
             return dt;
         }
 
-        internal bool CheckIfLoginExists(string login)// "ПроверитьСуществуетЛиТакойЛогин true-существует/
+        internal static bool CheckIfLoginExists(string login)// "ПроверитьСуществуетЛиТакойЛогин true-существует/
         {
             if (RunSelect("Select * From Autorization where Login = '" + login + "'").Rows.Count == 0)
             { return false; }
