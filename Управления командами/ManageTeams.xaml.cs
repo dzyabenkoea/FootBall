@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Data;
 
 namespace Football
 {
@@ -36,7 +37,10 @@ namespace Football
 
         void LoadTeams()
         {
-            DBAdapter.DB.
+            DataTable dt = DBAdapter.DB.RunSelect("Select ID_Team As ID, flag_url, TeamName As Team, countrycode As Code From [Teams]");
+            DataGrid1.ItemsSource = dt.DefaultView;
+            
+
         }
     }
 }

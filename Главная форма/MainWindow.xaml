@@ -27,7 +27,7 @@
         <Label x:Name="TournamentName" Content="Tournament" HorizontalAlignment="Left" Margin="19,479,0,0" VerticalAlignment="Top" FontFamily="Tahoma "/>
         <ComboBox x:Name="cbTournament" HorizontalAlignment="Left" Margin="118,479,0,0" VerticalAlignment="Top" Width="120" FontFamily="Tahoma"/>
         <Button x:Name="ManageTournaments" Content="Manage Tournaments" HorizontalAlignment="Left" Margin="265,479,0,0" VerticalAlignment="Top" Width="124" FontFamily="Tahoma" Height="20" Click="ManageTournaments_Click"/>
-        <Button x:Name="ManageTeams" Content="Manage Teams" HorizontalAlignment="Left" Margin="401,479,0,0" VerticalAlignment="Top" Width="111" FontFamily="Tahoma" Height="20"/>
+        <Button x:Name="ManageTeams" Content="Manage Teams" HorizontalAlignment="Left" Margin="401,479,0,0" VerticalAlignment="Top" Width="111" FontFamily="Tahoma" Height="20" Click="ManageTeams_Click"/>
         <Button x:Name="ManageExecution" Content="Manage Execution" HorizontalAlignment="Left" Margin="526,479,0,0" VerticalAlignment="Top" Width="111" FontFamily="Tahoma" Height="20"/>
         <Label x:Name="connectionLabel" Content="     " HorizontalAlignment="Left" VerticalAlignment="Top" Margin="721,32,0,0"/>
         <Image x:Name="image" HorizontalAlignment="Left" Height="100" Margin="637,88,0,0" VerticalAlignment="Top" Width="100"/>
