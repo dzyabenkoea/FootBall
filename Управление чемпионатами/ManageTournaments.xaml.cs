@@ -27,6 +27,13 @@ namespace Football
             InitializeComponent();
             db = DB.GetInstance();
             FillTableWithCountries();
+            UpdateTable();
+
+        }
+
+        void InititializeTable()
+        {
+            tournamentsTable.Columns[0].Visibility = Visibility.Hidden;
         }
 
         void UpdateTable()
