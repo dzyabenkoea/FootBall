@@ -20,12 +20,11 @@ namespace Football
     /// </summary>
     public partial class MainWindow : Window
     {
-        DB db;
+    
         public MainWindow()
         {
             InitializeComponent();
-            db = DB.GetInstance();
-            if (db.CheckConnection())
+            if (DB.CheckConnection())
             {
                 connectionLabel.Background = new SolidColorBrush(Colors.LightGreen);
             }
@@ -39,6 +38,12 @@ namespace Football
         private void ManageTournaments_Click(object sender, RoutedEventArgs e)
         {
             new ManageTournaments().Show();
+        }
+
+        private void ManageTeams_Click(object sender, RoutedEventArgs e)
+        {
+            ManageTeams form = new Football.ManageTeams();
+            form.Show();
         }
     }
 }

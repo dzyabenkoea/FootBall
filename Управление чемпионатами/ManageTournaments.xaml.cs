@@ -21,11 +21,9 @@ namespace Football
     /// </summary>
     public partial class ManageTournaments : Window
     {
-        DB db;
         public ManageTournaments()
         {
             InitializeComponent();
-            db = DB.GetInstance();
             FillTableWithCountries();
             UpdateTable();
 
@@ -38,7 +36,7 @@ namespace Football
 
         void UpdateTable()
         {
-            tournamentsTable.ItemsSource =  db.SelectEntireTable("Tournaments").DefaultView;
+            tournamentsTable.ItemsSource = DB.SelectEntireTable("Tournaments").DefaultView;
         }
 
         void FillTableWithCountries()
