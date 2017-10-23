@@ -21,7 +21,7 @@ namespace Football
     {
         public ManageQuarterFinalGames()
         {
-            InitializeComponent();
+            //InitializeComponent();
         }
     }
 }

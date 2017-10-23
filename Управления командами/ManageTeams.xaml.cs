@@ -25,10 +25,7 @@ namespace Football
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
 
-        }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
@@ -37,9 +34,33 @@ namespace Football
 
         void LoadTeams()
         {
-            DataTable dt = DBAdapter.DB.RunSelect("Select ID_Team As ID, flag_url, TeamName As Team, countrycode As Code From [Teams]");
-            DataGrid1.ItemsSource = dt.DefaultView;
-            
+            DataGrid1.ItemsSource = DBAdapter.DB.RunSelect("Select ID_Team As ID, flag_url, TeamName As Team, countrycode As Code, regoin From [Teams]").DefaultView;
+            DataGrid1.Columns[4].Visibility = Visibility.Hidden;
+        }
+
+        private void SearchTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            DataGrid1.ItemsSource = DBAdapter.DB.RunSelect("Select ID_Team As ID, flag_url, TeamName As Team, countrycode As Code, regoin From [Teams] Where TeamName = '" + SearchTextBox.Text +"'").DefaultView;
+        }
+
+        private void AddBut_Click(object sender, RoutedEventArgs e)
+        {
+            AddEditTeam form = new AddEditTeam();
+            form.Show();
+        }
+
+        private void EditBut_Click(object sender, RoutedEventArgs e)
+        {
+            if (DataGrid1.SelectedIndex != -1)
+            {
+                int i = DataGrid1.SelectedIndex;
+                AddEditTeam form = new AddEditTeam();
+                form.Show();
+            }
+            else
+            {
+                MessageBox.Show("Выберите команду для редактирования");
+            }
 
         }
     }

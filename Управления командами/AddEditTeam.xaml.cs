@@ -24,9 +24,27 @@ namespace Football
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
+        bool AddEdit = false;
+        string url, region;
 
+        private void EditBut_Copy_Click(object sender, RoutedEventArgs e)
+        {
+            if(!AddEdit)
+            {
+                DBAdapter.DB.RunInsert("Insert Into [Teams] (flag_url, TeamName, countrycode, region) values('" + CountryCodeTextBox.Text + "','" + CountryCodeTextBox.Text + "','" + CountryCodeTextBox.Text + "','" + CountryCodeTextBox.Text + "'))");
+            }
         }
+
+        public AddEditTeam(string idTeam, string Url, string TeamName, string Region, string CountryCode)
+        {
+            InitializeComponent();
+            AddEdit = true;
+            url = Url;
+            region = Region;
+            TeamNameTextBox.Text = TeamName;
+            CountryCodeTextBox.Text = CountryCode;
+        }
+
+       
     }
 }

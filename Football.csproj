@@ -71,7 +71,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="AddEditPlayer.xaml">
+    <Page Include="Управления командами\AddEditPlayer.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -136,7 +136,7 @@
       <SubType>Designer</SubType>
     </Page>
     <Compile Include="DBAdapter.cs" />
-    <Compile Include="AddEditPlayer.xaml.cs">
+    <Compile Include="Управления командами\AddEditPlayer.xaml.cs">
       <DependentUpon>AddEditPlayer.xaml</DependentUpon>
     </Compile>
     <Compile Include="Evgen\Manage Roundof 16 Games.xaml.cs">
