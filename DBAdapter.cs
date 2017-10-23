@@ -40,6 +40,7 @@ namespace DBAdapter
             try
             {
                 connection.Open();
+                connection.Close();
                 return true;
             }
             catch 

@@ -11,6 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using DBAdapter;
+using System.Data;
 
 namespace Football
 {
@@ -22,11 +24,33 @@ namespace Football
         public AddEditTournament()
         {
             InitializeComponent();
+            InitializeTable();
         }
 
         public AddEditTournament(DataGridRow dataGridRow)
         {
             InitializeComponent();
+        }
+
+        void InitializeTable()
+        {
+            //countriesSelectionTable.ItemsSource 
+            DataTable dt = DB.RunSelect("select ID_Team, TeamName from Teams");
+            foreach (DataRow dr in dt.Rows)
+            {
+                DataGridRow dataGridRow = new DataGridRow();
+                
+                countriesSelectionTable.Items.Add(dataGridRow);
+            }
+        }
+        void UpdateTable()
+        {
+            countriesSelectionTable.ItemsSource = DB.RunSelect("select ID_Team,TeamName from Teams").DefaultView;
+        }
+
+        private void closeButton_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
         }
     }
 }

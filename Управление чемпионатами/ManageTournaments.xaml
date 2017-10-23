@@ -19,8 +19,8 @@
             <ColumnDefinition Width="100"></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <DataGrid x:Name="tournamentsTable"  Grid.Column="0" Grid.Row="0" Grid.RowSpan="5" SelectionChanged="tournamentsTable_SelectionChanged" SelectionMode="Single"/>
-        <Button Grid.Column="1" Click="Button_Click">Добавить</Button>
-        <Button x:Name="editButton" Grid.Row="1" Grid.Column="1" Click="Button_Click_1" IsEnabled="False">Редактировать</Button>
-        <Button x:Name="deleteButton" Grid.Row="3" Grid.Column="1" IsEnabled="False">Удалить</Button>
+        <Button Grid.Column="1" Click="Button_Click" Margin="5,2">Добавить</Button>
+        <Button x:Name="editButton" Grid.Row="1" Grid.Column="1" Click="Button_Click_1" IsEnabled="False" Margin="5,2">Редактировать</Button>
+        <Button x:Name="deleteButton" Grid.Row="3" Grid.Column="1" IsEnabled="False" Margin="5,2">Удалить</Button>
     </Grid>
 </Window>

@@ -24,9 +24,7 @@ namespace Football
         public ManageTournaments()
         {
             InitializeComponent();
-            FillTableWithCountries();
             UpdateTable();
-
         }
 
         void InititializeTable()
@@ -37,11 +35,6 @@ namespace Football
         void UpdateTable()
         {
             tournamentsTable.ItemsSource = DB.SelectEntireTable("Tournaments").DefaultView;
-        }
-
-        void FillTableWithCountries()
-        {
-            //  foreach(string s in )
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

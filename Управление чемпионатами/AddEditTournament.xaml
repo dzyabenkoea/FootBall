@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Football"
         mc:Ignorable="d"
-        Title="AddEditTournament" Height="240" MinWidth="400" Width="400" MinHeight="240">
+        Title="AddEditTournament" Height="267.333" MinWidth="400" Width="400" MinHeight="240">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="140" MinWidth="140"></ColumnDefinition>
@@ -17,8 +17,13 @@
         <DatePicker Grid.Column="1" x:Name="endDate" HorizontalAlignment="Left" Margin="117,35,0,0" VerticalAlignment="Top"/>
         <Label Grid.Column="1" Content="Start date" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0"/>
         <Label Grid.Column="1" Content="End date" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="117,10,0,0"/>
-        <DataGrid Grid.Column="1" x:Name="countriesSelectionTable" Margin="10,64,9,34"/>
-        <GroupBox Grid.Column="0" x:Name="filterGroupBox" Header="GroupBox" HorizontalAlignment="Left" Height="111" VerticalAlignment="Top" Width="120" Margin="10,64,0,0">
+        <DataGrid Grid.Column="1" x:Name="countriesSelectionTable" AutoGenerateColumns="False" Margin="10,64,9,34" SelectionMode="Single" CanUserReorderColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn x:Name ="ID_Team" Header ="Код страны"/>
+                <DataGridTextColumn x:Name ="TeamName" Header ="Страна"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <GroupBox Grid.Column="0" x:Name="filterGroupBox" Header="GroupBox" HorizontalAlignment="Left" Height="139" VerticalAlignment="Top" Width="120" Margin="10,64,0,0">
             <StackPanel HorizontalAlignment="Stretch">
                 <RadioButton Content="All"/>
                 <RadioButton Content="Africa"/>
@@ -29,7 +34,7 @@
             </StackPanel>
         </GroupBox>
         <Button Grid.Column="1" x:Name="saveAndCloseButton" Content="Save &amp; close" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="75" Margin="0,0,90,9"/>
-        <Button Grid.Column="1" x:Name="closeButton" Content="Close" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="75" Margin="0,0,10,9"/>
+        <Button Grid.Column="1" x:Name="closeButton" Content="Close" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="75" Margin="0,0,10,9" Click="closeButton_Click"/>
 
     </Grid>
 </Window>
