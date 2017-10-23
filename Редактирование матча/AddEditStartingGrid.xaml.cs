@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Data;
 
 namespace Football
 {
@@ -22,6 +23,12 @@ namespace Football
         public AddEditToStartingGrid()
         {
             InitializeComponent();
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            DataTable dt = DBAdapter.DB.RunSelect("SELECT Team1_ID, Team2_ID, Score1, Score2, Tournament_ID FROM Stage WHERE StageType_ID = 8");
+            //dt.DataSet.Tables[0];
         }
     }
 }

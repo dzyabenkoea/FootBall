@@ -75,7 +75,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="1 16     1 4\Manage Roundof 16 Games.xaml">
+    <Page Include="Evgen\Manage Roundof 16 Games.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -83,7 +83,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="1 16     1 4\ManageQuarter-FinalGames.xaml">
+    <Page Include="Evgen\ManageQuarter-FinalGames.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -139,13 +139,13 @@
     <Compile Include="AddEditPlayer.xaml.cs">
       <DependentUpon>AddEditPlayer.xaml</DependentUpon>
     </Compile>
-    <Compile Include="1 16     1 4\Manage Roundof 16 Games.xaml.cs">
+    <Compile Include="Evgen\Manage Roundof 16 Games.xaml.cs">
       <DependentUpon>Manage Roundof 16 Games.xaml</DependentUpon>
     </Compile>
     <Compile Include="ManageExecutionMenu.xaml.cs">
       <DependentUpon>ManageExecutionMenu.xaml</DependentUpon>
     </Compile>
-    <Compile Include="1 16     1 4\ManageQuarter-FinalGames.xaml.cs">
+    <Compile Include="Evgen\ManageQuarter-FinalGames.xaml.cs">
       <DependentUpon>ManageQuarter-FinalGames.xaml</DependentUpon>
     </Compile>
     <Compile Include="Редактирование результата матча\ManageGroupStageResults.xaml.cs">
