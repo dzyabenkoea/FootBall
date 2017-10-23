@@ -47,7 +47,6 @@ namespace Football
         {
             AddEditTeam form = new AddEditTeam();
             form.Show();
-            DBAdapter.DB.RunInsert("Insert Into [Teams] (flag_url, TeamName, countrycode, region) values('" + SearchTextBox.Text+ "','" + SearchTextBox.Text + "','" + SearchTextBox.Text + "','" + SearchTextBox.Text + "'))");
         }
 
         private void EditBut_Click(object sender, RoutedEventArgs e)

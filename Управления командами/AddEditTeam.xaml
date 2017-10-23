@@ -21,7 +21,7 @@
         <Button x:Name="AddBut" Content="Add" HorizontalAlignment="Left" Margin="336,150,0,0" VerticalAlignment="Top" Width="100" />
         <Button x:Name="EditBut" Content="Edit" HorizontalAlignment="Left" Margin="336,175,0,0" VerticalAlignment="Top" Width="100" />
         <Button x:Name="DeleteBut" Content="Delete" HorizontalAlignment="Left" Margin="336,232,0,0" VerticalAlignment="Top" Width="100" />
-        <Button x:Name="EditBut_Copy" Content="Save &amp; Close" HorizontalAlignment="Left" Margin="225,414,0,0" VerticalAlignment="Top" Width="100" />
+        <Button x:Name="EditBut_Copy" Content="Save &amp; Close" HorizontalAlignment="Left" Margin="225,414,0,0" VerticalAlignment="Top" Width="100" Click="EditBut_Copy_Click" />
         <Button x:Name="EditBut_Copy1" Content="Close" HorizontalAlignment="Left" Margin="344,414,0,0" VerticalAlignment="Top" Width="100" />
 
     </Grid>
