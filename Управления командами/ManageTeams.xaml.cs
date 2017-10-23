@@ -25,10 +25,7 @@ namespace Football
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
 
-        }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
@@ -41,6 +38,18 @@ namespace Football
             DataGrid1.ItemsSource = dt.DefaultView;
             
 
+        }
+
+        private void SearchTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            DataGrid1.ItemsSource = DBAdapter.DB.RunSelect("Select ID_Team As ID, flag_url, TeamName As Team, countrycode As Code From [Teams] Where TeamName = '"+ SearchTextBox.Text +"'").DefaultView;
+        }
+
+        private void AddBut_Click(object sender, RoutedEventArgs e)
+        {
+            ManageTeams form = new Football.ManageTeams();
+            form.Show();
+            DBAdapter.DB.RunInsert("Insert Into [Teams] (flag_url, TeamName, countrycode, region) values('" + SearchTextBox.Text+ "','" + SearchTextBox.Text + "','" + SearchTextBox.Text + "','" + SearchTextBox.Text + "'))");
         }
     }
 }

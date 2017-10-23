@@ -24,9 +24,19 @@ namespace Football
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
+        bool AddEdit = false;
+        string url, region;
 
+        public AddEditTeam(string idTeam, string Url, string TeamName, string Region, string CountryCode)
+        {
+            InitializeComponent();
+            AddEdit = true;
+            url = Url;
+            region = Region;
+            TeamNameTextBox.Text = TeamName;
+            CountryCodeTextBox.Text = CountryCode;
         }
+
+       
     }
 }

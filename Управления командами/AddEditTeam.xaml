@@ -13,7 +13,7 @@
         <TextBox x:Name="CountryCodeTextBox" HorizontalAlignment="Left" Height="23" Margin="114,67,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="53"/>
         <Label Content="Region" HorizontalAlignment="Left" Margin="186,64,0,0" VerticalAlignment="Top"/>
         <ComboBox x:Name="RegionComBox" HorizontalAlignment="Left" Margin="255,64,0,0" VerticalAlignment="Top" Width="96" RenderTransformOrigin="-0.158,-0.345"/>
-        <Button x:Name="SelectFlagButton" Content="Select flag" HorizontalAlignment="Left" Margin="369,66,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click" RenderTransformOrigin="-0.032,0.681"/>
+        <Button x:Name="SelectFlagButton" Content="Select flag" HorizontalAlignment="Left" Margin="369,66,0,0" VerticalAlignment="Top" Width="75"  RenderTransformOrigin="-0.032,0.681"/>
         <GroupBox x:Name="PlayersGroupBox" Header="Players" HorizontalAlignment="Left" Height="277" Margin="17,122,0,0" VerticalAlignment="Top" Width="427" RenderTransformOrigin="0.109,0.141">
             <DataGrid x:Name="DataGrid1" Margin="10,10,0,0" HorizontalAlignment="Left" Width="292" Height="243" VerticalAlignment="Top"/>
         </GroupBox>
