@@ -54,7 +54,8 @@ namespace Football
             if (DataGrid1.SelectedIndex != -1)
             {
                 int i = DataGrid1.SelectedIndex;
-                AddEditTeam form = new AddEditTeam();
+                
+                AddEditTeam form = new AddEditTeam(((DataRowView)DataGrid1.Items[i]).Row[0].ToString(), ((DataRowView)DataGrid1.Items[i]).Row[1].ToString(), ((DataRowView)DataGrid1.Items[i]).Row[2].ToString(), ((DataRowView)DataGrid1.Items[i]).Row[4].ToString(), ((DataRowView)DataGrid1.Items[i]).Row[3].ToString());
                 form.Show();
             }
             else
@@ -62,6 +63,20 @@ namespace Football
                 MessageBox.Show("Выберите команду для редактирования");
             }
 
+        }
+
+        private void DeleteBut_Click(object sender, RoutedEventArgs e)
+        {
+            int i = DataGrid1.SelectedIndex;
+            if (i != -1)
+            {
+                if(MessageBox.Show("Удалить?", "", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+                DBAdapter.DB.RunInsert("Delete From [Teams] Where ID_Team = '" + ((DataRowView)DataGrid1.Items[i]).Row[0].ToString() + "'");
+            }
+            else
+            {
+                MessageBox.Show("Выберите команду для удаления");
+            }
         }
     }
 }
