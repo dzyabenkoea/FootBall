@@ -69,5 +69,15 @@ namespace Football
             Point15.Content = dt.DataSet.Tables[0].Rows[7].ItemArray[2];
             Point16.Content = dt.DataSet.Tables[0].Rows[7].ItemArray[3];
         }
+
+        private void Finish_Click(object sender, RoutedEventArgs e)
+        {
+            // 2017.10.29 Михаил. Метод передаёт в форму ManageExecution метку Yes, когда работа с текущей формой закончена
+            ManageExecutionMenu main = this.Owner as ManageExecutionMenu;
+            if (main != null)
+            {
+                main.label5.Content = "Yes";
+            }
+        }
     }
 }

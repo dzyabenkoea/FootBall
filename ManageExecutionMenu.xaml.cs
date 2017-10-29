@@ -27,7 +27,7 @@ namespace Football
         private void button_Click(object sender, RoutedEventArgs e)
         {
             AllocateTeamsToGroups _allocate = new AllocateTeamsToGroups();
-            _allocate.Owner = this;
+            _allocate.Owner = this; 
             _allocate.ShowDialog();
         }
 
@@ -36,6 +36,7 @@ namespace Football
             ManageGroupStageResults _managegroup = new ManageGroupStageResults();
             _managegroup.Owner = this;
             _managegroup.ShowDialog();
+
         }
 
         private void button2_Click(object sender, RoutedEventArgs e)

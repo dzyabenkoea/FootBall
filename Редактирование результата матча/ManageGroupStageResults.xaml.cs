@@ -26,7 +26,12 @@ namespace Football
 
         private void FinishButton_Click(object sender, RoutedEventArgs e)
         {
-
+            // 2017.10.29 Михаил. Метод передаёт в форму ManageExecution метку Yes, когда работа с текущей формой закончена
+            ManageExecutionMenu main = this.Owner as ManageExecutionMenu;
+            if (main != null)
+            {
+                main.label3.Content = "Yes";
+            }
         }
     }
 }
