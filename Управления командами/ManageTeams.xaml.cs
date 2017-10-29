@@ -40,12 +40,13 @@ namespace Football
 
         private void SearchTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            DataGrid1.ItemsSource = DBAdapter.DB.RunSelect("Select ID_Team As ID, flag_url, TeamName As Team, countrycode As Code, region From [Teams] Where TeamName = '" + SearchTextBox.Text +"'").DefaultView;
+            DataGrid1.ItemsSource = DBAdapter.DB.RunSelect("Select ID_Team As ID, flag_url, TeamName As Team, countrycode As Code, region From [Teams] Where TeamName Like '%" + SearchTextBox.Text +"%'").DefaultView;
         }
 
         private void AddBut_Click(object sender, RoutedEventArgs e)
         {
             AddEditTeam form = new AddEditTeam();
+            form.Owner = this;
             form.Show();
         }
 
@@ -56,6 +57,7 @@ namespace Football
                 int i = DataGrid1.SelectedIndex;
                 
                 AddEditTeam form = new AddEditTeam(((DataRowView)DataGrid1.Items[i]).Row[0].ToString(), ((DataRowView)DataGrid1.Items[i]).Row[1].ToString(), ((DataRowView)DataGrid1.Items[i]).Row[2].ToString(), ((DataRowView)DataGrid1.Items[i]).Row[4].ToString(), ((DataRowView)DataGrid1.Items[i]).Row[3].ToString());
+                form.Owner = this;
                 form.Show();
             }
             else
@@ -78,6 +80,15 @@ namespace Football
             else
             {
                 MessageBox.Show("Выберите команду для удаления");
+            }
+        }
+
+        public void AddEditSel()
+        {
+            void LoadTeams()
+            {
+                DataGrid1.ItemsSource = DBAdapter.DB.RunSelect("Select ID_Team As ID, flag_url, TeamName As Team, countrycode As Code, region From [Teams]").DefaultView;
+                DataGrid1.Columns[4].Visibility = Visibility.Hidden;
             }
         }
     }

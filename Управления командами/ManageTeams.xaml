@@ -14,7 +14,7 @@
         </Grid.ColumnDefinitions>
         <Label Content="Search team" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="SearchTextBox" HorizontalAlignment="Left" Height="23" Margin="90,13,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="251" Grid.ColumnSpan="3" TextChanged="SearchTextBox_TextChanged"/>
-        <DataGrid x:Name="DataGrid1" Margin="10,41,0,0" HorizontalAlignment="Left" Width="462" Height="324" VerticalAlignment="Top" Grid.ColumnSpan="3"/>
+        <DataGrid x:Name="DataGrid1" Margin="10,41,0,0" HorizontalAlignment="Left" Width="462" Height="324" VerticalAlignment="Top" Grid.ColumnSpan="3" IsReadOnly="True"/>
         <Canvas HorizontalAlignment="Left" Height="100" Margin="181.224,298,0,-27" VerticalAlignment="Top" Width="100" Grid.Column="2"/>
         <Button x:Name="AddBut" Content="Add" HorizontalAlignment="Left" Margin="323.224,43,0,0" VerticalAlignment="Top" Width="100" Grid.Column="2" Click="AddBut_Click"/>
         <Button x:Name="EditBut" Content="Edit" HorizontalAlignment="Left" Margin="323.224,68,0,0" VerticalAlignment="Top" Width="100" Grid.Column="2" Click="EditBut_Click"/>
