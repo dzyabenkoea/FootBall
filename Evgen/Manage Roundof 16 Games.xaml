@@ -5,67 +5,67 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Football"
         mc:Ignorable="d"
-        Title="Manage Roundof 16 Games" Height="412.811" Width="404" Loaded="Window_Loaded">
+        Title="Manage Round of 8 Games" Height="401.811" Width="490" Loaded="Window_Loaded">
     <Grid Name="Grid1">
-        <Label x:Name="Game" Content="Game" HorizontalAlignment="Left" Margin="18,25,0,0" VerticalAlignment="Top" FontFamily="Tahoma" FontWeight="Bold"/>
-        <Label x:Name="Result" Content="Result" HorizontalAlignment="Left" Margin="183,23,0,0" VerticalAlignment="Top" FontFamily="Tahoma" FontWeight="Bold"/>
-        <Label x:Name="Country1" Content="Switzerland" HorizontalAlignment="Left" Margin="17,54,0,0" VerticalAlignment="Top" FontFamily="Tahoma"/>
-        <Label x:Name="Country2" Content="Poland" HorizontalAlignment="Left" Margin="93,54,0,0" VerticalAlignment="Top" FontFamily="Tahoma" RenderTransformOrigin="0.511,0.583"/>
-        <Label x:Name="label" Content="-" HorizontalAlignment="Left" Margin="82,54,0,0" VerticalAlignment="Top" FontFamily="Tahoma" Width="24"/>
-        <Label x:Name="Point1" Content="-" HorizontalAlignment="Left" Margin="193,47,0,0" VerticalAlignment="Top" FontFamily="Tahoma" Width="24"/>
-        <Label x:Name="Point2" Content="-" HorizontalAlignment="Left" Margin="203,47,0,0" VerticalAlignment="Top" FontFamily="Tahoma" Width="24"/>
-        <Label x:Name="label1" Content=":" HorizontalAlignment="Left" Margin="198,47,0,0" VerticalAlignment="Top" FontFamily="Tahoma" Width="24"/>
-        <Button x:Name="Edit1" Content="Edit..." HorizontalAlignment="Left" Margin="311,47,0,0" VerticalAlignment="Top" Width="75" FontFamily="Tahoma"/>
-        <Button x:Name="Finish" Content="Finish Round of 16" HorizontalAlignment="Left" Margin="172,338,0,0" VerticalAlignment="Top" Width="120" FontFamily="Tahoma" Height="31" Click="Finish_Click"/>
-        <Button x:Name="Close" Content="Close" HorizontalAlignment="Left" Margin="311,338,0,0" VerticalAlignment="Top" Width="75" FontFamily="Tahoma" Height="31"/>
-        <Button x:Name="Edit2" Content="Edit..." HorizontalAlignment="Left" Margin="311,83,0,0" VerticalAlignment="Top" Width="75" FontFamily="Tahoma"/>
-        <Label x:Name="Country3" Content="Croatia" HorizontalAlignment="Left" Margin="17,83,0,0" VerticalAlignment="Top" FontFamily="Tahoma"/>
-        <Label x:Name="Country4" Content="Portugal" HorizontalAlignment="Left" Margin="76,83,0,0" VerticalAlignment="Top" FontFamily="Tahoma" RenderTransformOrigin="0.511,0.583"/>
-        <Label x:Name="label_Copy" Content="-" HorizontalAlignment="Left" Margin="65,83,0,0" VerticalAlignment="Top" FontFamily="Tahoma" Width="24"/>
-        <Label x:Name="Point3" Content="-" HorizontalAlignment="Left" Margin="193,83,0,0" VerticalAlignment="Top" FontFamily="Tahoma" Width="24"/>
-        <Label x:Name="Point4" Content="-" HorizontalAlignment="Left" Margin="203,83,0,0" VerticalAlignment="Top" FontFamily="Tahoma" Width="24"/>
-        <Label x:Name="label2" Content=":" HorizontalAlignment="Left" Margin="198,83,0,0" VerticalAlignment="Top" FontFamily="Tahoma" Width="24"/>
-        <Label x:Name="Country5" Content="Wales" HorizontalAlignment="Left" Margin="17,120,0,0" VerticalAlignment="Top" FontFamily="Tahoma"/>
-        <Label x:Name="Country6" Content="Northern Ireland" HorizontalAlignment="Left" Margin="76,120,0,0" VerticalAlignment="Top" FontFamily="Tahoma" RenderTransformOrigin="0.511,0.583"/>
-        <Label x:Name="label_Copy1" Content="-" HorizontalAlignment="Left" Margin="65,120,0,0" VerticalAlignment="Top" FontFamily="Tahoma" Width="24"/>
-        <Label x:Name="Point5" Content="-" HorizontalAlignment="Left" Margin="193,119,0,0" VerticalAlignment="Top" FontFamily="Tahoma" Width="24"/>
-        <Label x:Name="Point6" Content="-" HorizontalAlignment="Left" Margin="203,119,0,0" VerticalAlignment="Top" FontFamily="Tahoma" Width="24"/>
-        <Label x:Name="label1_Copy" Content=":" HorizontalAlignment="Left" Margin="198,119,0,0" VerticalAlignment="Top" FontFamily="Tahoma" Width="24"/>
-        <Button x:Name="Edit1_Copy" Content="Edit..." HorizontalAlignment="Left" Margin="311,119,0,0" VerticalAlignment="Top" Width="75" FontFamily="Tahoma"/>
-        <Button x:Name="Edit2_Copy" Content="Edit..." HorizontalAlignment="Left" Margin="311,155,0,0" VerticalAlignment="Top" Width="75" FontFamily="Tahoma"/>
-        <Label x:Name="Country7" Content="Germany" HorizontalAlignment="Left" Margin="17,155,0,0" VerticalAlignment="Top" FontFamily="Tahoma"/>
-        <Label x:Name="Country8" Content="Slovakia" HorizontalAlignment="Left" Margin="76,155,0,0" VerticalAlignment="Top" FontFamily="Tahoma" RenderTransformOrigin="0.511,0.583"/>
-        <Label x:Name="label_Copy2" Content="-" HorizontalAlignment="Left" Margin="65,155,0,0" VerticalAlignment="Top" FontFamily="Tahoma" Width="24"/>
-        <Label x:Name="Point7" Content="-" HorizontalAlignment="Left" Margin="193,155,0,0" VerticalAlignment="Top" FontFamily="Tahoma" Width="24"/>
-        <Label x:Name="Point8" Content="-" HorizontalAlignment="Left" Margin="203,155,0,0" VerticalAlignment="Top" FontFamily="Tahoma" Width="24"/>
-        <Label x:Name="label2_Copy" Content=":" HorizontalAlignment="Left" Margin="198,155,0,0" VerticalAlignment="Top" FontFamily="Tahoma" Width="24"/>
-        <Label x:Name="Country9" Content="England" HorizontalAlignment="Left" Margin="17,192,0,0" VerticalAlignment="Top" FontFamily="Tahoma"/>
-        <Label x:Name="Country10" Content="Iceland" HorizontalAlignment="Left" Margin="76,192,0,0" VerticalAlignment="Top" FontFamily="Tahoma" RenderTransformOrigin="0.511,0.583"/>
-        <Label x:Name="label_Copy3" Content="-" HorizontalAlignment="Left" Margin="65,192,0,0" VerticalAlignment="Top" FontFamily="Tahoma" Width="24"/>
-        <Label x:Name="Point9" Content="-" HorizontalAlignment="Left" Margin="193,190,0,0" VerticalAlignment="Top" FontFamily="Tahoma" Width="24"/>
-        <Label x:Name="Point10" Content="-" HorizontalAlignment="Left" Margin="203,190,0,0" VerticalAlignment="Top" FontFamily="Tahoma" Width="24"/>
-        <Label x:Name="label1_Copy1" Content=":" HorizontalAlignment="Left" Margin="198,190,0,0" VerticalAlignment="Top" FontFamily="Tahoma" Width="24"/>
-        <Button x:Name="Edit1_Copy1" Content="Edit..." HorizontalAlignment="Left" Margin="311,190,0,0" VerticalAlignment="Top" Width="75" FontFamily="Tahoma"/>
-        <Button x:Name="Edit2_Copy1" Content="Edit..." HorizontalAlignment="Left" Margin="311,226,0,0" VerticalAlignment="Top" Width="75" FontFamily="Tahoma"/>
-        <Label x:Name="Country11" Content="Italy" HorizontalAlignment="Left" Margin="17,226,0,0" VerticalAlignment="Top" FontFamily="Tahoma"/>
-        <Label x:Name="Country12" Content="Spain" HorizontalAlignment="Left" Margin="76,226,0,0" VerticalAlignment="Top" FontFamily="Tahoma" RenderTransformOrigin="0.511,0.583"/>
-        <Label x:Name="label_Copy4" Content="-" HorizontalAlignment="Left" Margin="65,226,0,0" VerticalAlignment="Top" FontFamily="Tahoma" Width="24"/>
-        <Label x:Name="Point11" Content="-" HorizontalAlignment="Left" Margin="193,226,0,0" VerticalAlignment="Top" FontFamily="Tahoma" Width="24"/>
-        <Label x:Name="Point12" Content="-" HorizontalAlignment="Left" Margin="203,226,0,0" VerticalAlignment="Top" FontFamily="Tahoma" Width="24"/>
-        <Label x:Name="label14" Content=":" HorizontalAlignment="Left" Margin="198,226,0,0" VerticalAlignment="Top" FontFamily="Tahoma" Width="24"/>
-        <Label x:Name="Country13" Content="Hungary" HorizontalAlignment="Left" Margin="17,263,0,0" VerticalAlignment="Top" FontFamily="Tahoma"/>
-        <Label x:Name="Country14" Content="Belgium" HorizontalAlignment="Left" Margin="76,263,0,0" VerticalAlignment="Top" FontFamily="Tahoma" RenderTransformOrigin="0.511,0.583"/>
-        <Label x:Name="label_Copy5" Content="-" HorizontalAlignment="Left" Margin="65,263,0,0" VerticalAlignment="Top" FontFamily="Tahoma" Width="24"/>
-        <Label x:Name="Point13" Content="-" HorizontalAlignment="Left" Margin="193,262,0,0" VerticalAlignment="Top" FontFamily="Tahoma" Width="24"/>
-        <Label x:Name="Point14" Content="-" HorizontalAlignment="Left" Margin="203,262,0,0" VerticalAlignment="Top" FontFamily="Tahoma" Width="24"/>
-        <Label x:Name="label1_Copy2" Content=":" HorizontalAlignment="Left" Margin="198,262,0,0" VerticalAlignment="Top" FontFamily="Tahoma" Width="24"/>
-        <Button x:Name="Edit1_Copy2" Content="Edit..." HorizontalAlignment="Left" Margin="311,262,0,0" VerticalAlignment="Top" Width="75" FontFamily="Tahoma"/>
-        <Button x:Name="Edit2_Copy2" Content="Edit..." HorizontalAlignment="Left" Margin="311,298,0,0" VerticalAlignment="Top" Width="75" FontFamily="Tahoma"/>
-        <Label x:Name="Country15" Content="France" HorizontalAlignment="Left" Margin="17,298,0,0" VerticalAlignment="Top" FontFamily="Tahoma"/>
-        <Label x:Name="Country16" Content="Republic of Ireland" HorizontalAlignment="Left" Margin="76,298,0,0" VerticalAlignment="Top" FontFamily="Tahoma" RenderTransformOrigin="0.511,0.583"/>
-        <Label x:Name="label_Copy6" Content="-" HorizontalAlignment="Left" Margin="65,298,0,0" VerticalAlignment="Top" FontFamily="Tahoma" Width="24"/>
-        <Label x:Name="Point15" Content="-" HorizontalAlignment="Left" Margin="193,298,0,0" VerticalAlignment="Top" FontFamily="Tahoma" Width="24"/>
-        <Label x:Name="Point16" Content="-" HorizontalAlignment="Left" Margin="203,298,0,0" VerticalAlignment="Top" FontFamily="Tahoma" Width="24"/>
-        <Label x:Name="label2_Copy2" Content=":" HorizontalAlignment="Left" Margin="198,298,0,0" VerticalAlignment="Top" FontFamily="Tahoma" Width="24"/>
+        <Label x:Name="Game" Content="Game" HorizontalAlignment="Left" Margin="18,10,0,0" VerticalAlignment="Top" FontFamily="Tahoma" FontWeight="Bold"/>
+        <Label x:Name="Result" Content="Result" HorizontalAlignment="Left" Margin="293,8,0,0" VerticalAlignment="Top" FontFamily="Tahoma" FontWeight="Bold"/>
+        <Label x:Name="Country1" Content="Switzerland" HorizontalAlignment="Left" Margin="10,44,0,0" VerticalAlignment="Top" FontFamily="Tahoma"/>
+        <Label x:Name="Country2" Content="Poland" HorizontalAlignment="Left" Margin="110,44,0,0" VerticalAlignment="Top" FontFamily="Tahoma" RenderTransformOrigin="0.511,0.583"/>
+        <Label x:Name="label" Content="-" HorizontalAlignment="Left" Margin="100,44,0,0" VerticalAlignment="Top" FontFamily="Tahoma" Width="24"/>
+        <Label x:Name="Point1" Content="-" HorizontalAlignment="Left" Margin="295,45,0,0" VerticalAlignment="Top" FontFamily="Tahoma" Width="24"/>
+        <Label x:Name="Point2" Content="-" HorizontalAlignment="Left" Margin="313,45,0,0" VerticalAlignment="Top" FontFamily="Tahoma" Width="24"/>
+        <Label x:Name="label1" Content=":" HorizontalAlignment="Left" Margin="303,45,0,0" VerticalAlignment="Top" FontFamily="Tahoma" Width="24" RenderTransformOrigin="0.208,1.083"/>
+        <Button x:Name="Edit1" Content="Edit..." HorizontalAlignment="Left" Margin="387,48,0,0" VerticalAlignment="Top" Width="75" FontFamily="Tahoma"/>
+        <Button x:Name="Finish" Content="Finish Round of 8" HorizontalAlignment="Left" Margin="248,331,0,0" VerticalAlignment="Top" Width="120" FontFamily="Tahoma" Height="31" Click="Finish_Click"/>
+        <Button x:Name="Close" Content="Close" HorizontalAlignment="Left" Margin="387,331,0,0" VerticalAlignment="Top" Width="75" FontFamily="Tahoma" Height="31" Click="Close_Click"/>
+        <Button x:Name="Edit2" Content="Edit..." HorizontalAlignment="Left" Margin="387,80,0,0" VerticalAlignment="Top" Width="75" FontFamily="Tahoma"/>
+        <Label x:Name="Country3" Content="Croatia" HorizontalAlignment="Left" Margin="10,79,0,0" VerticalAlignment="Top" FontFamily="Tahoma"/>
+        <Label x:Name="Country4" Content="Portugal" HorizontalAlignment="Left" Margin="110,79,0,0" VerticalAlignment="Top" FontFamily="Tahoma" RenderTransformOrigin="0.511,0.583"/>
+        <Label x:Name="label_Copy" Content="-" HorizontalAlignment="Left" Margin="100,79,0,0" VerticalAlignment="Top" FontFamily="Tahoma" Width="24"/>
+        <Label x:Name="Point3" Content="-" HorizontalAlignment="Left" Margin="295,76,0,0" VerticalAlignment="Top" FontFamily="Tahoma" Width="24"/>
+        <Label x:Name="Point4" Content="-" HorizontalAlignment="Left" Margin="313,76,0,0" VerticalAlignment="Top" FontFamily="Tahoma" Width="24"/>
+        <Label x:Name="label2" Content=":" HorizontalAlignment="Left" Margin="303,76,0,0" VerticalAlignment="Top" FontFamily="Tahoma" Width="24"/>
+        <Label x:Name="Country5" Content="Wales" HorizontalAlignment="Left" Margin="10,110,0,0" VerticalAlignment="Top" FontFamily="Tahoma"/>
+        <Label x:Name="Country6" Content="Northern Ireland" HorizontalAlignment="Left" Margin="110,110,0,0" VerticalAlignment="Top" FontFamily="Tahoma" RenderTransformOrigin="0.511,0.583"/>
+        <Label x:Name="label_Copy1" Content="-" HorizontalAlignment="Left" Margin="100,110,0,0" VerticalAlignment="Top" FontFamily="Tahoma" Width="24"/>
+        <Label x:Name="Point5" Content="-" HorizontalAlignment="Left" Margin="295,109,0,0" VerticalAlignment="Top" FontFamily="Tahoma" Width="24"/>
+        <Label x:Name="Point6" Content="-" HorizontalAlignment="Left" Margin="313,109,0,0" VerticalAlignment="Top" FontFamily="Tahoma" Width="24"/>
+        <Label x:Name="label1_Copy" Content=":" HorizontalAlignment="Left" Margin="303,109,0,0" VerticalAlignment="Top" FontFamily="Tahoma" Width="24"/>
+        <Button x:Name="Edit1_Copy" Content="Edit..." HorizontalAlignment="Left" Margin="387,113,0,0" VerticalAlignment="Top" Width="75" FontFamily="Tahoma"/>
+        <Button x:Name="Edit2_Copy" Content="Edit..." HorizontalAlignment="Left" Margin="387,149,0,0" VerticalAlignment="Top" Width="75" FontFamily="Tahoma"/>
+        <Label x:Name="Country7" Content="Germany" HorizontalAlignment="Left" Margin="10,145,0,0" VerticalAlignment="Top" FontFamily="Tahoma"/>
+        <Label x:Name="Country8" Content="Slovakia" HorizontalAlignment="Left" Margin="110,145,0,0" VerticalAlignment="Top" FontFamily="Tahoma" RenderTransformOrigin="0.511,0.583"/>
+        <Label x:Name="label_Copy2" Content="-" HorizontalAlignment="Left" Margin="100,145,0,0" VerticalAlignment="Top" FontFamily="Tahoma" Width="24"/>
+        <Label x:Name="Point7" Content="-" HorizontalAlignment="Left" Margin="295,145,0,0" VerticalAlignment="Top" FontFamily="Tahoma" Width="24"/>
+        <Label x:Name="Point8" Content="-" HorizontalAlignment="Left" Margin="313,145,0,0" VerticalAlignment="Top" FontFamily="Tahoma" Width="24"/>
+        <Label x:Name="label2_Copy" Content=":" HorizontalAlignment="Left" Margin="303,145,0,0" VerticalAlignment="Top" FontFamily="Tahoma" Width="24"/>
+        <Label x:Name="Country9" Content="England" HorizontalAlignment="Left" Margin="10,182,0,0" VerticalAlignment="Top" FontFamily="Tahoma"/>
+        <Label x:Name="Country10" Content="Iceland" HorizontalAlignment="Left" Margin="110,182,0,0" VerticalAlignment="Top" FontFamily="Tahoma" RenderTransformOrigin="0.511,0.583"/>
+        <Label x:Name="label_Copy3" Content="-" HorizontalAlignment="Left" Margin="100,182,0,0" VerticalAlignment="Top" FontFamily="Tahoma" Width="24"/>
+        <Label x:Name="Point9" Content="-" HorizontalAlignment="Left" Margin="295,180,0,0" VerticalAlignment="Top" FontFamily="Tahoma" Width="24"/>
+        <Label x:Name="Point10" Content="-" HorizontalAlignment="Left" Margin="313,180,0,0" VerticalAlignment="Top" FontFamily="Tahoma" Width="24"/>
+        <Label x:Name="label1_Copy1" Content=":" HorizontalAlignment="Left" Margin="303,180,0,0" VerticalAlignment="Top" FontFamily="Tahoma" Width="24"/>
+        <Button x:Name="Edit1_Copy1" Content="Edit..." HorizontalAlignment="Left" Margin="387,184,0,0" VerticalAlignment="Top" Width="75" FontFamily="Tahoma"/>
+        <Button x:Name="Edit2_Copy1" Content="Edit..." HorizontalAlignment="Left" Margin="387,220,0,0" VerticalAlignment="Top" Width="75" FontFamily="Tahoma"/>
+        <Label x:Name="Country11" Content="Italy" HorizontalAlignment="Left" Margin="10,216,0,0" VerticalAlignment="Top" FontFamily="Tahoma"/>
+        <Label x:Name="Country12" Content="Spain" HorizontalAlignment="Left" Margin="110,216,0,0" VerticalAlignment="Top" FontFamily="Tahoma" RenderTransformOrigin="0.511,0.583"/>
+        <Label x:Name="label_Copy4" Content="-" HorizontalAlignment="Left" Margin="100,216,0,0" VerticalAlignment="Top" FontFamily="Tahoma" Width="24"/>
+        <Label x:Name="Point11" Content="-" HorizontalAlignment="Left" Margin="295,216,0,0" VerticalAlignment="Top" FontFamily="Tahoma" Width="24"/>
+        <Label x:Name="Point12" Content="-" HorizontalAlignment="Left" Margin="313,216,0,0" VerticalAlignment="Top" FontFamily="Tahoma" Width="24"/>
+        <Label x:Name="label14" Content=":" HorizontalAlignment="Left" Margin="303,216,0,0" VerticalAlignment="Top" FontFamily="Tahoma" Width="24"/>
+        <Label x:Name="Country13" Content="Hungary" HorizontalAlignment="Left" Margin="10,253,0,0" VerticalAlignment="Top" FontFamily="Tahoma"/>
+        <Label x:Name="Country14" Content="Belgium" HorizontalAlignment="Left" Margin="110,253,0,0" VerticalAlignment="Top" FontFamily="Tahoma" RenderTransformOrigin="0.511,0.583"/>
+        <Label x:Name="label_Copy5" Content="-" HorizontalAlignment="Left" Margin="100,253,0,0" VerticalAlignment="Top" FontFamily="Tahoma" Width="24"/>
+        <Label x:Name="Point13" Content="-" HorizontalAlignment="Left" Margin="295,252,0,0" VerticalAlignment="Top" FontFamily="Tahoma" Width="24"/>
+        <Label x:Name="Point14" Content="-" HorizontalAlignment="Left" Margin="313,252,0,0" VerticalAlignment="Top" FontFamily="Tahoma" Width="24"/>
+        <Label x:Name="label1_Copy2" Content=":" HorizontalAlignment="Left" Margin="303,252,0,0" VerticalAlignment="Top" FontFamily="Tahoma" Width="24"/>
+        <Button x:Name="Edit1_Copy2" Content="Edit..." HorizontalAlignment="Left" Margin="387,256,0,0" VerticalAlignment="Top" Width="75" FontFamily="Tahoma"/>
+        <Button x:Name="Edit2_Copy2" Content="Edit..." HorizontalAlignment="Left" Margin="387,292,0,0" VerticalAlignment="Top" Width="75" FontFamily="Tahoma"/>
+        <Label x:Name="Country15" Content="France" HorizontalAlignment="Left" Margin="10,288,0,0" VerticalAlignment="Top" FontFamily="Tahoma"/>
+        <Label x:Name="Country16" Content="Republic of Ireland" HorizontalAlignment="Left" Margin="110,288,0,0" VerticalAlignment="Top" FontFamily="Tahoma" RenderTransformOrigin="0.511,0.583"/>
+        <Label x:Name="label_Copy6" Content="-" HorizontalAlignment="Left" Margin="100,288,0,0" VerticalAlignment="Top" FontFamily="Tahoma" Width="24"/>
+        <Label x:Name="Point15" Content="-" HorizontalAlignment="Left" Margin="295,288,0,0" VerticalAlignment="Top" FontFamily="Tahoma" Width="24"/>
+        <Label x:Name="Point16" Content="-" HorizontalAlignment="Left" Margin="313,288,0,0" VerticalAlignment="Top" FontFamily="Tahoma" Width="24"/>
+        <Label x:Name="label2_Copy2" Content=":" HorizontalAlignment="Left" Margin="303,288,0,0" VerticalAlignment="Top" FontFamily="Tahoma" Width="24"/>
     </Grid>
 </Window>
