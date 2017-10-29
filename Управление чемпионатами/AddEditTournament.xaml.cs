@@ -20,6 +20,23 @@ namespace Football
     /// Логика взаимодействия для AddEditTournament.xaml
     /// </summary>
     /// 
+    public class TeamParticipant
+    {
+        int id;
+        string name;
+        bool participates;
+
+        public TeamParticipant(int id, string name, bool participates)
+        {
+            this.Id = id;
+            this.Name = name;
+            this.Participates = participates;
+        }
+
+        public int Id { get => id; set => id = value; }
+        public string Name { get => name; set => name = value; }
+        public bool Participates { get => participates; set => participates = value; }
+    }
 
     public partial class AddEditTournament : Window
     {
@@ -29,8 +46,8 @@ namespace Football
         public AddEditTournament()
         {
             InitializeComponent();
-            //UpdateTable();
             InitializeTable();
+            LoadAllTeams();
         }
 
         public int TournamentID
@@ -46,20 +63,21 @@ namespace Football
 
         void InitializeTable()
         {
-            DataTable dt = DB.RunSelect("select ID_Team, TeamName from Teams");
+            //DataTable dt = DB.RunSelect("select ID_Team, TeamName from Teams");
 
-            DataGridTextColumn newColumn = new DataGridTextColumn();
-            newColumn.Binding = new Binding("ID_Team");
-            newColumn.Visibility = Visibility.Hidden;
-            countriesSelectionTable.Columns.Add(newColumn);
+            //DataGridTextColumn newColumn = new DataGridTextColumn();
+            //newColumn.Binding = new Binding("Id");
+            //newColumn.Visibility = Visibility.Hidden;
+            //countriesSelectionTable.Columns.Add(newColumn);
 
-            newColumn = new DataGridTextColumn();
-            newColumn.Binding = new Binding("TeamName");
-            newColumn.Header = "Team";
-            countriesSelectionTable.Columns.Add(newColumn);
+            //newColumn = new DataGridTextColumn();
+            //newColumn.Binding = new Binding("Name");
+            //newColumn.Header = "Team";
+            //countriesSelectionTable.Columns.Add(newColumn);
 
-            DataGridCheckBoxColumn checkboxColumn = new DataGridCheckBoxColumn();
-            checkboxColumn.Header = "Participates";
+            //DataGridCheckBoxColumn checkboxColumn = new DataGridCheckBoxColumn();
+            //checkboxColumn.Header = "Participates";
+            //newColumn.Binding = new Binding("Participates");
         }
         void UpdateTable()
         {
@@ -82,14 +100,46 @@ namespace Football
             tournamentNameText.Text = (string)tournament.Row["TournamentName"];
             startDate.SelectedDate = (DateTime)tournament.Row["Start_Date"];
             endDate.SelectedDate = (DateTime)tournament.Row["End_Date"];
-
-            DataTable dt = DB.RunSelect("select * from Teams");
-            foreach (DataRow dr in dt.Rows)
+            LoadParticipatingTeams();
+        }
+        void LoadAllTeams()
+        {
+            List<TeamParticipant> teamsPartic = new List<TeamParticipant>();
+            DataTable teams = DB.RunSelect("select * from Teams");
+            foreach (DataRow team in teams.Rows)
             {
+                teamsPartic.Add(new TeamParticipant((int)team["ID_Team"], (string)team["TeamName"], false));
+            }
+            countriesSelectionTable.ItemsSource = teamsPartic;
+        }
+        void MarkParticipatingTeams()
+        {
 
+        }
+        void LoadParticipatingTeams()
+        {
+            DataTable teams = DB.RunSelect("select * from Teams");
+            DataTable partis = DB.RunSelect("select * from teams where ID_Team in (select Team_ID from TeamsInTournaments where Tournament_ID = " + tournamentID + ")");
+            int particCount = partis.Rows.Count;
+            List<TeamParticipant> teamsPartic = new List<TeamParticipant>();
+            foreach (DataRow team in teams.Rows)
+            {
+                teamsPartic.Add(new TeamParticipant((int)team["ID_Team"], (string)team["TeamName"], false));
             }
 
+            if (particCount != 0)
+            {
+                foreach (TeamParticipant team in teamsPartic)
+                {
+                    foreach (DataRow dr in partis.Rows)
+                        if (team.Id == (int)dr["ID_Team"])
+                        {
+                            team.Participates = true;
+                        }
+                }
+            }
 
+            countriesSelectionTable.ItemsSource = teamsPartic;
         }
 
         private void RadioButton_Checked(object sender, RoutedEventArgs e)

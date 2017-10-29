@@ -17,7 +17,14 @@
         <DatePicker Grid.Column="1" x:Name="endDate" HorizontalAlignment="Left" Margin="127,35,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.775,0.458" Width="115"/>
         <Label Grid.Column="1" Content="Start date" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0"/>
         <Label Grid.Column="1" Content="End date" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="127,10,0,0"/>
-        <DataGrid Grid.Column="1" x:Name="countriesSelectionTable" AutoGenerateColumns="False" Margin="10,64,9,34" SelectionMode="Single" CanUserReorderColumns="False" Loaded="countriesSelectionTable_Loaded" SelectionChanged="countriesSelectionTable_SelectionChanged"/>
+        <DataGrid Grid.Column="1" x:Name="countriesSelectionTable" AutoGenerateColumns="False" Margin="10,64,9,34" SelectionMode="Single" CanUserReorderColumns="False" Loaded="countriesSelectionTable_Loaded" SelectionChanged="countriesSelectionTable_SelectionChanged">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header ="ID" Binding="{Binding Id}" Visibility="Hidden"></DataGridTextColumn>
+                <DataGridTextColumn Header ="Team" Binding="{Binding Name}"></DataGridTextColumn>
+                <DataGridCheckBoxColumn  Header ="Participates" Binding="{Binding Participates}"></DataGridCheckBoxColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+
         <GroupBox Grid.Column="0" x:Name="filterGroupBox" Header="Filter by region" HorizontalAlignment="Left" Height="139" VerticalAlignment="Top" Width="120" Margin="10,64,0,0">
             <StackPanel HorizontalAlignment="Stretch">
                 <RadioButton Content="All" IsChecked="True" Checked="RadioButton_Checked"/>
