@@ -45,5 +45,10 @@ namespace Football
             ManageTeams form = new Football.ManageTeams();
             form.Show();
         }
+
+        private void ManageExecution_Click(object sender, RoutedEventArgs e)
+        {
+            new ManageExecutionMenu().Show();
+        }
     }
 }

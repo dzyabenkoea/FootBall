@@ -23,5 +23,31 @@ namespace Football
         {
             InitializeComponent();
         }
+
+        bool AddEdit = false;
+
+        private void SaveClose_Click(object sender, RoutedEventArgs e)
+        {
+            if (!AddEdit)
+            {
+                DBAdapter.DB.RunInsert("Insert Into [Players] (lastname, firstname, shirt_number, position, date_of_birth) values('" + LastNameTextBox.Text + "','" + FirstNameTextBox.Text + "','" + ShirtNumberTextBox.Text + "','" + PositionTextBox.Text + "','" + DatePicker.Text + "'))");
+            }
+        }
+
+        private void Close_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+        public AddEditPlayer(string idPlayer, string lastName, string firstName, string shirtNumber,  string position, DateTime birthDate)
+        {
+            InitializeComponent();
+            AddEdit = true;
+            LastNameTextBox.Text = lastName;
+            FirstNameTextBox.Text = firstName;
+            ShirtNumberTextBox.Text = shirtNumber;
+            PositionTextBox.Text = position;
+            DatePicker.Text = Convert.ToString(birthDate);
+        }
     }
 }
