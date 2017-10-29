@@ -28,46 +28,52 @@ namespace Football
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            DataTable dt = DBAdapter.DB.RunSelect("SELECT Team1_ID, Team2_ID, Score1, Score2, Tournament_ID FROM Stage WHERE StageType_ID = 8");
-            Country1.Content = dt.DataSet.Tables[0].Rows[0].ItemArray[0];
-            Country2.Content = dt.DataSet.Tables[0].Rows[0].ItemArray[1];
-            Point1.Content = dt.DataSet.Tables[0].Rows[0].ItemArray[2];
-            Point2.Content = dt.DataSet.Tables[0].Rows[0].ItemArray[3];
+            try
+            {
+                DataTable dt = DBAdapter.DB.RunSelect("SELECT Teams.TeamName, Stage.Score1, Stage.Score2, Stage.Tournament_ID FROM Stage, Teams WHERE (StageType_ID = 8)AND(Teams.ID_Team = Stage.Team1_ID)");
+                DataTable dt1 = DBAdapter.DB.RunSelect("SELECT Teams.TeamName FROM Stage, Teams WHERE (StageType_ID = 8)AND(Teams.ID_Team = Stage.Team2_ID)");
 
-            Country3.Content = dt.DataSet.Tables[0].Rows[1].ItemArray[0];
-            Country4.Content = dt.DataSet.Tables[0].Rows[1].ItemArray[1];
-            Point3.Content = dt.DataSet.Tables[0].Rows[1].ItemArray[2];
-            Point4.Content = dt.DataSet.Tables[0].Rows[1].ItemArray[3];
+                Country1.Content = dt.Rows[0].ItemArray[0];
+                Country2.Content = dt1.Rows[0].ItemArray[0];
+                Point1.Content = dt.Rows[0].ItemArray[2];
+                Point2.Content = dt.Rows[0].ItemArray[3];
 
-            Country5.Content = dt.DataSet.Tables[0].Rows[2].ItemArray[0];
-            Country6.Content = dt.DataSet.Tables[0].Rows[2].ItemArray[1];
-            Point5.Content = dt.DataSet.Tables[0].Rows[2].ItemArray[2];
-            Point6.Content = dt.DataSet.Tables[0].Rows[2].ItemArray[3];
+                Country3.Content = dt.Rows[1].ItemArray[0];
+                Country4.Content = dt1.Rows[1].ItemArray[0];
+                Point3.Content = dt.Rows[1].ItemArray[2];
+                Point4.Content = dt.Rows[1].ItemArray[3];
 
-            Country7.Content = dt.DataSet.Tables[0].Rows[3].ItemArray[0];
-            Country8.Content = dt.DataSet.Tables[0].Rows[3].ItemArray[1];
-            Point7.Content = dt.DataSet.Tables[0].Rows[3].ItemArray[2];
-            Point8.Content = dt.DataSet.Tables[0].Rows[3].ItemArray[3];
+                Country5.Content = dt.Rows[2].ItemArray[0];
+                Country6.Content = dt1.Rows[2].ItemArray[0];
+                Point5.Content = dt.Rows[2].ItemArray[2];
+                Point6.Content = dt.Rows[2].ItemArray[3];
 
-            Country9.Content = dt.DataSet.Tables[0].Rows[4].ItemArray[0];
-            Country10.Content = dt.DataSet.Tables[0].Rows[4].ItemArray[1];
-            Point9.Content = dt.DataSet.Tables[0].Rows[4].ItemArray[2];
-            Point10.Content = dt.DataSet.Tables[0].Rows[4].ItemArray[3];
+                Country7.Content = dt.Rows[3].ItemArray[0];
+                Country8.Content = dt1.Rows[3].ItemArray[0];
+                Point7.Content = dt.Rows[3].ItemArray[2];
+                Point8.Content = dt.Rows[3].ItemArray[3];
 
-            Country11.Content = dt.DataSet.Tables[0].Rows[5].ItemArray[0];
-            Country12.Content = dt.DataSet.Tables[0].Rows[5].ItemArray[1];
-            Point11.Content = dt.DataSet.Tables[0].Rows[5].ItemArray[2];
-            Point12.Content = dt.DataSet.Tables[0].Rows[5].ItemArray[3];
+                Country9.Content = dt.Rows[4].ItemArray[0];
+                Country10.Content = dt1.Rows[4].ItemArray[0];
+                Point9.Content = dt.Rows[4].ItemArray[2];
+                Point10.Content = dt.DataSet.Tables[0].Rows[4].ItemArray[3];
 
-            Country13.Content = dt.DataSet.Tables[0].Rows[6].ItemArray[0];
-            Country14.Content = dt.DataSet.Tables[0].Rows[6].ItemArray[1];
-            Point13.Content = dt.DataSet.Tables[0].Rows[6].ItemArray[2];
-            Point14.Content = dt.DataSet.Tables[0].Rows[6].ItemArray[3];
+                Country11.Content = dt.Rows[5].ItemArray[0];
+                Country12.Content = dt1.Rows[5].ItemArray[0];
+                Point11.Content = dt.Rows[5].ItemArray[2];
+                Point12.Content = dt.DataSet.Tables[0].Rows[5].ItemArray[3];
 
-            Country15.Content = dt.DataSet.Tables[0].Rows[7].ItemArray[0];
-            Country16.Content = dt.DataSet.Tables[0].Rows[7].ItemArray[1];
-            Point15.Content = dt.DataSet.Tables[0].Rows[7].ItemArray[2];
-            Point16.Content = dt.DataSet.Tables[0].Rows[7].ItemArray[3];
+                Country13.Content = dt.Rows[6].ItemArray[0];
+                Country14.Content = dt1.Rows[6].ItemArray[0];
+                Point13.Content = dt.Rows[6].ItemArray[2];
+                Point14.Content = dt.DataSet.Tables[0].Rows[6].ItemArray[3];
+
+                Country15.Content = dt.Rows[7].ItemArray[0];
+                Country16.Content = dt1.Rows[7].ItemArray[0];
+                Point15.Content = dt.Rows[7].ItemArray[2];
+                Point16.Content = dt.Rows[7].ItemArray[3];
+            }
+            catch { }
         }
 
         private void Finish_Click(object sender, RoutedEventArgs e)
@@ -78,6 +84,11 @@ namespace Football
             {
                 main.label5.Content = "Yes";
             }
+        }
+
+        private void Close_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }
