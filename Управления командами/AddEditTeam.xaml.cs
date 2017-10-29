@@ -27,17 +27,22 @@ namespace Football
         }
 
         bool AddEdit = false;
-        string url, region, idTeam;
+        string idTeam, Region;
 
         private void SaveAndCloseBut_Click(object sender, RoutedEventArgs e)
         {
-            if(!AddEdit)
+            string url = ImageCountry.Source.ToString();
+            url = url.Substring(url.LastIndexOf('/') + 1);
+            if (!AddEdit)
             {
-                DBAdapter.DB.RunInsert("Insert Into [Teams] (flag_url, TeamName, countrycode, region) values('" + ImageCountry.Source + "','" + TeamNameTextBox.Text + "','" + CountryCodeTextBox.Text + "','" + RegionComBox.SelectedValue + "'))");
+                DBAdapter.DB.RunInsert("Insert Into [Teams] (flag_url, TeamName, countrycode, region) values('" + url + "','" + TeamNameTextBox.Text + "','" + CountryCodeTextBox.Text + "','" + RegionComBox.SelectedValue + "')");
             }
             else
             {
-                DBAdapter.DB.RunInsert("Update[Teams] Set flag_url = '" + TeamNameTextBox + "', TeamName = '" + TeamNameTextBox.Text + "', countrycode = '" + TeamNameTextBox.Text + "', region = '" + RegionComBox.SelectedValue + "' WHERE ID_Team = '" + idTeam + "'");
+                if (url != "" && TeamNameTextBox.Text != "" && CountryCodeTextBox.Text != "" && RegionComBox.Text != "")
+                    DBAdapter.DB.RunInsert("Update [Teams] Set flag_url = '" + url + "', TeamName = '" + TeamNameTextBox.Text + "', countrycode = '" + CountryCodeTextBox.Text + "', region = '" + RegionComBox.SelectedValue + "' WHERE ID_Team = '" + idTeam + "'");
+                else
+                    MessageBox.Show("Заполните все поля");
             }
 
             Close();
@@ -60,6 +65,8 @@ namespace Football
             {
                 MessageBox.Show("Выберите команду для удаления");
             }
+
+         
         }
 
         private void AddBut_Click_1(object sender, RoutedEventArgs e)
@@ -95,28 +102,48 @@ namespace Football
             myDialog.Multiselect = true;
             if (myDialog.ShowDialog() == true)
             {
-                TeamNameTextBox.Text = myDialog.FileName;
+                ImageCountry.Source = BitmapFrame.Create(new Uri(myDialog.FileName));
             }
+        }
+
+        private void Grid_Loaded(object sender, RoutedEventArgs e)
+        {
+            LoadRegoins();
+
+            if (AddEdit)
+            {
+                LoadPlayersTeam();
+                RegionComBox.SelectedValue = Region;
+            }
+
+
+           
         }
 
         public AddEditTeam(string idTeam, string Url, string TeamName, string Region, string CountryCode)
         {
             InitializeComponent();
             AddEdit = true;
-            //ImageCountry.Source = BitmapFrame.Create(new Uri(@"pack://siteoforigin:,,,/Resources/" + Url));
-            url = Url;
             this.idTeam = idTeam;
-            region = Region;
+            ImageCountry.Source = BitmapFrame.Create(new Uri(@"pack://siteoforigin:,,,/Resources/" + Url));
+            this.Region = Region;
             TeamNameTextBox.Text = TeamName;
             CountryCodeTextBox.Text = CountryCode;
-            url = url.Substring(url.IndexOf('\\') + 1);
         }
 
         void LoadPlayersTeam()
         {
             DataGrid1.ItemsSource = DBAdapter.DB.RunSelect("Select ID_Player As ID, firstname as [First name],  lastname As [Last name] , shirt_number As [Shirt number], position As Position, date_of_birth as [Date of birth] From [Players] where team_id = '" + idTeam + "'").DefaultView;
             DataGrid1.Columns[0].Visibility = Visibility.Hidden;
-           //var s = ImageCountry.Source;
+        }
+
+        void LoadRegoins()
+        {
+            DataTable dt = DBAdapter.DB.RunSelect("Select DISTINCT region From [Teams] ");
+            for(int i = 0; i < dt.Rows.Count; i++)
+            {
+                RegionComBox.Items.Add(dt.Rows[i][0].ToString());
+            }
         }
 
 
