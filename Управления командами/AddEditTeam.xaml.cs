@@ -45,6 +45,10 @@ namespace Football
                     MessageBox.Show("Заполните все поля");
             }
 
+            
+            ManageTeams frm = (ManageTeams)this.Owner;
+            frm.AddEditSel();
+
             Close();
         }
 
