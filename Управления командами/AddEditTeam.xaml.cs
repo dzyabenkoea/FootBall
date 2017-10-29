@@ -33,9 +33,16 @@ namespace Football
             {
                 DBAdapter.DB.RunInsert("Insert Into [Teams] (flag_url, TeamName, countrycode, region) values('" + CountryCodeTextBox.Text + "','" + CountryCodeTextBox.Text + "','" + CountryCodeTextBox.Text + "','" + CountryCodeTextBox.Text + "'))");
             }
+
+            Close();
         }
 
         private void AddBut_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void DeleteBut_Click(object sender, RoutedEventArgs e)
         {
 
         }

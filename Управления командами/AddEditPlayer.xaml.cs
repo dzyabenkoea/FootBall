@@ -47,7 +47,7 @@ namespace Football
             FirstNameTextBox.Text = firstName;
             ShirtNumberTextBox.Text = shirtNumber;
             PositionTextBox.Text = position;
-            DatePicker.Text = Convert.ToString(birthDate);
+            DatePicker.SelectedDate = birthDate; // Edit Lesha
         }
     }
 }
