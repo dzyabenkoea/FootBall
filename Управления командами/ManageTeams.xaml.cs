@@ -65,6 +65,8 @@ namespace Football
 
         }
 
+
+
         private void DeleteBut_Click(object sender, RoutedEventArgs e)
         {
             int i = DataGrid1.SelectedIndex;
