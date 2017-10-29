@@ -141,6 +141,11 @@ namespace Football
             DataGrid1.Columns[0].Visibility = Visibility.Hidden;
         }
 
+        private void RegionComBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
         void LoadRegoins()
         {
             DataTable dt = DBAdapter.DB.RunSelect("Select DISTINCT region From [Teams] ");

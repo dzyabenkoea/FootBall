@@ -32,13 +32,15 @@ namespace Football
 
         private void SaveCloseButton_Click(object sender, RoutedEventArgs e)
         {
-            DBAdapter.DB.RunInsert("delete from [Groups] ");
+            if (masA.Count == 24)
+            {
+                DBAdapter.DB.RunInsert("delete from [Groups] ");
 
-            DBAdapter.DB.RunInsert("Insert Into [Groups] (A, B, C, D, E,F) values('" + masA[0] + "','" + masA[4] + "','" + masA[8] + "','" + masA[12] + "','" + masA[16] + "','" + masA[20] + "')");
-            DBAdapter.DB.RunInsert("Insert Into [Groups] (A, B, C, D, E,F) values('" + masA[1] + "','" + masA[5] + "','" + masA[9] + "','" + masA[13] + "','" + masA[17] + "','" + masA[21] + "')");
-            DBAdapter.DB.RunInsert("Insert Into [Groups] (A, B, C, D, E,F) values('" + masA[2] + "','" + masA[6] + "','" + masA[10] + "','" + masA[14] + "','" + masA[18] + "','" + masA[22] + "')");
-            DBAdapter.DB.RunInsert("Insert Into [Groups] (A, B, C, D, E,F) values('" + masA[3] + "','" + masA[7] + "','" + masA[11] + "','" + masA[15] + "','" + masA[19] + "','" + masA[23] + "')");
-
+                DBAdapter.DB.RunInsert("Insert Into [Groups] (A, B, C, D, E,F) values('" + masA[0] + "','" + masA[4] + "','" + masA[8] + "','" + masA[12] + "','" + masA[16] + "','" + masA[20] + "')");
+                DBAdapter.DB.RunInsert("Insert Into [Groups] (A, B, C, D, E,F) values('" + masA[1] + "','" + masA[5] + "','" + masA[9] + "','" + masA[13] + "','" + masA[17] + "','" + masA[21] + "')");
+                DBAdapter.DB.RunInsert("Insert Into [Groups] (A, B, C, D, E,F) values('" + masA[2] + "','" + masA[6] + "','" + masA[10] + "','" + masA[14] + "','" + masA[18] + "','" + masA[22] + "')");
+                DBAdapter.DB.RunInsert("Insert Into [Groups] (A, B, C, D, E,F) values('" + masA[3] + "','" + masA[7] + "','" + masA[11] + "','" + masA[15] + "','" + masA[19] + "','" + masA[23] + "')");
+            }
 
             // 2017.10.29 Михаил. Метод передаёт в форму ManageExecution метку Yes, когда работа с текущей формой закончена
             ManageExecutionMenu main = this.Owner as ManageExecutionMenu;
