@@ -21,7 +21,7 @@
         <ListBox x:Name="listBox" HorizontalAlignment="Left" Height="23" Margin="141,130,0,0" VerticalAlignment="Top" Width="218" FontFamily="Tahoma"/>
         <TextBox x:Name="textBox2" HorizontalAlignment="Left" Height="23" Margin="141,179,0,0" TextWrapping="Wrap" Text="1" VerticalAlignment="Top" Width="32"/>
         <DatePicker HorizontalAlignment="Left" Margin="274,179,0,0" VerticalAlignment="Top" Width="85" FontFamily="Tahoma"/>
-        <Button x:Name="button" Content="Save &amp; Close" HorizontalAlignment="Left" Margin="155,233,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button x:Name="button" Content="Save &amp; Close" HorizontalAlignment="Left" Margin="155,233,0,0" VerticalAlignment="Top" Width="75" Click="button_Click"/>
         <Button x:Name="button1" Content="Close" HorizontalAlignment="Left" Margin="284,233,0,0" VerticalAlignment="Top" Width="75"/>
 
     </Grid>
