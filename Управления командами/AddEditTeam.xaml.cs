@@ -35,7 +35,7 @@ namespace Football
             }
         }
 
-        private void DeleteBut_Click(object sender, RoutedEventArgs e)
+        private void AddBut_Click(object sender, RoutedEventArgs e)
         {
 
         }
