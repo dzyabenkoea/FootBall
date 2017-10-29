@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Data;
 using DBAdapter;
 
 namespace Football
@@ -24,12 +25,24 @@ namespace Football
         public ManageTournaments()
         {
             InitializeComponent();
-            UpdateTable();
+            InitializeTable();
         }
 
-        void InititializeTable()
+        void InitializeTable()
         {
-            tournamentsTable.Columns[0].Visibility = Visibility.Hidden;
+            DataTable dt = DB.RunSelect("select * from Tournaments");
+
+            foreach (DataColumn dc in dt.Columns)
+            {
+                DataGridTextColumn newColumn = new DataGridTextColumn();
+                newColumn.Header = dc.ColumnName;
+                newColumn.Binding = new Binding(dc.ColumnName);
+            }
+            string[] columnsToShow = new string[] { "TournamentsName", "Start_date", "End_Date" };
+            string[] columnsAliases = new string[] { "Tournament", "Start date", "End date" };
+
+            tournamentsTable.ItemsSource = dt.DefaultView;
+
         }
 
         void UpdateTable()
@@ -44,7 +57,10 @@ namespace Football
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            new AddEditTournament(tournamentsTable.SelectedItem as DataGridRow).Show();
+            AddEditTournament addEdit = new AddEditTournament(tournamentsTable.SelectedItem as DataGridRow);
+            addEdit.Owner = this;
+            addEdit.FillFields(tournamentsTable.SelectedItem as DataRowView);
+            addEdit.Show();
         }
 
         private void tournamentsTable_SelectionChanged(object sender, SelectionChangedEventArgs e)
