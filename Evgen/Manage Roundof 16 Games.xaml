@@ -16,7 +16,7 @@
         <Label x:Name="Point2" Content="-" HorizontalAlignment="Left" Margin="203,47,0,0" VerticalAlignment="Top" FontFamily="Tahoma" Width="24"/>
         <Label x:Name="label1" Content=":" HorizontalAlignment="Left" Margin="198,47,0,0" VerticalAlignment="Top" FontFamily="Tahoma" Width="24"/>
         <Button x:Name="Edit1" Content="Edit..." HorizontalAlignment="Left" Margin="311,47,0,0" VerticalAlignment="Top" Width="75" FontFamily="Tahoma"/>
-        <Button x:Name="Finish" Content="Finish Round of 16" HorizontalAlignment="Left" Margin="172,338,0,0" VerticalAlignment="Top" Width="120" FontFamily="Tahoma" Height="31"/>
+        <Button x:Name="Finish" Content="Finish Round of 16" HorizontalAlignment="Left" Margin="172,338,0,0" VerticalAlignment="Top" Width="120" FontFamily="Tahoma" Height="31" Click="Finish_Click"/>
         <Button x:Name="Close" Content="Close" HorizontalAlignment="Left" Margin="311,338,0,0" VerticalAlignment="Top" Width="75" FontFamily="Tahoma" Height="31"/>
         <Button x:Name="Edit2" Content="Edit..." HorizontalAlignment="Left" Margin="311,83,0,0" VerticalAlignment="Top" Width="75" FontFamily="Tahoma"/>
         <Label x:Name="Country3" Content="Croatia" HorizontalAlignment="Left" Margin="17,83,0,0" VerticalAlignment="Top" FontFamily="Tahoma"/>
