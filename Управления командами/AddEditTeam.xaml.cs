@@ -35,6 +35,11 @@ namespace Football
             }
         }
 
+        private void DeleteBut_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
         public AddEditTeam(string idTeam, string Url, string TeamName, string Region, string CountryCode)
         {
             InitializeComponent();
