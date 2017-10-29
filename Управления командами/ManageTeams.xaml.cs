@@ -40,7 +40,7 @@ namespace Football
 
         private void SearchTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            DataGrid1.ItemsSource = DBAdapter.DB.RunSelect("Select ID_Team As ID, flag_url, TeamName As Team, countrycode As Code, region From [Teams] Where TeamName = '" + SearchTextBox.Text +"'").DefaultView;
+            DataGrid1.ItemsSource = DBAdapter.DB.RunSelect("Select ID_Team As ID, flag_url, TeamName As Team, countrycode As Code, region From [Teams] Where TeamName Like '%" + SearchTextBox.Text +"%'").DefaultView;
         }
 
         private void AddBut_Click(object sender, RoutedEventArgs e)
