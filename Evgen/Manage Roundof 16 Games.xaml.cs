@@ -56,17 +56,17 @@ namespace Football
                 Country9.Content = dt.Rows[4].ItemArray[0];
                 Country10.Content = dt1.Rows[4].ItemArray[0];
                 Point9.Content = dt.Rows[4].ItemArray[2];
-                Point10.Content = dt.DataSet.Tables[0].Rows[4].ItemArray[3];
+                Point10.Content = dt.Rows[4].ItemArray[3];
 
                 Country11.Content = dt.Rows[5].ItemArray[0];
                 Country12.Content = dt1.Rows[5].ItemArray[0];
                 Point11.Content = dt.Rows[5].ItemArray[2];
-                Point12.Content = dt.DataSet.Tables[0].Rows[5].ItemArray[3];
+                Point12.Content = dt.Rows[5].ItemArray[3];
 
                 Country13.Content = dt.Rows[6].ItemArray[0];
                 Country14.Content = dt1.Rows[6].ItemArray[0];
                 Point13.Content = dt.Rows[6].ItemArray[2];
-                Point14.Content = dt.DataSet.Tables[0].Rows[6].ItemArray[3];
+                Point14.Content = dt.Rows[6].ItemArray[3];
 
                 Country15.Content = dt.Rows[7].ItemArray[0];
                 Country16.Content = dt1.Rows[7].ItemArray[0];
