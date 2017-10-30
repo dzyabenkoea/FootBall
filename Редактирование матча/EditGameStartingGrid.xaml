@@ -21,13 +21,19 @@
         <CheckBox Content="Game finished" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="479,13,0,0" FontFamily="Tahoma"/>
         <TabControl HorizontalAlignment="Left" Height="289" Margin="10,68,0,0" VerticalAlignment="Top" Width="723">
             <TabItem Header="Starting Grid" FontFamily="Tahoma">
-                <Grid Background="#FFE5E5E5" Margin="0,0,8,-2">
-                    <Button Content="Add" HorizontalAlignment="Left" Margin="18,227,0,0" VerticalAlignment="Top" Width="75" FontFamily="Tahoma"/>
-                    <Button Content="Delete" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="109,227,0,0" FontFamily="Tahoma"/>
-                    <DataGrid HorizontalAlignment="Left" Height="184" Margin="18,30,0,0" VerticalAlignment="Top" Width="315"/>
-                    <DataGrid HorizontalAlignment="Left" Height="182" Margin="372,32,0,0" VerticalAlignment="Top" Width="315"/>
-                    <Button Content="Add" HorizontalAlignment="Left" Margin="372,227,0,0" VerticalAlignment="Top" Width="75" FontFamily="Tahoma"/>
-                    <Button Content="Delete" HorizontalAlignment="Left" Margin="469,227,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.25,0.429" FontFamily="Tahoma"/>
+                <Grid Background="#FFE5E5E5" Margin="0,0,8,-2" Loaded="Grid_Loaded">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Button Content="Add" HorizontalAlignment="Left" Margin="18,227,0,14" Width="75" FontFamily="Tahoma" Click="Button_Click_1"/>
+                    <Button Content="Delete" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="109,227,0,0" FontFamily="Tahoma" Click="Button_Click_3"/>
+                    <DataGrid x:Name="Grid" HorizontalAlignment="Left" Height="184" Margin="18,30,0,0" VerticalAlignment="Top" Width="315"/>
+                    <DataGrid x:Name="Grid2" HorizontalAlignment="Left" Height="182" Margin="372,32,0,0" VerticalAlignment="Top" Width="315" Loaded="Grid2_Loaded"/>
+                    <Button Content="Add" HorizontalAlignment="Left" Margin="372,227,0,0" VerticalAlignment="Top" Width="75" FontFamily="Tahoma" Click="Button_Click_2"/>
+                    <Button Content="Delete" HorizontalAlignment="Left" Margin="469,227,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.25,0.429" FontFamily="Tahoma" Click="Button_Click_4"/>
                 </Grid>
             </TabItem>
             <TabItem Header="Events" FontFamily="Tahoma">
@@ -39,8 +45,8 @@
                 </Grid>
             </TabItem>
         </TabControl>
-        <Button Content="Save and Close" HorizontalAlignment="Left" Margin="529,382,0,0" VerticalAlignment="Top" Width="87" Height="38" FontFamily="Tahoma"/>
-        <Button Content="Close" HorizontalAlignment="Left" Margin="648,382,0,0" VerticalAlignment="Top" Width="75" Height="38" FontFamily="Tahoma"/>
+        <Button Content="Save and Close" HorizontalAlignment="Left" Margin="529,382,0,0" VerticalAlignment="Top" Width="87" Height="38" FontFamily="Tahoma" Click="Button_Click_5"/>
+        <Button Content="Close" HorizontalAlignment="Left" Margin="648,382,0,0" VerticalAlignment="Top" Width="75" Height="38" FontFamily="Tahoma" Click="Button_Click"/>
     </Grid>
-    </Window>
+</Window>
 
