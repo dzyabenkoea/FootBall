@@ -22,8 +22,7 @@ namespace Football
     {
         public EditGameStartingGrid()
         {
-            InitializeComponent();
-           
+            InitializeComponent();           
         }
         bool AddEdit = false;
 
