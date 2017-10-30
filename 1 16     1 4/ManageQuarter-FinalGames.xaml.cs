@@ -21,7 +21,7 @@ namespace UEFA
     {
         public ManageQuarterFinalGames()
         {
-            InitializeComponent();
+            //InitializeComponent();
         }
     }
 }

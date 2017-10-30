@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,6 +23,16 @@ namespace Football
         public ManageFinal()
         {
             InitializeComponent();
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            DataTable dt = DBAdapter.DB.RunSelect("Select Team1_ID, Team2_ID, Score1, Score2 From Stage Where StageType_ID = 12");
+            Country1.Content = dt.DataSet.Tables[0].Rows[0].ItemArray[0];
+            Country2.Content = dt.DataSet.Tables[0].Rows[0].ItemArray[1];
+            Point1.Content = dt.DataSet.Tables[0].Rows[0].ItemArray[2];
+            Point2.Content = dt.DataSet.Tables[0].Rows[0].ItemArray[3];
+
         }
     }
 }
