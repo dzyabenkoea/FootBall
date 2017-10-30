@@ -39,12 +39,19 @@ namespace Football
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            DataTable dt = DBAdapter.DB.RunSelect("Select Team1_ID, Team2_ID, Score1, Score2 From Stage Where StageType_ID = 12");
-            Country1.Content = dt.DataSet.Tables[0].Rows[0].ItemArray[0];
-            Country2.Content = dt.DataSet.Tables[0].Rows[0].ItemArray[1];
-            Point1.Content = dt.DataSet.Tables[0].Rows[0].ItemArray[2];
-            Point2.Content = dt.DataSet.Tables[0].Rows[0].ItemArray[3];
+            DataTable dt = DBAdapter.DB.RunSelect("SELECT Teams.TeamName, Stage.Score1, Stage.Score2, Stage.Tournament_ID FROM Stage, Teams WHERE (StageType_ID = 11)AND(Teams.ID_Team = Stage.Team1_ID)");
+            DataTable dt1 = DBAdapter.DB.RunSelect("SELECT Teams.TeamName FROM Stage, Teams WHERE (StageType_ID = 12)AND(Teams.ID_Team = Stage.Team2_ID)");
 
+            Country1.Content = dt.Rows[0].ItemArray[0];
+            Country2.Content = dt1.Rows[0].ItemArray[0];
+            Point1.Content = dt.Rows[0].ItemArray[2];
+            Point2.Content = dt.Rows[0].ItemArray[3];
+
+        }
+
+        private void Close_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }

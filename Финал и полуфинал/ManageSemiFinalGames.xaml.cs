@@ -45,16 +45,25 @@ namespace Football
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            DataTable dt = DBAdapter.DB.RunSelect("Select Team1_ID, Team2_ID, Score1, Score2 From Stage Where StageType_ID = 11");
-            Country1.Content = dt.DataSet.Tables[0].Rows[0].ItemArray[0];
-            Country2.Content = dt.DataSet.Tables[0].Rows[0].ItemArray[1];
-            Point1.Content = dt.DataSet.Tables[0].Rows[0].ItemArray[2];
-            Point2.Content = dt.DataSet.Tables[0].Rows[0].ItemArray[3];
+            DataTable dt = DBAdapter.DB.RunSelect("SELECT Teams.TeamName, Stage.Score1, Stage.Score2, Stage.Tournament_ID FROM Stage, Teams WHERE (StageType_ID = 11)AND(Teams.ID_Team = Stage.Team1_ID)");
+            DataTable dt1 = DBAdapter.DB.RunSelect("SELECT Teams.TeamName FROM Stage, Teams WHERE (StageType_ID = 11)AND(Teams.ID_Team = Stage.Team2_ID)");
 
-            Country3.Content = dt.DataSet.Tables[0].Rows[1].ItemArray[0];
-            Country4.Content = dt.DataSet.Tables[0].Rows[1].ItemArray[1];
-            Point3.Content = dt.DataSet.Tables[0].Rows[1].ItemArray[2];
-            Point4.Content = dt.DataSet.Tables[0].Rows[1].ItemArray[3];
+        //    DataTable dt = DBAdapter.DB.RunSelect("Select Team1_ID, Team2_ID, Score1, Score2 From Stage Where StageType_ID = 11");
+            Country1.Content = dt.Rows[0].ItemArray[0];
+            Country2.Content = dt1.Rows[0].ItemArray[0];
+            Point1.Content = dt.Rows[0].ItemArray[2];
+            Point2.Content = dt.Rows[0].ItemArray[3];
+
+            Country3.Content = dt.Rows[1].ItemArray[0];
+            Country4.Content = dt1.Rows[1].ItemArray[0];
+            Point3.Content = dt.Rows[1].ItemArray[2];
+            Point4.Content = dt.Rows[1].ItemArray[3];
+        }
+
+        private void Close_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }
+
