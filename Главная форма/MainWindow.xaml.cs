@@ -75,7 +75,7 @@ namespace Football
             dt.Columns.Add("Team2");
             dt.Rows.Add(semi.Rows[0][0], semi.Rows[0][1], semi.Rows[0][2]);
             dataGridSemiFinal.ItemsSource = dt.DefaultView;
-
+             
             dt = new DataTable();
             dt.Columns.Add("Team1");
             dt.Columns.Add("Score");

@@ -85,11 +85,7 @@ namespace Football
 
         public void AddEditSel()
         {
-            void LoadTeams()
-            {
-                DataGrid1.ItemsSource = DBAdapter.DB.RunSelect("Select ID_Team As ID, flag_url, TeamName As Team, countrycode As Code, region From [Teams]").DefaultView;
-                DataGrid1.Columns[4].Visibility = Visibility.Hidden;
-            }
+      
         }
     }
 }
