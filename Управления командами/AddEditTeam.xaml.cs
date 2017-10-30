@@ -45,6 +45,10 @@ namespace Football
                     MessageBox.Show("Заполните все поля");
             }
 
+            
+            ManageTeams frm = (ManageTeams)this.Owner;
+            frm.AddEditSel();
+
             Close();
         }
 
@@ -135,6 +139,11 @@ namespace Football
         {
             DataGrid1.ItemsSource = DBAdapter.DB.RunSelect("Select ID_Player As ID, firstname as [First name],  lastname As [Last name] , shirt_number As [Shirt number], position As Position, date_of_birth as [Date of birth] From [Players] where team_id = '" + idTeam + "'").DefaultView;
             DataGrid1.Columns[0].Visibility = Visibility.Hidden;
+        }
+
+        private void RegionComBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
 
         void LoadRegoins()
