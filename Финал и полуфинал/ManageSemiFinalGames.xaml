@@ -17,7 +17,6 @@
         <Label x:Name="label1" Content=":" HorizontalAlignment="Left" Margin="198,47,0,0" VerticalAlignment="Top" FontFamily="Tahoma" Width="24"/>
         <Button x:Name="Edit1" Content="Edit..." HorizontalAlignment="Left" Margin="311,47,0,0" VerticalAlignment="Top" Width="75" FontFamily="Tahoma"/>
         <Button x:Name="Finish" Content="Finish Semi-Final" HorizontalAlignment="Left" Margin="183,133,0,0" VerticalAlignment="Top" Width="109" FontFamily="Tahoma" Height="31" Click="Finish_Click_1"/>
-        <Button x:Name="Finish" Content="Finish Semi-Final" HorizontalAlignment="Left" Margin="183,133,0,0" VerticalAlignment="Top" Width="109" FontFamily="Tahoma" Height="31" Click="Finish_Click"/>
         <Button x:Name="Close" Content="Close" HorizontalAlignment="Left" Margin="311,133,0,0" VerticalAlignment="Top" Width="75" FontFamily="Tahoma" Height="31"/>
         <Button x:Name="Edit2" Content="Edit..." HorizontalAlignment="Left" Margin="311,83,0,0" VerticalAlignment="Top" Width="75" FontFamily="Tahoma"/>
         <Label x:Name="Country3" Content="France" HorizontalAlignment="Left" Margin="17,83,0,0" VerticalAlignment="Top" FontFamily="Tahoma"/>
