@@ -64,6 +64,20 @@ namespace Football
         {
             this.Close();
         }
+
+        private void Edit1_Click(object sender, RoutedEventArgs e)
+        {
+            EditGameStartingGrid gameStartingGrid = new EditGameStartingGrid();
+            gameStartingGrid.Owner = this;
+            gameStartingGrid.ShowDialog();
+        }
+
+        private void Edit2_Click(object sender, RoutedEventArgs e)
+        {
+            EditGameStartingGrid gameStartingGrid = new EditGameStartingGrid();
+            gameStartingGrid.Owner = this;
+            gameStartingGrid.ShowDialog();
+        }
     }
 }
 

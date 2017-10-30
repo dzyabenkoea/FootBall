@@ -15,10 +15,10 @@
         <Label x:Name="Point1" Content="-" HorizontalAlignment="Left" Margin="193,47,0,0" VerticalAlignment="Top" FontFamily="Tahoma" Width="24"/>
         <Label x:Name="Point2" Content="-" HorizontalAlignment="Left" Margin="203,47,0,0" VerticalAlignment="Top" FontFamily="Tahoma" Width="24"/>
         <Label x:Name="label1" Content=":" HorizontalAlignment="Left" Margin="198,47,0,0" VerticalAlignment="Top" FontFamily="Tahoma" Width="24"/>
-        <Button x:Name="Edit1" Content="Edit..." HorizontalAlignment="Left" Margin="311,47,0,0" VerticalAlignment="Top" Width="75" FontFamily="Tahoma"/>
+        <Button x:Name="Edit1" Content="Edit..." HorizontalAlignment="Left" Margin="311,47,0,0" VerticalAlignment="Top" Width="75" FontFamily="Tahoma" Click="Edit1_Click"/>
         <Button x:Name="Finish" Content="Finish Semi-Final" HorizontalAlignment="Left" Margin="183,133,0,0" VerticalAlignment="Top" Width="109" FontFamily="Tahoma" Height="31" Click="Finish_Click_1"/>
         <Button x:Name="Close" Content="Close" HorizontalAlignment="Left" Margin="311,133,0,0" VerticalAlignment="Top" Width="75" FontFamily="Tahoma" Height="31" Click="Close_Click"/>
-        <Button x:Name="Edit2" Content="Edit..." HorizontalAlignment="Left" Margin="311,83,0,0" VerticalAlignment="Top" Width="75" FontFamily="Tahoma"/>
+        <Button x:Name="Edit2" Content="Edit..." HorizontalAlignment="Left" Margin="311,83,0,0" VerticalAlignment="Top" Width="75" FontFamily="Tahoma" Click="Edit2_Click"/>
         <Label x:Name="Country3" Content="France" HorizontalAlignment="Left" Margin="17,83,0,0" VerticalAlignment="Top" FontFamily="Tahoma"/>
         <Label x:Name="Country4" Content="Germany" HorizontalAlignment="Left" Margin="76,83,0,0" VerticalAlignment="Top" FontFamily="Tahoma" RenderTransformOrigin="0.511,0.583"/>
         <Label x:Name="label_Copy" Content="-" HorizontalAlignment="Left" Margin="65,83,0,0" VerticalAlignment="Top" FontFamily="Tahoma" Width="24"/>
