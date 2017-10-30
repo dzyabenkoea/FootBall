@@ -25,6 +25,18 @@ namespace Football
             InitializeComponent();
         }
 
+
+
+        private void Finish_Click_1(object sender, RoutedEventArgs e)
+        {
+            // 2017.10.29 Михаил. Метод передаёт в форму ManageExecution метку Yes, когда работа с текущей формой закончена
+            ManageExecutionMenu main = this.Owner as ManageExecutionMenu;
+            if (main != null)
+            {
+                main.label5.Content = "Yes";
+            }
+        }
+
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             DataTable dt = DBAdapter.DB.RunSelect("Select Team1_ID, Team2_ID, Score1, Score2 From Stage Where StageType_ID = 12");

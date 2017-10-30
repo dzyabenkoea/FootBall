@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Data;
 
 namespace Football
 {
@@ -26,7 +27,160 @@ namespace Football
 
         private void FinishButton_Click(object sender, RoutedEventArgs e)
         {
+            // 2017.10.29 Михаил. Метод передаёт в форму ManageExecution метку Yes, когда работа с текущей формой закончена
+            ManageExecutionMenu main = this.Owner as ManageExecutionMenu;
+            if (main != null)
+            {
+                main.label3.Content = "Yes";
+            }
+        }
 
+        private void Edit1Button_Click(object sender, RoutedEventArgs e)
+        {
+            new EditGameStartingGrid().Show();
+        }
+
+        private void Edit2Button_Click(object sender, RoutedEventArgs e)
+        {
+            new EditGameStartingGrid().Show();
+        }
+
+        private void Edit3Button_Click(object sender, RoutedEventArgs e)
+        {
+            new EditGameStartingGrid().Show();
+        }
+
+        private void Edit4Button_Click(object sender, RoutedEventArgs e)
+        {
+            new EditGameStartingGrid().Show();
+        }
+
+        private void Edit5Button_Click(object sender, RoutedEventArgs e)
+        {
+            new EditGameStartingGrid().Show();
+        }
+
+        private void Edit6Button_Click(object sender, RoutedEventArgs e)
+        {
+            new EditGameStartingGrid().Show();
+        }
+
+        private void Grid_Loaded(object sender, RoutedEventArgs e)
+        {
+            GroupComboBox.Items.Add("Group A");
+            GroupComboBox.Items.Add("Group B");
+            GroupComboBox.Items.Add("Group C");
+            GroupComboBox.Items.Add("Group D");
+            GroupComboBox.Items.Add("Group E");
+            GroupComboBox.Items.Add("Group F");
+            GroupComboBox.SelectedIndex = 0;
+
+            DataTable dt = DBAdapter.DB.RunSelect("Select A From [Groups] ");
+            DataTable team1 = DBAdapter.DB.RunSelect("Select TeamName From [Teams] where ID_Team= " + dt.Rows[0][0]);
+            DataTable team2 = DBAdapter.DB.RunSelect("Select TeamName From [Teams] where ID_Team= " + dt.Rows[1][0]);
+            DataTable team3 = DBAdapter.DB.RunSelect("Select TeamName From [Teams] where ID_Team= " + dt.Rows[2][0]);
+            DataTable team4 = DBAdapter.DB.RunSelect("Select TeamName From [Teams] where ID_Team= " + dt.Rows[3][0]);
+
+            Game1.Content = team1.Rows[0][0] + " - " + team2.Rows[0][0];
+            Game2.Content = team3.Rows[0][0] + " - " + team4.Rows[0][0];
+            Game3.Content = team2.Rows[0][0] + " - " + team4.Rows[0][0];
+            Game4.Content = team1.Rows[0][0] + " - " + team3.Rows[0][0];
+            Game5.Content = team4.Rows[0][0] + " - " + team1.Rows[0][0];
+            Game6.Content = team2.Rows[0][0] + " - " + team3.Rows[0][0];
+        }
+
+        private void GroupComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if(GroupComboBox.SelectedIndex==0)
+            {
+                DataTable dt = DBAdapter.DB.RunSelect("Select A From [Groups] ");
+                DataTable team1 = DBAdapter.DB.RunSelect("Select TeamName From [Teams] where ID_Team= " + dt.Rows[0][0]);
+                DataTable team2 = DBAdapter.DB.RunSelect("Select TeamName From [Teams] where ID_Team= " + dt.Rows[1][0]);
+                DataTable team3 = DBAdapter.DB.RunSelect("Select TeamName From [Teams] where ID_Team= " + dt.Rows[2][0]);
+                DataTable team4 = DBAdapter.DB.RunSelect("Select TeamName From [Teams] where ID_Team= " + dt.Rows[3][0]);
+
+                Game1.Content = team1.Rows[0][0] + " - " + team2.Rows[0][0];
+                Game2.Content = team3.Rows[0][0] + " - " + team4.Rows[0][0];
+                Game3.Content = team2.Rows[0][0] + " - " + team4.Rows[0][0];
+                Game4.Content = team1.Rows[0][0] + " - " + team3.Rows[0][0];
+                Game5.Content = team4.Rows[0][0] + " - " + team1.Rows[0][0];
+                Game6.Content = team2.Rows[0][0] + " - " + team3.Rows[0][0];
+            }
+            else if(GroupComboBox.SelectedIndex == 1)
+            {
+                DataTable dt = DBAdapter.DB.RunSelect("Select B From [Groups] ");
+                DataTable team1 = DBAdapter.DB.RunSelect("Select TeamName From [Teams] where ID_Team= " + dt.Rows[0][0]);
+                DataTable team2 = DBAdapter.DB.RunSelect("Select TeamName From [Teams] where ID_Team= " + dt.Rows[1][0]);
+                DataTable team3 = DBAdapter.DB.RunSelect("Select TeamName From [Teams] where ID_Team= " + dt.Rows[2][0]);
+                DataTable team4 = DBAdapter.DB.RunSelect("Select TeamName From [Teams] where ID_Team= " + dt.Rows[3][0]);
+
+                Game1.Content = team1.Rows[0][0] + " - " + team2.Rows[0][0];
+                Game2.Content = team3.Rows[0][0] + " - " + team4.Rows[0][0];
+                Game3.Content = team2.Rows[0][0] + " - " + team4.Rows[0][0];
+                Game4.Content = team1.Rows[0][0] + " - " + team3.Rows[0][0];
+                Game5.Content = team4.Rows[0][0] + " - " + team1.Rows[0][0];
+                Game6.Content = team2.Rows[0][0] + " - " + team3.Rows[0][0];
+            }
+            else if (GroupComboBox.SelectedIndex == 2)
+            {
+                DataTable dt = DBAdapter.DB.RunSelect("Select C From [Groups] ");
+                DataTable team1 = DBAdapter.DB.RunSelect("Select TeamName From [Teams] where ID_Team= " + dt.Rows[0][0]);
+                DataTable team2 = DBAdapter.DB.RunSelect("Select TeamName From [Teams] where ID_Team= " + dt.Rows[1][0]);
+                DataTable team3 = DBAdapter.DB.RunSelect("Select TeamName From [Teams] where ID_Team= " + dt.Rows[2][0]);
+                DataTable team4 = DBAdapter.DB.RunSelect("Select TeamName From [Teams] where ID_Team= " + dt.Rows[3][0]);
+
+                Game1.Content = team1.Rows[0][0] + " - " + team2.Rows[0][0];
+                Game2.Content = team3.Rows[0][0] + " - " + team4.Rows[0][0];
+                Game3.Content = team2.Rows[0][0] + " - " + team4.Rows[0][0];
+                Game4.Content = team1.Rows[0][0] + " - " + team3.Rows[0][0];
+                Game5.Content = team4.Rows[0][0] + " - " + team1.Rows[0][0];
+                Game6.Content = team2.Rows[0][0] + " - " + team3.Rows[0][0];
+            }
+            else if (GroupComboBox.SelectedIndex == 3)
+            {
+                DataTable dt = DBAdapter.DB.RunSelect("Select D From [Groups] ");
+                DataTable team1 = DBAdapter.DB.RunSelect("Select TeamName From [Teams] where ID_Team= " + dt.Rows[0][0]);
+                DataTable team2 = DBAdapter.DB.RunSelect("Select TeamName From [Teams] where ID_Team= " + dt.Rows[1][0]);
+                DataTable team3 = DBAdapter.DB.RunSelect("Select TeamName From [Teams] where ID_Team= " + dt.Rows[2][0]);
+                DataTable team4 = DBAdapter.DB.RunSelect("Select TeamName From [Teams] where ID_Team= " + dt.Rows[3][0]);
+
+                Game1.Content = team1.Rows[0][0] + " - " + team2.Rows[0][0];
+                Game2.Content = team3.Rows[0][0] + " - " + team4.Rows[0][0];
+                Game3.Content = team2.Rows[0][0] + " - " + team4.Rows[0][0];
+                Game4.Content = team1.Rows[0][0] + " - " + team3.Rows[0][0];
+                Game5.Content = team4.Rows[0][0] + " - " + team1.Rows[0][0];
+                Game6.Content = team2.Rows[0][0] + " - " + team3.Rows[0][0];
+            }
+            else if (GroupComboBox.SelectedIndex == 4)
+            {
+                DataTable dt = DBAdapter.DB.RunSelect("Select E From [Groups] ");
+                DataTable team1 = DBAdapter.DB.RunSelect("Select TeamName From [Teams] where ID_Team= " + dt.Rows[0][0]);
+                DataTable team2 = DBAdapter.DB.RunSelect("Select TeamName From [Teams] where ID_Team= " + dt.Rows[1][0]);
+                DataTable team3 = DBAdapter.DB.RunSelect("Select TeamName From [Teams] where ID_Team= " + dt.Rows[2][0]);
+                DataTable team4 = DBAdapter.DB.RunSelect("Select TeamName From [Teams] where ID_Team= " + dt.Rows[3][0]);
+
+                Game1.Content = team1.Rows[0][0] + " - " + team2.Rows[0][0];
+                Game2.Content = team3.Rows[0][0] + " - " + team4.Rows[0][0];
+                Game3.Content = team2.Rows[0][0] + " - " + team4.Rows[0][0];
+                Game4.Content = team1.Rows[0][0] + " - " + team3.Rows[0][0];
+                Game5.Content = team4.Rows[0][0] + " - " + team1.Rows[0][0];
+                Game6.Content = team2.Rows[0][0] + " - " + team3.Rows[0][0];
+            }
+            else if (GroupComboBox.SelectedIndex == 5)
+            {
+                DataTable dt = DBAdapter.DB.RunSelect("Select F From [Groups] ");
+                DataTable team1 = DBAdapter.DB.RunSelect("Select TeamName From [Teams] where ID_Team= " + dt.Rows[0][0]);
+                DataTable team2 = DBAdapter.DB.RunSelect("Select TeamName From [Teams] where ID_Team= " + dt.Rows[1][0]);
+                DataTable team3 = DBAdapter.DB.RunSelect("Select TeamName From [Teams] where ID_Team= " + dt.Rows[2][0]);
+                DataTable team4 = DBAdapter.DB.RunSelect("Select TeamName From [Teams] where ID_Team= " + dt.Rows[3][0]);
+
+                Game1.Content = team1.Rows[0][0] + " - " + team2.Rows[0][0];
+                Game2.Content = team3.Rows[0][0] + " - " + team4.Rows[0][0];
+                Game3.Content = team2.Rows[0][0] + " - " + team4.Rows[0][0];
+                Game4.Content = team1.Rows[0][0] + " - " + team3.Rows[0][0];
+                Game5.Content = team4.Rows[0][0] + " - " + team1.Rows[0][0];
+                Game6.Content = team2.Rows[0][0] + " - " + team3.Rows[0][0];
+            }
         }
     }
 }

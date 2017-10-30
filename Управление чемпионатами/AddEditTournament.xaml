@@ -5,31 +5,38 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Football"
         mc:Ignorable="d"
-        Title="AddEditTournament" Height="240" MinWidth="400" Width="400" MinHeight="240">
+        Title="AddEditTournament" Height="265" MinWidth="400" Width="420" MinHeight="265">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="140" MinWidth="140"></ColumnDefinition>
             <ColumnDefinition Width="*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <Label Grid.Column="0" Content="Tournament Name" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0"/>
-        <TextBox Grid.Column="0" x:Name="tournamentNameTextBox" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Margin="10,36,0,0"/>
-        <DatePicker Grid.Column="1" x:Name="startDate" HorizontalAlignment="Left" Margin="10,35,0,0" VerticalAlignment="Top"/>
-        <DatePicker Grid.Column="1" x:Name="endDate" HorizontalAlignment="Left" Margin="117,35,0,0" VerticalAlignment="Top"/>
+        <TextBox Grid.Column="0" x:Name="tournamentNameText" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Margin="10,36,0,0"/>
+        <DatePicker Grid.Column="1" x:Name="startDate" HorizontalAlignment="Left" Margin="10,35,0,0" VerticalAlignment="Top" Width="120"/>
+        <DatePicker Grid.Column="1" x:Name="endDate" HorizontalAlignment="Left" Margin="135,35,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.775,0.458" Width="120"/>
         <Label Grid.Column="1" Content="Start date" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0"/>
-        <Label Grid.Column="1" Content="End date" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="117,10,0,0"/>
-        <DataGrid Grid.Column="1" x:Name="countriesSelectionTable" Margin="10,64,9,34"/>
-        <GroupBox Grid.Column="0" x:Name="filterGroupBox" Header="GroupBox" HorizontalAlignment="Left" Height="111" VerticalAlignment="Top" Width="120" Margin="10,64,0,0">
+        <Label Grid.Column="1" Content="End date" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="135,10,0,0"/>
+        <DataGrid Grid.Column="1" x:Name="countriesSelectionTable" AutoGenerateColumns="False" Margin="10,64,9,34" SelectionMode="Single" CanUserReorderColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header ="ID" Binding="{Binding Id}" Visibility="Hidden"></DataGridTextColumn>
+                <DataGridTextColumn Header ="Team" Binding="{Binding Name}"></DataGridTextColumn>
+                <DataGridCheckBoxColumn  Header ="Participates" Binding="{Binding Participates}"></DataGridCheckBoxColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <GroupBox Grid.Column="0" x:Name="filterGroupBox" Header="Filter by region" HorizontalAlignment="Left" Height="139" VerticalAlignment="Top" Width="120" Margin="10,64,0,0">
             <StackPanel HorizontalAlignment="Stretch">
-                <RadioButton Content="All"/>
-                <RadioButton Content="Africa"/>
-                <RadioButton Content="America"/>
-                <RadioButton Content="Asia"/>
-                <RadioButton Content="Europe"/>
-                <RadioButton Content="others"/>
+                <RadioButton Content="All" IsChecked="True" Checked="RadioButton_Checked"/>
+                <RadioButton Content="Africa" Checked="RadioButton_Checked"/>
+                <RadioButton Content="America" Checked="RadioButton_Checked"/>
+                <RadioButton Content="Asia" Checked="RadioButton_Checked"/>
+                <RadioButton Content="Europe" Checked="RadioButton_Checked"/>
+                <RadioButton Content="others" Checked="RadioButton_Checked"/>
             </StackPanel>
         </GroupBox>
-        <Button Grid.Column="1" x:Name="saveAndCloseButton" Content="Save &amp; close" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="75" Margin="0,0,90,9"/>
-        <Button Grid.Column="1" x:Name="closeButton" Content="Close" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="75" Margin="0,0,10,9"/>
+        <Button Grid.Column="1" x:Name="saveAndCloseButton" Content="Save &amp; close" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="75" Margin="0,0,90,9" Click="saveAndCloseButton_Click"/>
+        <Button Grid.Column="1" x:Name="closeButton" Content="Close" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="75" Margin="0,0,10,9" Click="closeButton_Click"/>
 
     </Grid>
 </Window>
