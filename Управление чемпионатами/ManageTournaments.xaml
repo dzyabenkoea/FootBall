@@ -18,9 +18,15 @@
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition Width="100"></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <DataGrid x:Name="tournamentsTable"  Grid.Column="0" Grid.Row="0" Grid.RowSpan="5" SelectionChanged="tournamentsTable_SelectionChanged" SelectionMode="Single"/>
-        <Button Grid.Column="1" Click="Button_Click" Margin="5,2">Добавить</Button>
-        <Button x:Name="editButton" Grid.Row="1" Grid.Column="1" Click="Button_Click_1" IsEnabled="False" Margin="5,2">Редактировать</Button>
-        <Button x:Name="deleteButton" Grid.Row="3" Grid.Column="1" IsEnabled="False" Margin="5,2">Удалить</Button>
+        <DataGrid x:Name="tournamentsTable" AutoGenerateColumns="False" Grid.Column="0" Grid.Row="0" Grid.RowSpan="5" SelectionChanged="tournamentsTable_SelectionChanged" SelectionMode="Single">
+            <DataGrid.Columns>
+                <DataGridTextColumn  Header="Tournament" Binding="{Binding TournamentName}"/>
+                <DataGridTextColumn  Header="Starts" Binding="{Binding start_date}"/>
+                <DataGridTextColumn  Header="Ends" Binding="{Binding end_date}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button Grid.Column="1" Click="Button_Click" Margin="5,2" Content="Add"/>
+        <Button x:Name="editButton" Grid.Row="1" Grid.Column="1" Click="Button_Click_1" IsEnabled="False" Margin="5,2" Content="Edit"/>
+        <Button x:Name="deleteButton" Grid.Row="3" Grid.Column="1" IsEnabled="False" Margin="5,2" Content="Delete"/>
     </Grid>
 </Window>

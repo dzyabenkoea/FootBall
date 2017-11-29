@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Football"
         mc:Ignorable="d"
-        Title="AddEditTournament" Height="265" MinWidth="400" Width="420" MinHeight="265">
+        Title="AddEditTournament" Height="265" MinWidth="420" Width="420" MinHeight="265">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="140" MinWidth="140"></ColumnDefinition>

@@ -20,8 +20,48 @@ namespace Football
     /// <summary>
     /// Логика взаимодействия для MainWindow.xaml
     /// </summary>
+    /// 
+
+
+    public class Tournament
+    {
+        int id;
+        string name;
+        DateTime startDate, endDate;
+
+        public Tournament(int id, string name, DateTime startDate, DateTime endDate)
+        {
+            this.id = id;
+            this.name = name;
+            this.startDate = startDate;
+            this.endDate = endDate;
+        }
+        public int ID
+        {
+            get { return id; }
+            set { id = value; }
+        }
+        public string Name
+        {
+            get { return name; }
+            set { name = value; }
+        }
+        public DateTime StartDate
+        {
+            get { return startDate; }
+            set { startDate = value; }
+        }
+        public DateTime EndDate
+        {
+            get { return endDate; }
+            set { endDate = value; }
+        }
+    }
+
     public partial class ManageTournaments : Window
     {
+        DataTable tournaments;
+
         public ManageTournaments()
         {
             InitializeComponent();
@@ -30,24 +70,13 @@ namespace Football
 
         void InitializeTable()
         {
-            DataTable dt = DB.RunSelect("select * from Tournaments");
-
-            foreach (DataColumn dc in dt.Columns)
-            {
-                DataGridTextColumn newColumn = new DataGridTextColumn();
-                newColumn.Header = dc.ColumnName;
-                newColumn.Binding = new Binding(dc.ColumnName);
-            }
-            string[] columnsToShow = new string[] { "TournamentsName", "Start_date", "End_Date" };
-            string[] columnsAliases = new string[] { "Tournament", "Start date", "End date" };
-
-            tournamentsTable.ItemsSource = dt.DefaultView;
-
+            tournaments = DB.RunSelect("select * from Tournaments");
+            tournamentsTable.ItemsSource = tournaments.DefaultView;
         }
 
         void UpdateTable()
         {
-            tournamentsTable.ItemsSource = DB.SelectEntireTable("Tournaments").DefaultView;
+            tournaments = DB.SelectEntireTable("Tournaments");
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
