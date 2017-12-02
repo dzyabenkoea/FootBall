@@ -20,7 +20,10 @@ namespace Football
     /// Логика взаимодействия для MainWindow.xaml
     /// </summary>
     public partial class ManageRoundOf16Games : Window
+  
     {
+        public int ID_Stage { get; private set; }
+        public bool IsEnded { get; private set; }
         public ManageRoundOf16Games()
         {
             InitializeComponent();
@@ -37,6 +40,7 @@ namespace Football
                 Country2.Content = dt1.Rows[0].ItemArray[0];
                 Point1.Content = dt.Rows[0].ItemArray[2];
                 Point2.Content = dt.Rows[0].ItemArray[3];
+               
 
                 Country3.Content = dt.Rows[1].ItemArray[0];
                 Country4.Content = dt1.Rows[1].ItemArray[0];
@@ -93,11 +97,77 @@ namespace Football
 
         private void Edit1_Click(object sender, RoutedEventArgs e)
         {
-            
             EditGameStartingGrid gameStartingGrid = new EditGameStartingGrid();
+            gameStartingGrid.Namegroup = Country1.Content.ToString()+"-"+ Country2.Content.ToString();
+            gameStartingGrid.Score = Point1.Content.ToString() + ":" + Point2.Content.ToString();
             gameStartingGrid.Owner = this;
+            gameStartingGrid.ID_Stage = ID_Stage;
+            gameStartingGrid.IsEnded = IsEnded;
             gameStartingGrid.ShowDialog();
            
+        }
+
+        private void Edit2_Click(object sender, RoutedEventArgs e)
+        {
+            EditGameStartingGrid gameStartingGrid = new EditGameStartingGrid();
+            gameStartingGrid.Namegroup = Country3.Content.ToString() + "-" + Country4.Content.ToString();
+            gameStartingGrid.Score = Point3.Content.ToString() + ":" + Point4.Content.ToString();
+            gameStartingGrid.Owner = this;
+            gameStartingGrid.ShowDialog();
+        }
+
+        private void Edit1_Copy_Click(object sender, RoutedEventArgs e)
+        {
+            EditGameStartingGrid gameStartingGrid = new EditGameStartingGrid();
+            gameStartingGrid.Namegroup = Country5.Content.ToString() + "-" + Country6.Content.ToString();
+            gameStartingGrid.Score = Point5.Content.ToString() + ":" + Point6.Content.ToString();
+            gameStartingGrid.Owner = this;
+            gameStartingGrid.ShowDialog();
+        }
+
+        private void Edit2_Copy_Click(object sender, RoutedEventArgs e)
+        {
+            EditGameStartingGrid gameStartingGrid = new EditGameStartingGrid();
+            gameStartingGrid.Namegroup = Country7.Content.ToString() + "-" + Country8.Content.ToString();
+            gameStartingGrid.Score = Point7.Content.ToString() + ":" + Point8.Content.ToString();
+            gameStartingGrid.Owner = this;
+            gameStartingGrid.ShowDialog();
+        }
+
+        private void Edit1_Copy1_Click(object sender, RoutedEventArgs e)
+        {
+            EditGameStartingGrid gameStartingGrid = new EditGameStartingGrid();
+            gameStartingGrid.Namegroup = Country9.Content.ToString() + "-" + Country10.Content.ToString();
+            gameStartingGrid.Score = Point9.Content.ToString() + ":" + Point10.Content.ToString();
+            gameStartingGrid.Owner = this;
+            gameStartingGrid.ShowDialog();
+        }
+
+        private void Edit2_Copy1_Click(object sender, RoutedEventArgs e)
+        {
+            EditGameStartingGrid gameStartingGrid = new EditGameStartingGrid();
+            gameStartingGrid.Namegroup = Country11.Content.ToString() + "-" + Country12.Content.ToString();
+            gameStartingGrid.Score = Point11.Content.ToString() + ":" + Point12.Content.ToString();
+            gameStartingGrid.Owner = this;
+            gameStartingGrid.ShowDialog();
+        }
+
+        private void Edit1_Copy2_Click(object sender, RoutedEventArgs e)
+        {
+            EditGameStartingGrid gameStartingGrid = new EditGameStartingGrid();
+            gameStartingGrid.Namegroup = Country13.Content.ToString() + "-" + Country14.Content.ToString();
+            gameStartingGrid.Score = Point13.Content.ToString() + ":" + Point14.Content.ToString();
+            gameStartingGrid.Owner = this;
+            gameStartingGrid.ShowDialog();
+        }
+
+        private void Edit2_Copy2_Click(object sender, RoutedEventArgs e)
+        {
+            EditGameStartingGrid gameStartingGrid = new EditGameStartingGrid();
+            gameStartingGrid.Namegroup = Country15.Content.ToString() + "-" + Country16.Content.ToString();
+            gameStartingGrid.Score = Point15.Content.ToString() + ":" + Point16.Content.ToString();
+            gameStartingGrid.Owner = this;
+            gameStartingGrid.ShowDialog();
         }
     }
 }

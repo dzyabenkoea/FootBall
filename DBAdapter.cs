@@ -27,11 +27,17 @@ namespace DBAdapter
         }
         public static DataTable RunSelect(string zapros)
         {
-            SqlDataAdapter dataadapter = new SqlDataAdapter(zapros, connection);
-            DataTable dt = new DataTable();
-            connection.Open();
-            dataadapter.Fill(dt);
-            connection.Close();
+            DataTable dt = new DataTable() ;
+            try
+            {
+                SqlDataAdapter dataadapter = new SqlDataAdapter(zapros, connection);
+                dt = new DataTable();
+                connection.Open();
+                dataadapter.Fill(dt);
+                connection.Close();
+            }
+            catch(Exception eror)
+            { string error = eror.Message; }
             return dt;
         }
 

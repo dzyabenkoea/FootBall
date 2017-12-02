@@ -69,5 +69,41 @@ namespace Football
             }
             catch { }
         }
+
+        private void Edit_Click(object sender, RoutedEventArgs e)
+        {
+            EditGameStartingGrid gameStartingGrid = new EditGameStartingGrid();
+            gameStartingGrid.Namegroup = Country1.Content.ToString() + "-" + Country2.Content.ToString();
+            gameStartingGrid.Score = Point1.Content.ToString() + ":" + Point2.Content.ToString();
+            gameStartingGrid.Owner = this;
+            gameStartingGrid.ShowDialog();
+        }
+
+        private void Edit_Copy_Click(object sender, RoutedEventArgs e)
+        {
+            EditGameStartingGrid gameStartingGrid = new EditGameStartingGrid();
+            gameStartingGrid.Namegroup = Country3.Content.ToString() + "-" + Country4.Content.ToString();
+            gameStartingGrid.Score = Point3.Content.ToString() + ":" + Point4.Content.ToString();
+            gameStartingGrid.Owner = this;
+            gameStartingGrid.ShowDialog();
+        }
+
+        private void Edit_Copy1_Click(object sender, RoutedEventArgs e)
+        {
+            EditGameStartingGrid gameStartingGrid = new EditGameStartingGrid();
+            gameStartingGrid.Namegroup = Country5.Content.ToString() + "-" + Country6.Content.ToString();
+            gameStartingGrid.Score = Point5.Content.ToString() + ":" + Point6.Content.ToString();
+            gameStartingGrid.Owner = this;
+            gameStartingGrid.ShowDialog();
+        }
+
+        private void Edit_Copy2_Click(object sender, RoutedEventArgs e)
+        {
+            EditGameStartingGrid gameStartingGrid = new EditGameStartingGrid();
+            gameStartingGrid.Namegroup = Country7.Content.ToString() + "-" + Country8.Content.ToString();
+            gameStartingGrid.Score = Point7.Content.ToString() + ":" + Point8.Content.ToString();
+            gameStartingGrid.Owner = this;
+            gameStartingGrid.ShowDialog();
+        }
     }
 }

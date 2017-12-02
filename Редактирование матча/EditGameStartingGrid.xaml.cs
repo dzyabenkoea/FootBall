@@ -22,106 +22,62 @@ namespace Football
     {
         public EditGameStartingGrid()
         {
-            InitializeComponent();           
+            InitializeComponent();
         }
-        bool AddEdit = false;
-
-        void LoadPlayers()
-        {
-            Grid.ItemsSource = DBAdapter.DB.RunSelect("SELECT ID_Player AS [ID], lastname AS [Lastname], position AS Position FROM [Players]").DefaultView;
-            Grid.Columns[3].Visibility = Visibility.Hidden;
-        }
-        void LoadPlayers_1()
-        {
-            Grid2.ItemsSource = DBAdapter.DB.RunSelect("SELECT ID_Player AS [ID], lastname AS [Lastname], position AS Position FROM [Players]").DefaultView;
-            Grid2.Columns[3].Visibility = Visibility.Hidden;
-        }
-
+       
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Close();
         }
-
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        string nameG;
+        string score;
+       public string Namegroup
         {
-            AddEditToStartingGrid addEditToStarting = new AddEditToStartingGrid();
-            addEditToStarting.Owner = this;
-            addEditToStarting.ShowDialog();
+              set { nameG = value; }
+        }
+        public string Score
+        {
+            set { score = value; }
         }
 
-        private void Button_Click_2(object sender, RoutedEventArgs e)
-        {
-            AddEditToStartingGrid addEditToStarting = new AddEditToStartingGrid();
-            addEditToStarting.Owner = this;
-            addEditToStarting.ShowDialog();
-        }
+        public bool IsEnded { get; set; }
 
-        private void Grid_Loaded(object sender, RoutedEventArgs e)
-        {
-            LoadPlayers();
-           
-
-                }
-        
-        public void AddEditPlayers()
-        {
-            void LoadPlayers()
-            {
-                Grid.ItemsSource = DBAdapter.DB.RunSelect("SELECT ID_Player AS [ID], lastname AS [Lastname], position AS Position FROM [Players]").DefaultView;
-                Grid.Columns[3].Visibility = Visibility.Hidden;
-               
-            }
-        }
-
-        private void Button_Click_3(object sender, RoutedEventArgs e)
-        {
-            int i = Grid.SelectedIndex;
-            if (i != -1)
-            {
-                if (MessageBox.Show("Удалить?", "", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
-                    DBAdapter.DB.RunInsert("Delete From [Players] Where ID_Player = '" + ((DataRowView)Grid.Items[i]).Row[0].ToString() + "'");
-            }
-            else
-            {
-                MessageBox.Show("Выберите команду для удаления");
-            }
-
-        }
-        private void Grid2_Loaded(object sender, RoutedEventArgs e)
-        {
-            LoadPlayers();
-        }
-
-        private void Button_Click_4(object sender, RoutedEventArgs e)
-        {
-            int i = Grid2.SelectedIndex;
-            if (i != -1)
-            {
-                if (MessageBox.Show("Удалить?", "", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
-                    DBAdapter.DB.RunInsert("Delete From [Players] Where ID_Player = '" + ((DataRowView)Grid2.Items[i]).Row[0].ToString() + "'");
-            }
-            else
-            {
-                MessageBox.Show("Выберите команду для удаления");
-            }
-        }
-
+        public int ID_Stage;
         private void Button_Click_5(object sender, RoutedEventArgs e)
         {
-            //if (!AddEdit)
-            //{
-            //    DBAdapter.DB.RunInsert("Insert Into [Players] (lastname,position) values('" + Player.SelectedValue + "','" + Position.SelectedValue + "')");
-            //}
-            //else
-            //{
-            //    if (Position.Text != "" && Player.Text != "")
-            //        DBAdapter.DB.RunInsert($"Update [Players] Set player = '{Player.SelectedValue}', position = '{Position.SelectedValue}' WHERE ID_Player = '{idPlayer}'");
-
-            //}
-            //EditGameStartingGrid frm = (EditGameStartingGrid)this.Owner;
-            //frm.AddEditPlayers();
+            var q = $"Update [Stage] SET [IsFinished] = {Convert.ToInt32(Check1.IsChecked)} WHERE ID_Stage = {ID_Stage}";
+            DBAdapter.DB.RunInsert(q);
             Close();
         }
-        
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            
+            Sc.Content = score;
+            Result.Content = nameG;
+
+            string[] nG = new string[2];
+            nG = nameG.Split('-');
+            Grid.ItemsSource = DBAdapter.DB.RunSelect("SELECT ID_Player AS [ID], lastname AS [Lastname], firstname as[Firstname], position AS Position FROM [Players] inner join Teams on Players.team_id=Teams.ID_Team Where TeamName ='" + nG[0] + "'").DefaultView;
+            //Grid.Columns[3].Visibility = Visibility.Hidden;
+            Grid2.ItemsSource = DBAdapter.DB.RunSelect("SELECT ID_Player AS [ID], lastname AS [Lastname], firstname as[Firstname], position AS Position FROM [Players] inner join Teams on Players.team_id=Teams.ID_Team Where TeamName ='" + nG[1] + "'").DefaultView;
+            //Grid2.Columns[3].Visibility = Visibility.Hidden;
+
+            // найти код команд
+            int cod1comand = Convert.ToInt32( DBAdapter.DB.RunSelect(@"SELECT ID_Team
+                                                      From Teams
+                                                      Where TeamName = '"+ nG[0] + "'").Rows[0][0]);
+            int cod2comand = Convert.ToInt32(DBAdapter.DB.RunSelect(@"SELECT ID_Team
+                                                      From Teams
+                                                      Where TeamName = '" + nG[1] + "'").Rows[0][0]);
+
+            DataTable dt = DBAdapter.DB.RunSelect(@"SELECT *
+                                                    From Stage
+                                                    Where (Team1_ID = '"+ cod1comand + "' and Team2_ID = '"+ cod2comand + "')");
+
+            Check1.IsChecked = (bool)dt.Rows[0]["IsFinished"];
+
+        }
+
     }
 }

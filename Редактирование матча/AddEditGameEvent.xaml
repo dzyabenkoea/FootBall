@@ -4,8 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Football"
-        mc:Ignorable="d"
-        Title="AddEditGameEvent" Height="280" Width="450">
+        mc:Ignorable="d" Height="280" Width="450">
     <Grid Margin="0,0,2,5">
         <Label Content="Minute" HorizontalAlignment="Left" Margin="12,22,0,0" VerticalAlignment="Top" FontFamily="Tahoma"/>
         <TextBox HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="253" Margin="176,24,0,0" FontFamily="Tahoma"/>

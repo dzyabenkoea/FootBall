@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Football"
         mc:Ignorable="d"
-        Title="EditGame_StartingGrid" Height="474" Width="753">
+        x:Name="this"
+        Title="EditGame_StartingGrid" Height="474" Width="753" Loaded="Window_Loaded">
     <Grid Margin="0,0,12,0" RenderTransformOrigin="0.5,0.5">
         <Grid.RenderTransform>
             <TransformGroup>
@@ -15,25 +16,23 @@
                 <TranslateTransform/>
             </TransformGroup>
         </Grid.RenderTransform>
-
-        <Label Content="Result Switzerland - France 0:1*" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,16,0,0" FontFamily="Tahoma"/>
-        <CheckBox Content="Game started" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="479,34,0,0" FontFamily="Tahoma"/>
-        <CheckBox Content="Game finished" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="479,13,0,0" FontFamily="Tahoma"/>
+        <Label Name="Result" Content="Result Switzerland - France 0:1*" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,16,0,0" FontFamily="Tahoma"/>
+        <CheckBox Name="Check2"  Content="Game started" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="618,37,0,0" FontFamily="Tahoma"/>
+        <CheckBox Name="Check1" IsChecked="{Binding ElementName=this, Path=IsEnded}" Content="Game finished" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="618,16,0,0" FontFamily="Tahoma"/>
         <TabControl HorizontalAlignment="Left" Height="289" Margin="10,68,0,0" VerticalAlignment="Top" Width="723">
             <TabItem Header="Starting Grid" FontFamily="Tahoma">
-                <Grid Background="#FFE5E5E5" Margin="0,0,8,-2" Loaded="Grid_Loaded">
+                <Grid Background="#FFE5E5E5" Margin="0,0,8,-2" Height="261" VerticalAlignment="Top">
                     <Grid.RowDefinitions>
                         <RowDefinition/>
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition/>
+                        <ColumnDefinition Width="92*"/>
+                        <ColumnDefinition Width="14*"/>
+                        <ColumnDefinition Width="12*"/>
+                        <ColumnDefinition Width="587*"/>
                     </Grid.ColumnDefinitions>
-                    <Button Content="Add" HorizontalAlignment="Left" Margin="18,227,0,14" Width="75" FontFamily="Tahoma" Click="Button_Click_1"/>
-                    <Button Content="Delete" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="109,227,0,0" FontFamily="Tahoma" Click="Button_Click_3"/>
-                    <DataGrid x:Name="Grid" HorizontalAlignment="Left" Height="184" Margin="18,30,0,0" VerticalAlignment="Top" Width="315"/>
-                    <DataGrid x:Name="Grid2" HorizontalAlignment="Left" Height="182" Margin="372,32,0,0" VerticalAlignment="Top" Width="315" Loaded="Grid2_Loaded"/>
-                    <Button Content="Add" HorizontalAlignment="Left" Margin="372,227,0,0" VerticalAlignment="Top" Width="75" FontFamily="Tahoma" Click="Button_Click_2"/>
-                    <Button Content="Delete" HorizontalAlignment="Left" Margin="469,227,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.25,0.429" FontFamily="Tahoma" Click="Button_Click_4"/>
+                    <DataGrid x:Name="Grid" HorizontalAlignment="Left" Height="184" Margin="18,30,0,0" VerticalAlignment="Top" Width="315" Grid.ColumnSpan="4"/>
+                    <DataGrid x:Name="Grid2" HorizontalAlignment="Left" Height="182" Margin="254,32,0,0" VerticalAlignment="Top" Width="315" Grid.Column="3"/>
                 </Grid>
             </TabItem>
             <TabItem Header="Events" FontFamily="Tahoma">
@@ -47,6 +46,7 @@
         </TabControl>
         <Button Content="Save and Close" HorizontalAlignment="Left" Margin="529,382,0,0" VerticalAlignment="Top" Width="87" Height="38" FontFamily="Tahoma" Click="Button_Click_5"/>
         <Button Content="Close" HorizontalAlignment="Left" Margin="648,382,0,0" VerticalAlignment="Top" Width="75" Height="38" FontFamily="Tahoma" Click="Button_Click"/>
+        <Label Name="Sc" Content="" HorizontalAlignment="Left" Margin="197,13,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.54,-0.321"/>
     </Grid>
 </Window>
 
