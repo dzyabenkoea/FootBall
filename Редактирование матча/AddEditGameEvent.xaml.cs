@@ -58,7 +58,7 @@ namespace Football
             }
             List<string> events_ = new List<string>() { "Goal", "Foul", "Free kick", "Corner", "Penalty", "Substitute", "Yellow Card", "Red Card" };
 
-            for (int i = 0; i <= events_.Count; i++)
+            for (int i = 0; i <= events_.Count-1; i++)
             {
                 ListEvent.Items.Add(events_[i]);
                 if (Event_ == events_[i])
