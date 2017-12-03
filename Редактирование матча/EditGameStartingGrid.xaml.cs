@@ -48,14 +48,15 @@ namespace Football
         public int ID_Stage;
         private void Button_Click_5(object sender, RoutedEventArgs e)
         {
-            var q = $"Update [Stage] SET [IsFinished] = {Convert.ToInt32(Check1.IsChecked)} WHERE ID_Stage = {ID_Stage}";
+            var q = $"Update [Stage] SET [IsFinished] = {Convert.ToInt32(Check1.IsChecked)} WHERE ID_Stage = {StageID_}";
             DBAdapter.DB.RunInsert(q);
+
+            
             Close();
         }
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             
-            Sc.Content = score;
             Result.Content = nameG;
             string[] nG = new string[2];
 
@@ -82,6 +83,10 @@ namespace Football
                 Team2 = nG[1];
                 TableEvents((int)dt.Rows[0].ItemArray[0]);
                 StageID_ = (int)dt.Rows[0].ItemArray[0];
+
+                Score1_ = (int)dt.Rows[0].ItemArray[3];
+                Score2_ = (int)dt.Rows[0].ItemArray[4];
+                Sc.Content = (Score1_+":"+Score2_).ToString();
             }
             Check1.IsChecked = (bool)dt.Rows[0]["IsFinished"];
 
@@ -98,13 +103,17 @@ namespace Football
 
 
         }
-        public void Refresh()
+        public void Refresh(int sc1, int sc2, int st)
         {
+            StageID_=st;
             TableEvent.ItemsSource = null;
             
             TableEvent.Items.Refresh();
             TableEvent.ItemsSource = DBAdapter.DB.RunSelect("SELECT ID_Event, Min, Team_ID, Event, AdditionalInformation from [Events] where Stage_ID ='" + StageID_ + "'").DefaultView;
-
+            Score1_=sc1;
+            Score2_=sc2;
+            Sc.Content = (Score1_+":"+Score2_).ToString();
+            DBAdapter.DB.RunInsert("Update [Stage] SET [Score1]='"+Score1_+"', [Score2]='"+Score2_+ "'where [ID_Stage] = '"+StageID_+"'");
         }
         private void EditEvent_Click(object sender, RoutedEventArgs e)
         {
@@ -116,7 +125,7 @@ namespace Football
             
             DataTable Sel = DBAdapter.DB.RunSelect("Select TeamName from Teams where ID_Team='"+SelTeam+"'");
             string s = Sel.Rows[0].ItemArray[0].ToString();
-            AddEditGameEvent addEditGameEvent = new AddEditGameEvent(StageID_, Team1, Team2, id_event, s, Min, Event, Info);
+            AddEditGameEvent addEditGameEvent = new AddEditGameEvent(StageID_, Team1, Team2, id_event, s, Min, Event, Info, Score1_, Score2_);
 
             addEditGameEvent.Show();
 
@@ -140,7 +149,7 @@ namespace Football
                 MessageBox.Show("Выберите строку, которую необходимо удалить!");
             }
         }
-        public int StageID_; string Team1; string Team2;
+        public int StageID_; string Team1; string Team2; int Score1_; int Score2_;
         public void TableEvents(int StageId) {
             TableEvent.ItemsSource = DBAdapter.DB.RunSelect("SELECT ID_Event, Min, Team_ID, Event, AdditionalInformation from [Events] where Stage_ID ='"+StageId+"'").DefaultView;
           

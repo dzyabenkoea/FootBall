@@ -20,7 +20,7 @@ namespace Football
     /// </summary>
     public partial class AddEditGameEvent : Window
     {
-        int StageID_; string Team1_; string Team2_; int IDEvent_=0; int Minute_; string Event_; string AdditionalInfo_;
+        int StageID_; string Team1_; string Team2_; int IDEvent_=0; int Minute_; string Event_; string AdditionalInfo_; int Score1_; int Score2_;
         public AddEditGameEvent(int StageID, string T1, string T2)
         {
             InitializeComponent();
@@ -28,7 +28,7 @@ namespace Football
              Team1_ = T1;
              Team2_ = T2;
         }
-        public AddEditGameEvent(int StageID, string T1, string T2, int id_Event, string SelectionTeam, int Min, string Event, string Info)
+        public AddEditGameEvent(int StageID, string T1, string T2, int id_Event, string SelectionTeam, int Min, string Event, string Info, int sc1, int sc2)
         {
             InitializeComponent();
             StageID_ = StageID;
@@ -38,6 +38,8 @@ namespace Football
             Minute_ = Min;
             Event_ = Event;
             AdditionalInfo_ = Info;
+            Score1_=sc1;
+            Score2_=sc2;
             if (Team1_ == SelectionTeam) { Team1.IsChecked = true; }
             else if (Team2_ == SelectionTeam) { Team2.IsChecked = true; }
         }
@@ -96,17 +98,28 @@ namespace Football
                 AdditionalInfo_ = Additional.Text;
                 DataTable Sel = DBAdapter.DB.RunSelect("Select ID_Team from Teams where TeamName='" + SelectedTeam + "'");
                 int selectedTeam = int.Parse(Sel.Rows[0].ItemArray[0].ToString());
-                 EditGameStartingGrid editGameStartingGrid = new EditGameStartingGrid();
+                if(Event_ == "Goal")
+                {
+                    if(SelectedTeam==Team1_)
+                    {
+                        Score1_++;
+                    }
+                    else 
+                    {
+                        Score2_++;
+                    }
+                }
+                EditGameStartingGrid editGameStartingGrid = new EditGameStartingGrid();
                 if (IDEvent_ != 0)
                 {
                    DBAdapter.DB.RunInsert("Update [Events] SET [Min] = '"+Minute_+"', [Team_ID] = '"+selectedTeam+"', [Event] = '"+Event_+"', [AdditionalInformation] = '"+AdditionalInfo_+"' where [ID_Event] = '"+IDEvent_+"'");
                    
-                    editGameStartingGrid.Refresh();
+                    editGameStartingGrid.Refresh(Score1_, Score2_,StageID_);
                 }
                 else//add
                 {
                     DBAdapter.DB.RunInsert("Insert Into [Events] (Stage_ID, Min, Team_ID,  Event, AdditionalInformation) values('" + StageID_ + "','" + Minute_ + "','" + selectedTeam + "','" + Event_ + "','" + AdditionalInfo_ + "')");
-                    editGameStartingGrid.Refresh();
+                    editGameStartingGrid.Refresh(Score1_, Score2_,StageID_);
                 }
                 Close();
             }
