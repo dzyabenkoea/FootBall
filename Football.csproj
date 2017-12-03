@@ -136,6 +136,7 @@
       <SubType>Designer</SubType>
     </Page>
     <Compile Include="DBAdapter.cs" />
+    <Compile Include="Управление чемпионатами\TeamParticipant.cs" />
     <Compile Include="Управления командами\AddEditPlayer.xaml.cs">
       <DependentUpon>AddEditPlayer.xaml</DependentUpon>
     </Compile>

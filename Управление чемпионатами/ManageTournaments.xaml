@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Football"
         mc:Ignorable="d"
-        Title="ManageTournaments" Height="261.184" Width="600">
+        Title="ManageTournaments" Height="260" Width="650" MinWidth="650" MinHeight="260">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="30"></RowDefinition>
@@ -20,13 +20,13 @@
         </Grid.ColumnDefinitions>
         <DataGrid x:Name="tournamentsTable" AutoGenerateColumns="False" Grid.Column="0" Grid.Row="0" Grid.RowSpan="5" SelectionChanged="tournamentsTable_SelectionChanged" SelectionMode="Single">
             <DataGrid.Columns>
-                <DataGridTextColumn  Header="Tournament" Binding="{Binding TournamentName}"/>
-                <DataGridTextColumn  Header="Starts" Binding="{Binding start_date}"/>
-                <DataGridTextColumn  Header="Ends" Binding="{Binding end_date}"/>
+                <DataGridTextColumn  Width="0.5*" Header="Tournament" Binding="{Binding TournamentName}"/>
+                <DataGridTextColumn   Width="0.25*" Header="Starts" Binding="{Binding start_date}"/>
+                <DataGridTextColumn Width="0.25*"  Header="Ends" Binding="{Binding end_date}"/>
             </DataGrid.Columns>
         </DataGrid>
-        <Button Grid.Column="1" Click="Button_Click" Margin="5,2" Content="Add"/>
-        <Button x:Name="editButton" Grid.Row="1" Grid.Column="1" Click="Button_Click_1" IsEnabled="False" Margin="5,2" Content="Edit"/>
+        <Button x:Name="addButton" Grid.Column="1" Click="Button_Click" Margin="5,2" Content="Add"/>
+        <Button x:Name="editButton" Grid.Row="1" Grid.Column="1" Click="EditButtonClick" IsEnabled="False" Margin="5,2" Content="Edit"/>
         <Button x:Name="deleteButton" Grid.Row="3" Grid.Column="1" IsEnabled="False" Margin="5,2" Content="Delete"/>
     </Grid>
 </Window>
