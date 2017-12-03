@@ -17,7 +17,7 @@
             </TransformGroup>
         </Grid.RenderTransform>
         <Label Name="Result" Content="Result Switzerland - France 0:1*" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,16,0,0" FontFamily="Tahoma"/>
-        <CheckBox Name="Check2"  Content="Game started" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="618,37,0,0" FontFamily="Tahoma"/>
+        <CheckBox Name="Check2"  Content="Game started" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="618,37,0,0" FontFamily="Tahoma" Checked="Check2_Checked"/>
         <CheckBox Name="Check1" IsChecked="{Binding ElementName=this, Path=IsEnded}" Content="Game finished" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="618,16,0,0" FontFamily="Tahoma"/>
         <TabControl HorizontalAlignment="Left" Height="289" Margin="10,68,0,0" VerticalAlignment="Top" Width="723">
             <TabItem Header="Starting Grid" FontFamily="Tahoma">
@@ -35,12 +35,16 @@
                     <DataGrid x:Name="Grid2" HorizontalAlignment="Left" Height="182" Margin="254,32,0,0" VerticalAlignment="Top" Width="315" Grid.Column="3"/>
                 </Grid>
             </TabItem>
-            <TabItem Header="Events" FontFamily="Tahoma">
+            <TabItem x:Name="Ev" Header="Events" FontFamily="Tahoma" Visibility="Hidden">
                 <Grid Background="#FFE5E5E5" Margin="0,0,-5,-4">
-                    <DataGrid HorizontalAlignment="Left" Height="189" Margin="10,27,0,0" VerticalAlignment="Top" Width="698"/>
-                    <Button Content="Add" HorizontalAlignment="Left" Margin="10,226,0,0" VerticalAlignment="Top" Width="75"/>
-                    <Button Content="Edit" HorizontalAlignment="Left" Margin="110,226,0,0" VerticalAlignment="Top" Width="75"/>
-                    <Button Content="Delete" HorizontalAlignment="Left" Margin="217,226,0,0" VerticalAlignment="Top" Width="75"/>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="47*"/>
+                        <ColumnDefinition Width="312*"/>
+                    </Grid.ColumnDefinitions>
+                    <DataGrid x:Name="TableEvent" HorizontalAlignment="Left" Height="189" Margin="10,27,0,0" VerticalAlignment="Top" Width="698" Grid.ColumnSpan="2" />
+                    <Button Content="Add" HorizontalAlignment="Left" Margin="10,226,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_1"/>
+                    <Button Content="Edit" HorizontalAlignment="Left" Margin="16.136,226,0,0" VerticalAlignment="Top" Width="75" Click="EditEvent_Click" Grid.Column="1"/>
+                    <Button Content="Delete" HorizontalAlignment="Left" Margin="123.136,226,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_2" Grid.Column="1"/>
                 </Grid>
             </TabItem>
         </TabControl>

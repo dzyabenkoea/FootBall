@@ -13,7 +13,7 @@ namespace DBAdapter
         static DB instance;
 
         static SqlConnection connection =  new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\FootballBase.mdf;Integrated Security = True");//Егор;
-
+        //static SqlConnection connection = new SqlConnection(@"Server=PC; DataBase=Foot; Integrated security = True");//Daria
         public DB()
         {
 
