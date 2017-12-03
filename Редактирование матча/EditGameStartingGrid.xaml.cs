@@ -48,7 +48,7 @@ namespace Football
         public int ID_Stage;
         private void Button_Click_5(object sender, RoutedEventArgs e)
         {
-            var q = $"Update [Stage] SET [IsFinished] = {Convert.ToInt32(Check1.IsChecked)} WHERE ID_Stage = {ID_Stage}";
+            var q = $"Update [Stage] SET [IsFinished] = {Convert.ToInt32(Check1.IsChecked)} WHERE ID_Stage = {StageID_}";
             DBAdapter.DB.RunInsert(q);
             Close();
         }

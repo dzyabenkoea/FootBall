@@ -39,7 +39,7 @@ namespace Football
         {
             EditGameStartingGrid gameStartingGrid = new EditGameStartingGrid();
             gameStartingGrid.Namegroup = Game1_Copy.Content.ToString() + "-" + Game1_Copy1.Content.ToString();
-            //gameStartingGrid.Score = Point7.Content.ToString() + ":" + Point8.Content.ToString();
+            gameStartingGrid.Score = Label1.Content.ToString();
             gameStartingGrid.Owner = this;
             gameStartingGrid.ShowDialog();
         }
@@ -49,7 +49,7 @@ namespace Football
         {
             EditGameStartingGrid gameStartingGrid = new EditGameStartingGrid();
             gameStartingGrid.Namegroup = Game2.Content.ToString() + "-" + Game1_Copy2.Content.ToString();
-            //gameStartingGrid.Score = Point7.Content.ToString() + ":" + Point8.Content.ToString();
+            gameStartingGrid.Score = Label3.Content.ToString();
             gameStartingGrid.Owner = this;
             gameStartingGrid.ShowDialog();
         }
@@ -58,7 +58,7 @@ namespace Football
         {
             EditGameStartingGrid gameStartingGrid = new EditGameStartingGrid();
             gameStartingGrid.Namegroup = Game3.Content.ToString() + "-" + Game1_Copy3.Content.ToString();
-            //gameStartingGrid.Score = Point7.Content.ToString() + ":" + Point8.Content.ToString();
+            gameStartingGrid.Score = Label4.Content.ToString();
             gameStartingGrid.Owner = this;
             gameStartingGrid.ShowDialog();
         }
@@ -67,7 +67,7 @@ namespace Football
         {
             EditGameStartingGrid gameStartingGrid = new EditGameStartingGrid();
             gameStartingGrid.Namegroup = Game4.Content.ToString() + "-" + Game1_Copy4.Content.ToString();
-            //gameStartingGrid.Score = Point7.Content.ToString() + ":" + Point8.Content.ToString();
+            gameStartingGrid.Score = Label5.Content.ToString();
             gameStartingGrid.Owner = this;
             gameStartingGrid.ShowDialog();
         }
@@ -76,7 +76,7 @@ namespace Football
         {
             EditGameStartingGrid gameStartingGrid = new EditGameStartingGrid();
             gameStartingGrid.Namegroup = Game5.Content.ToString() + "-" + Game1_Copy5.Content.ToString();
-            //gameStartingGrid.Score = Point7.Content.ToString() + ":" + Point8.Content.ToString();
+            gameStartingGrid.Score = Label6.Content.ToString();
             gameStartingGrid.Owner = this;
             gameStartingGrid.ShowDialog();
         }
@@ -85,7 +85,7 @@ namespace Football
         {
             EditGameStartingGrid gameStartingGrid = new EditGameStartingGrid();
             gameStartingGrid.Namegroup = Game6.Content.ToString() + "-" + Game1_Copy6.Content.ToString();
-            //gameStartingGrid.Score = Point7.Content.ToString() + ":" + Point8.Content.ToString();
+            gameStartingGrid.Score = Label7.Content.ToString();
             gameStartingGrid.Owner = this;
             gameStartingGrid.ShowDialog();
         }
