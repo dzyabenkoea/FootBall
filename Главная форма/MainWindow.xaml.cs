@@ -69,20 +69,23 @@ namespace Football
 
             dataGridFinal.ItemsSource = DBAdapter.DB.RunSelect("Select A.TeamName As Team1, CONCAT (Score1, ':', Score2) as Score , B.TeamName As Team2 From (([Stage] inner join [Teams] A On [Stage].Team1_ID = A.ID_Team) inner join [Teams] B On [Stage].Team2_ID = B.ID_Team) Where StageType_ID='12' and Tournament_ID='1'").DefaultView;
 
-            DataTable dt = new DataTable();
-            dt.Columns.Add("Team1");
-            dt.Columns.Add("Score");
-            dt.Columns.Add("Team2");
-            dt.Rows.Add(semi.Rows[0][0], semi.Rows[0][1], semi.Rows[0][2]);
-            dataGridSemiFinal.ItemsSource = dt.DefaultView;
-             
-            dt = new DataTable();
-            dt.Columns.Add("Team1");
-            dt.Columns.Add("Score");
-            dt.Columns.Add("Team2");
-            dt.Rows.Add(semi.Rows[1][0], semi.Rows[1][1], semi.Rows[1][2]);
-            dataGridSemiFinal1.ItemsSource = dt.DefaultView;
-            //  dataGridA.Items.Add(BitmapFrame.Create(new Uri(@"pack://siteoforigin:,,,/Resources/" + "afc.png")));
+            if (semi.Rows.Count > 0 )
+            {
+                DataTable dt = new DataTable();
+                dt.Columns.Add("Team1");
+                dt.Columns.Add("Score");
+                dt.Columns.Add("Team2");
+                dt.Rows.Add(semi.Rows[0][0], semi.Rows[0][1], semi.Rows[0][2]);
+                dataGridSemiFinal.ItemsSource = dt.DefaultView;
+
+                dt = new DataTable();
+                dt.Columns.Add("Team1");
+                dt.Columns.Add("Score");
+                dt.Columns.Add("Team2");
+                dt.Rows.Add(semi.Rows[1][0], semi.Rows[1][1], semi.Rows[1][2]);
+                dataGridSemiFinal1.ItemsSource = dt.DefaultView;
+                //  dataGridA.Items.Add(BitmapFrame.Create(new Uri(@"pack://siteoforigin:,,,/Resources/" + "afc.png")));
+            }
 
 
         }
