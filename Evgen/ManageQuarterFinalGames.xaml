@@ -15,7 +15,7 @@
         <Label x:Name="Point1" Content="-" HorizontalAlignment="Left" Margin="240,42,0,0" VerticalAlignment="Top" FontFamily="Tahoma" Width="24"/>
         <Label x:Name="Point2" Content="-" HorizontalAlignment="Left" Margin="260,42,0,0" VerticalAlignment="Top" FontFamily="Tahoma" Width="24"/>
         <Label x:Name="label1" Content=":" HorizontalAlignment="Left" Margin="250,42,0,0" VerticalAlignment="Top" FontFamily="Tahoma" Width="24"/>
-        <Button x:Name="Edit" Content="Edit..." HorizontalAlignment="Left" Margin="311,44,0,0" VerticalAlignment="Top" Width="75" FontFamily="Tahoma"/>
+        <Button x:Name="Edit" Content="Edit..." HorizontalAlignment="Left" Margin="311,44,0,0" VerticalAlignment="Top" Width="75" FontFamily="Tahoma" Click="Edit_Click"/>
 
 
         <Button x:Name="Finish" Content="Finish Quarter-Final" HorizontalAlignment="Left" Margin="183,220,0,0" VerticalAlignment="Top" Width="111" FontFamily="Tahoma" Height="31" Click="Finish_Click"/>
@@ -26,20 +26,20 @@
         <Label x:Name="Point3" Content="-" HorizontalAlignment="Left" Margin="240,82,0,0" VerticalAlignment="Top" FontFamily="Tahoma" Width="24"/>
         <Label x:Name="Point4" Content="-" HorizontalAlignment="Left" Margin="260,82,0,0" VerticalAlignment="Top" FontFamily="Tahoma" Width="24"/>
         <Label x:Name="label1_Copy" Content=":" HorizontalAlignment="Left" Margin="250,82,0,0" VerticalAlignment="Top" FontFamily="Tahoma" Width="24"/>
-        <Button x:Name="Edit_Copy" Content="Edit..." HorizontalAlignment="Left" Margin="311,84,0,0" VerticalAlignment="Top" Width="75" FontFamily="Tahoma"/>
+        <Button x:Name="Edit_Copy" Content="Edit..." HorizontalAlignment="Left" Margin="311,84,0,0" VerticalAlignment="Top" Width="75" FontFamily="Tahoma" Click="Edit_Copy_Click"/>
         <Label x:Name="Country5" Content="Germany" HorizontalAlignment="Left" Margin="15,131,0,0" VerticalAlignment="Top" FontFamily="Tahoma"/>
         <Label x:Name="Country6" Content="Italy" HorizontalAlignment="Left" Margin="110,131,0,0" VerticalAlignment="Top" FontFamily="Tahoma" RenderTransformOrigin="0.511,0.583"/>
         <Label x:Name="label_Copy1" Content="-" HorizontalAlignment="Left" Margin="100,131,0,0" VerticalAlignment="Top" FontFamily="Tahoma" Width="24"/>
         <Label x:Name="Point5" Content="-" HorizontalAlignment="Left" Margin="240,124,0,0" VerticalAlignment="Top" FontFamily="Tahoma" Width="24"/>
         <Label x:Name="Point6" Content="-" HorizontalAlignment="Left" Margin="260,124,0,0" VerticalAlignment="Top" FontFamily="Tahoma" Width="24"/>
         <Label x:Name="label1_Copy1" Content=":" HorizontalAlignment="Left" Margin="250,124,0,0" VerticalAlignment="Top" FontFamily="Tahoma" Width="24"/>
-        <Button x:Name="Edit_Copy1" Content="Edit..." HorizontalAlignment="Left" Margin="311,126,0,0" VerticalAlignment="Top" Width="75" FontFamily="Tahoma"/>
+        <Button x:Name="Edit_Copy1" Content="Edit..." HorizontalAlignment="Left" Margin="311,126,0,0" VerticalAlignment="Top" Width="75" FontFamily="Tahoma" Click="Edit_Copy1_Click"/>
         <Label x:Name="Country7" Content="France" HorizontalAlignment="Left" Margin="15,174,0,0" VerticalAlignment="Top" FontFamily="Tahoma"/>
         <Label x:Name="Country8" Content="Iceland" HorizontalAlignment="Left" Margin="110,174,0,0" VerticalAlignment="Top" FontFamily="Tahoma" RenderTransformOrigin="0.511,0.583"/>
         <Label x:Name="label_Copy2" Content="-" HorizontalAlignment="Left" Margin="100,174,0,0" VerticalAlignment="Top" FontFamily="Tahoma" Width="24"/>
         <Label x:Name="Point7" Content="-" HorizontalAlignment="Left" Margin="240,167,0,0" VerticalAlignment="Top" FontFamily="Tahoma" Width="24"/>
         <Label x:Name="Point8" Content="-" HorizontalAlignment="Left" Margin="260,167,0,0" VerticalAlignment="Top" FontFamily="Tahoma" Width="24"/>
         <Label x:Name="label1_Copy2" Content=":" HorizontalAlignment="Left" Margin="250,167,0,0" VerticalAlignment="Top" FontFamily="Tahoma" Width="24"/>
-        <Button x:Name="Edit_Copy2" Content="Edit..." HorizontalAlignment="Left" Margin="311,169,0,0" VerticalAlignment="Top" Width="75" FontFamily="Tahoma"/>
+        <Button x:Name="Edit_Copy2" Content="Edit..." HorizontalAlignment="Left" Margin="311,169,0,0" VerticalAlignment="Top" Width="75" FontFamily="Tahoma" Click="Edit_Copy2_Click"/>
     </Grid>
 </Window>

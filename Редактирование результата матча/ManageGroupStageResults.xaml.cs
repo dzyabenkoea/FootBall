@@ -37,32 +37,57 @@ namespace Football
 
         private void Edit1Button_Click(object sender, RoutedEventArgs e)
         {
-            new EditGameStartingGrid().Show();
+            EditGameStartingGrid gameStartingGrid = new EditGameStartingGrid();
+            gameStartingGrid.Namegroup = Game1_Copy.Content.ToString() + "-" + Game1_Copy1.Content.ToString();
+            gameStartingGrid.Score = Label1.Content.ToString();
+            gameStartingGrid.Owner = this;
+            gameStartingGrid.ShowDialog();
         }
+
 
         private void Edit2Button_Click(object sender, RoutedEventArgs e)
         {
-            new EditGameStartingGrid().Show();
+            EditGameStartingGrid gameStartingGrid = new EditGameStartingGrid();
+            gameStartingGrid.Namegroup = Game2.Content.ToString() + "-" + Game1_Copy2.Content.ToString();
+            gameStartingGrid.Score = Label3.Content.ToString();
+            gameStartingGrid.Owner = this;
+            gameStartingGrid.ShowDialog();
         }
 
         private void Edit3Button_Click(object sender, RoutedEventArgs e)
         {
-            new EditGameStartingGrid().Show();
+            EditGameStartingGrid gameStartingGrid = new EditGameStartingGrid();
+            gameStartingGrid.Namegroup = Game3.Content.ToString() + "-" + Game1_Copy3.Content.ToString();
+            gameStartingGrid.Score = Label4.Content.ToString();
+            gameStartingGrid.Owner = this;
+            gameStartingGrid.ShowDialog();
         }
 
         private void Edit4Button_Click(object sender, RoutedEventArgs e)
         {
-            new EditGameStartingGrid().Show();
+            EditGameStartingGrid gameStartingGrid = new EditGameStartingGrid();
+            gameStartingGrid.Namegroup = Game4.Content.ToString() + "-" + Game1_Copy4.Content.ToString();
+            gameStartingGrid.Score = Label5.Content.ToString();
+            gameStartingGrid.Owner = this;
+            gameStartingGrid.ShowDialog();
         }
 
         private void Edit5Button_Click(object sender, RoutedEventArgs e)
         {
-            new EditGameStartingGrid().Show();
+            EditGameStartingGrid gameStartingGrid = new EditGameStartingGrid();
+            gameStartingGrid.Namegroup = Game5.Content.ToString() + "-" + Game1_Copy5.Content.ToString();
+            gameStartingGrid.Score = Label6.Content.ToString();
+            gameStartingGrid.Owner = this;
+            gameStartingGrid.ShowDialog();
         }
 
         private void Edit6Button_Click(object sender, RoutedEventArgs e)
         {
-            new EditGameStartingGrid().Show();
+            EditGameStartingGrid gameStartingGrid = new EditGameStartingGrid();
+            gameStartingGrid.Namegroup = Game6.Content.ToString() + "-" + Game1_Copy6.Content.ToString();
+            gameStartingGrid.Score = Label7.Content.ToString();
+            gameStartingGrid.Owner = this;
+            gameStartingGrid.ShowDialog();
         }
 
         private void Grid_Loaded(object sender, RoutedEventArgs e)
@@ -81,12 +106,13 @@ namespace Football
             DataTable team3 = DBAdapter.DB.RunSelect("Select TeamName From [Teams] where ID_Team= " + dt.Rows[2][0]);
             DataTable team4 = DBAdapter.DB.RunSelect("Select TeamName From [Teams] where ID_Team= " + dt.Rows[3][0]);
 
-            Game1.Content = team1.Rows[0][0] + " - " + team2.Rows[0][0];
-            Game2.Content = team3.Rows[0][0] + " - " + team4.Rows[0][0];
-            Game3.Content = team2.Rows[0][0] + " - " + team4.Rows[0][0];
-            Game4.Content = team1.Rows[0][0] + " - " + team3.Rows[0][0];
-            Game5.Content = team4.Rows[0][0] + " - " + team1.Rows[0][0];
-            Game6.Content = team2.Rows[0][0] + " - " + team3.Rows[0][0];
+            Game1_Copy.Content = team1.Rows[0][0]; Game1_Copy1.Content = team2.Rows[0][0];
+            Game2.Content = team3.Rows[0][0]; Game1_Copy2.Content = team4.Rows[0][0];
+            Game3.Content = team2.Rows[0][0]; Game1_Copy3.Content = team4.Rows[0][0];
+            Game4.Content = team1.Rows[0][0]; Game1_Copy4.Content = team3.Rows[0][0];
+            Game5.Content = team4.Rows[0][0]; Game1_Copy5.Content = team1.Rows[0][0];
+            Game1_Copy.Content = team1.Rows[0][0]; Game1_Copy1.Content = team2.Rows[0][0];
+            Game6.Content = team2.Rows[0][0]; Game1_Copy6.Content = team3.Rows[0][0];
         }
 
         private void GroupComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -99,12 +125,13 @@ namespace Football
                 DataTable team3 = DBAdapter.DB.RunSelect("Select TeamName From [Teams] where ID_Team= " + dt.Rows[2][0]);
                 DataTable team4 = DBAdapter.DB.RunSelect("Select TeamName From [Teams] where ID_Team= " + dt.Rows[3][0]);
 
-                Game1.Content = team1.Rows[0][0] + " - " + team2.Rows[0][0];
-                Game2.Content = team3.Rows[0][0] + " - " + team4.Rows[0][0];
-                Game3.Content = team2.Rows[0][0] + " - " + team4.Rows[0][0];
-                Game4.Content = team1.Rows[0][0] + " - " + team3.Rows[0][0];
-                Game5.Content = team4.Rows[0][0] + " - " + team1.Rows[0][0];
-                Game6.Content = team2.Rows[0][0] + " - " + team3.Rows[0][0];
+                Game1_Copy.Content = team1.Rows[0][0]; Game1_Copy1.Content = team2.Rows[0][0];
+                Game2.Content = team3.Rows[0][0]; Game1_Copy2.Content = team4.Rows[0][0];
+                Game3.Content = team2.Rows[0][0]; Game1_Copy3.Content = team4.Rows[0][0];
+                Game4.Content = team1.Rows[0][0]; Game1_Copy4.Content = team3.Rows[0][0];
+                Game5.Content = team4.Rows[0][0]; Game1_Copy5.Content = team1.Rows[0][0];
+                Game1_Copy.Content = team1.Rows[0][0]; Game1_Copy1.Content = team2.Rows[0][0];
+                Game6.Content = team2.Rows[0][0]; Game1_Copy6.Content = team3.Rows[0][0];
             }
             else if(GroupComboBox.SelectedIndex == 1)
             {
@@ -114,12 +141,13 @@ namespace Football
                 DataTable team3 = DBAdapter.DB.RunSelect("Select TeamName From [Teams] where ID_Team= " + dt.Rows[2][0]);
                 DataTable team4 = DBAdapter.DB.RunSelect("Select TeamName From [Teams] where ID_Team= " + dt.Rows[3][0]);
 
-                Game1.Content = team1.Rows[0][0] + " - " + team2.Rows[0][0];
-                Game2.Content = team3.Rows[0][0] + " - " + team4.Rows[0][0];
-                Game3.Content = team2.Rows[0][0] + " - " + team4.Rows[0][0];
-                Game4.Content = team1.Rows[0][0] + " - " + team3.Rows[0][0];
-                Game5.Content = team4.Rows[0][0] + " - " + team1.Rows[0][0];
-                Game6.Content = team2.Rows[0][0] + " - " + team3.Rows[0][0];
+                Game1_Copy.Content = team1.Rows[0][0]; Game1_Copy1.Content = team2.Rows[0][0];
+                Game2.Content = team3.Rows[0][0]; Game1_Copy2.Content = team4.Rows[0][0];
+                Game3.Content = team2.Rows[0][0]; Game1_Copy3.Content = team4.Rows[0][0];
+                Game4.Content = team1.Rows[0][0];Game1_Copy4.Content = team3.Rows[0][0];
+                Game5.Content = team4.Rows[0][0]; Game1_Copy5.Content = team1.Rows[0][0];
+                Game1_Copy.Content = team1.Rows[0][0];Game1_Copy1.Content = team2.Rows[0][0];
+                Game6.Content = team2.Rows[0][0]; Game1_Copy6.Content = team3.Rows[0][0];
             }
             else if (GroupComboBox.SelectedIndex == 2)
             {
@@ -129,12 +157,14 @@ namespace Football
                 DataTable team3 = DBAdapter.DB.RunSelect("Select TeamName From [Teams] where ID_Team= " + dt.Rows[2][0]);
                 DataTable team4 = DBAdapter.DB.RunSelect("Select TeamName From [Teams] where ID_Team= " + dt.Rows[3][0]);
 
-                Game1.Content = team1.Rows[0][0] + " - " + team2.Rows[0][0];
-                Game2.Content = team3.Rows[0][0] + " - " + team4.Rows[0][0];
-                Game3.Content = team2.Rows[0][0] + " - " + team4.Rows[0][0];
-                Game4.Content = team1.Rows[0][0] + " - " + team3.Rows[0][0];
-                Game5.Content = team4.Rows[0][0] + " - " + team1.Rows[0][0];
-                Game6.Content = team2.Rows[0][0] + " - " + team3.Rows[0][0];
+
+                Game1_Copy.Content = team1.Rows[0][0]; Game1_Copy1.Content = team2.Rows[0][0];
+                Game2.Content = team3.Rows[0][0]; Game1_Copy2.Content = team4.Rows[0][0];
+                Game3.Content = team2.Rows[0][0]; Game1_Copy3.Content = team4.Rows[0][0];
+                Game4.Content = team1.Rows[0][0]; Game1_Copy4.Content = team3.Rows[0][0];
+                Game5.Content = team4.Rows[0][0]; Game1_Copy5.Content = team1.Rows[0][0];
+                Game1_Copy.Content = team1.Rows[0][0]; Game1_Copy1.Content = team2.Rows[0][0];
+                Game6.Content = team2.Rows[0][0]; Game1_Copy6.Content = team3.Rows[0][0];
             }
             else if (GroupComboBox.SelectedIndex == 3)
             {
@@ -144,12 +174,13 @@ namespace Football
                 DataTable team3 = DBAdapter.DB.RunSelect("Select TeamName From [Teams] where ID_Team= " + dt.Rows[2][0]);
                 DataTable team4 = DBAdapter.DB.RunSelect("Select TeamName From [Teams] where ID_Team= " + dt.Rows[3][0]);
 
-                Game1.Content = team1.Rows[0][0] + " - " + team2.Rows[0][0];
-                Game2.Content = team3.Rows[0][0] + " - " + team4.Rows[0][0];
-                Game3.Content = team2.Rows[0][0] + " - " + team4.Rows[0][0];
-                Game4.Content = team1.Rows[0][0] + " - " + team3.Rows[0][0];
-                Game5.Content = team4.Rows[0][0] + " - " + team1.Rows[0][0];
-                Game6.Content = team2.Rows[0][0] + " - " + team3.Rows[0][0];
+                Game1_Copy.Content = team1.Rows[0][0]; Game1_Copy1.Content = team2.Rows[0][0];
+                Game2.Content = team3.Rows[0][0]; Game1_Copy2.Content = team4.Rows[0][0];
+                Game3.Content = team2.Rows[0][0]; Game1_Copy3.Content = team4.Rows[0][0];
+                Game4.Content = team1.Rows[0][0]; Game1_Copy4.Content = team3.Rows[0][0];
+                Game5.Content = team4.Rows[0][0]; Game1_Copy5.Content = team1.Rows[0][0];
+                Game1_Copy.Content = team1.Rows[0][0]; Game1_Copy1.Content = team2.Rows[0][0];
+                Game6.Content = team2.Rows[0][0]; Game1_Copy6.Content = team3.Rows[0][0];
             }
             else if (GroupComboBox.SelectedIndex == 4)
             {
@@ -159,12 +190,13 @@ namespace Football
                 DataTable team3 = DBAdapter.DB.RunSelect("Select TeamName From [Teams] where ID_Team= " + dt.Rows[2][0]);
                 DataTable team4 = DBAdapter.DB.RunSelect("Select TeamName From [Teams] where ID_Team= " + dt.Rows[3][0]);
 
-                Game1.Content = team1.Rows[0][0] + " - " + team2.Rows[0][0];
-                Game2.Content = team3.Rows[0][0] + " - " + team4.Rows[0][0];
-                Game3.Content = team2.Rows[0][0] + " - " + team4.Rows[0][0];
-                Game4.Content = team1.Rows[0][0] + " - " + team3.Rows[0][0];
-                Game5.Content = team4.Rows[0][0] + " - " + team1.Rows[0][0];
-                Game6.Content = team2.Rows[0][0] + " - " + team3.Rows[0][0];
+                Game1_Copy.Content = team1.Rows[0][0]; Game1_Copy1.Content = team2.Rows[0][0];
+                Game2.Content = team3.Rows[0][0]; Game1_Copy2.Content = team4.Rows[0][0];
+                Game3.Content = team2.Rows[0][0]; Game1_Copy3.Content = team4.Rows[0][0];
+                Game4.Content = team1.Rows[0][0]; Game1_Copy4.Content = team3.Rows[0][0];
+                Game5.Content = team4.Rows[0][0]; Game1_Copy5.Content = team1.Rows[0][0];
+                Game1_Copy.Content = team1.Rows[0][0]; Game1_Copy1.Content = team2.Rows[0][0];
+                Game6.Content = team2.Rows[0][0]; Game1_Copy6.Content = team3.Rows[0][0];
             }
             else if (GroupComboBox.SelectedIndex == 5)
             {
@@ -174,12 +206,13 @@ namespace Football
                 DataTable team3 = DBAdapter.DB.RunSelect("Select TeamName From [Teams] where ID_Team= " + dt.Rows[2][0]);
                 DataTable team4 = DBAdapter.DB.RunSelect("Select TeamName From [Teams] where ID_Team= " + dt.Rows[3][0]);
 
-                Game1.Content = team1.Rows[0][0] + " - " + team2.Rows[0][0];
-                Game2.Content = team3.Rows[0][0] + " - " + team4.Rows[0][0];
-                Game3.Content = team2.Rows[0][0] + " - " + team4.Rows[0][0];
-                Game4.Content = team1.Rows[0][0] + " - " + team3.Rows[0][0];
-                Game5.Content = team4.Rows[0][0] + " - " + team1.Rows[0][0];
-                Game6.Content = team2.Rows[0][0] + " - " + team3.Rows[0][0];
+                Game1_Copy.Content = team1.Rows[0][0]; Game1_Copy1.Content = team2.Rows[0][0];
+                Game2.Content = team3.Rows[0][0]; Game1_Copy2.Content = team4.Rows[0][0];
+                Game3.Content = team2.Rows[0][0]; Game1_Copy3.Content = team4.Rows[0][0];
+                Game4.Content = team1.Rows[0][0]; Game1_Copy4.Content = team3.Rows[0][0];
+                Game5.Content = team4.Rows[0][0]; Game1_Copy5.Content = team1.Rows[0][0];
+                Game1_Copy.Content = team1.Rows[0][0]; Game1_Copy1.Content = team2.Rows[0][0];
+                Game6.Content = team2.Rows[0][0]; Game1_Copy6.Content = team3.Rows[0][0];
             }
         }
     }

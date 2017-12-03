@@ -13,7 +13,7 @@ namespace DBAdapter
         static DB instance;
 
         static SqlConnection connection =  new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\FootballBase.mdf;Integrated Security = True");//Егор;
-
+        //static SqlConnection connection = new SqlConnection(@"Server=PC; DataBase=Foot; Integrated security = True");//Daria
         public DB()
         {
 
@@ -27,11 +27,17 @@ namespace DBAdapter
         }
         public static DataTable RunSelect(string zapros)
         {
-            SqlDataAdapter dataadapter = new SqlDataAdapter(zapros, connection);
-            DataTable dt = new DataTable();
-            connection.Open();
-            dataadapter.Fill(dt);
-            connection.Close();
+            DataTable dt = new DataTable() ;
+            try
+            {
+                SqlDataAdapter dataadapter = new SqlDataAdapter(zapros, connection);
+                dt = new DataTable();
+                connection.Open();
+                dataadapter.Fill(dt);
+                connection.Close();
+            }
+            catch(Exception eror)
+            { string error = eror.Message; }
             return dt;
         }
 

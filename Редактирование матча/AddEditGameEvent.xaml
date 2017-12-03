@@ -4,19 +4,18 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Football"
-        mc:Ignorable="d"
-        Title="AddEditGameEvent" Height="280" Width="450">
+        mc:Ignorable="d" Height="280" Width="450" Loaded="Window_Loaded">
     <Grid Margin="0,0,2,5">
         <Label Content="Minute" HorizontalAlignment="Left" Margin="12,22,0,0" VerticalAlignment="Top" FontFamily="Tahoma"/>
-        <TextBox HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="253" Margin="176,24,0,0" FontFamily="Tahoma"/>
+        <TextBox x:Name="Minute" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="253" Margin="176,24,0,0" FontFamily="Tahoma"/>
         <Label Content="Team" HorizontalAlignment="Left" Margin="12,53,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.053,-0.577" FontFamily="Tahoma"/>
-        <RadioButton Content="Team Switzerland" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="176,58,0,0" FontFamily="Tahoma"/>
-        <RadioButton Content="Team France" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="176,89,0,0" FontFamily="Tahoma"/>
+        <RadioButton x:Name="Team1" Content="Team Switzerland" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="176,58,0,0" FontFamily="Tahoma"/>
+        <RadioButton x:Name="Team2" Content="Team France" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="176,89,0,0" FontFamily="Tahoma"/>
         <Label Content="Event" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="1.342,6.769" Margin="12,114,0,0" FontFamily="Tahoma"/>
-        <ComboBox HorizontalAlignment="Left" VerticalAlignment="Top" Width="253" Margin="176,118,0,0"/>
+        <ComboBox x:Name="ListEvent" HorizontalAlignment="Left" VerticalAlignment="Top" Width="253" Margin="176,118,0,0" />
         <Label Content="Additional Information" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="1.342,6.769" Margin="12,159,0,0" FontFamily="Tahoma"/>
-        <TextBox HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="253" Margin="176,159,0,0" FontFamily="Tahoma"/>
-        <Button Content="ОК" HorizontalAlignment="Left" VerticalAlignment="Top" Width="97" Margin="227,197,0,0" FontFamily="Tahoma" Height="36"/>
-        <Button Content="Cancel" HorizontalAlignment="Left" VerticalAlignment="Top" Width="88" Margin="341,197,0,0" FontFamily="Tahoma" Height="36"/>
+        <TextBox x:Name="Additional" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="253" Margin="176,159,0,0" FontFamily="Tahoma"/>
+        <Button x:Name="okey" Content="ОК" HorizontalAlignment="Left" VerticalAlignment="Top" Width="97" Margin="227,197,0,0" FontFamily="Tahoma" Height="36" Click="OK"/>
+        <Button x:Name="can" Content="Cancel" HorizontalAlignment="Left" VerticalAlignment="Top" Width="88" Margin="341,197,0,0" FontFamily="Tahoma" Height="36" Click="cancel"/>
     </Grid>
 </Window>

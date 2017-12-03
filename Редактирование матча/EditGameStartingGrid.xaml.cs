@@ -22,106 +22,138 @@ namespace Football
     {
         public EditGameStartingGrid()
         {
-            InitializeComponent();           
+            InitializeComponent();
+            if (Check2.IsThreeState==true)
+            { Ev.Visibility = Visibility.Visible; }
+          
         }
-        bool AddEdit = false;
-
-        void LoadPlayers()
-        {
-            Grid.ItemsSource = DBAdapter.DB.RunSelect("SELECT ID_Player AS [ID], lastname AS [Lastname], position AS Position FROM [Players]").DefaultView;
-            Grid.Columns[3].Visibility = Visibility.Hidden;
-        }
-        void LoadPlayers_1()
-        {
-            Grid2.ItemsSource = DBAdapter.DB.RunSelect("SELECT ID_Player AS [ID], lastname AS [Lastname], position AS Position FROM [Players]").DefaultView;
-            Grid2.Columns[3].Visibility = Visibility.Hidden;
-        }
-
+       
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Close();
         }
-
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        string nameG;
+        string score;
+       public string Namegroup
         {
-            AddEditToStartingGrid addEditToStarting = new AddEditToStartingGrid();
-            addEditToStarting.Owner = this;
-            addEditToStarting.ShowDialog();
+              set { nameG = value; }
+        }
+        public string Score
+        {
+            set { score = value; }
         }
 
-        private void Button_Click_2(object sender, RoutedEventArgs e)
-        {
-            AddEditToStartingGrid addEditToStarting = new AddEditToStartingGrid();
-            addEditToStarting.Owner = this;
-            addEditToStarting.ShowDialog();
-        }
+        public bool IsEnded { get; set; }
 
-        private void Grid_Loaded(object sender, RoutedEventArgs e)
-        {
-            LoadPlayers();
-           
-
-                }
-        
-        public void AddEditPlayers()
-        {
-            void LoadPlayers()
-            {
-                Grid.ItemsSource = DBAdapter.DB.RunSelect("SELECT ID_Player AS [ID], lastname AS [Lastname], position AS Position FROM [Players]").DefaultView;
-                Grid.Columns[3].Visibility = Visibility.Hidden;
-               
-            }
-        }
-
-        private void Button_Click_3(object sender, RoutedEventArgs e)
-        {
-            int i = Grid.SelectedIndex;
-            if (i != -1)
-            {
-                if (MessageBox.Show("Удалить?", "", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
-                    DBAdapter.DB.RunInsert("Delete From [Players] Where ID_Player = '" + ((DataRowView)Grid.Items[i]).Row[0].ToString() + "'");
-            }
-            else
-            {
-                MessageBox.Show("Выберите команду для удаления");
-            }
-
-        }
-        private void Grid2_Loaded(object sender, RoutedEventArgs e)
-        {
-            LoadPlayers();
-        }
-
-        private void Button_Click_4(object sender, RoutedEventArgs e)
-        {
-            int i = Grid2.SelectedIndex;
-            if (i != -1)
-            {
-                if (MessageBox.Show("Удалить?", "", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
-                    DBAdapter.DB.RunInsert("Delete From [Players] Where ID_Player = '" + ((DataRowView)Grid2.Items[i]).Row[0].ToString() + "'");
-            }
-            else
-            {
-                MessageBox.Show("Выберите команду для удаления");
-            }
-        }
-
+        public int ID_Stage;
         private void Button_Click_5(object sender, RoutedEventArgs e)
         {
-            //if (!AddEdit)
-            //{
-            //    DBAdapter.DB.RunInsert("Insert Into [Players] (lastname,position) values('" + Player.SelectedValue + "','" + Position.SelectedValue + "')");
-            //}
-            //else
-            //{
-            //    if (Position.Text != "" && Player.Text != "")
-            //        DBAdapter.DB.RunInsert($"Update [Players] Set player = '{Player.SelectedValue}', position = '{Position.SelectedValue}' WHERE ID_Player = '{idPlayer}'");
+            var q = $"Update [Stage] SET [IsFinished] = {Convert.ToInt32(Check1.IsChecked)} WHERE ID_Stage = {StageID_}";
+            DBAdapter.DB.RunInsert(q);
 
-            //}
-            //EditGameStartingGrid frm = (EditGameStartingGrid)this.Owner;
-            //frm.AddEditPlayers();
+            
             Close();
         }
-        
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            
+            Result.Content = nameG;
+            string[] nG = new string[2];
+
+            nG = nameG.Split('-');
+            Grid.ItemsSource = DBAdapter.DB.RunSelect("SELECT ID_Player AS [ID], lastname AS [Lastname], firstname as[Firstname], position AS Position FROM [Players] inner join Teams on Players.team_id=Teams.ID_Team Where TeamName ='" + nG[0] + "'").DefaultView;
+            //Grid.Columns[3].Visibility = Visibility.Hidden;
+            Grid2.ItemsSource = DBAdapter.DB.RunSelect("SELECT ID_Player AS [ID], lastname AS [Lastname], firstname as[Firstname], position AS Position FROM [Players] inner join Teams on Players.team_id=Teams.ID_Team Where TeamName ='" + nG[1] + "'").DefaultView;
+            //Grid2.Columns[3].Visibility = Visibility.Hidden;
+
+            // найти код команд
+            int cod1comand = Convert.ToInt32( DBAdapter.DB.RunSelect(@"SELECT ID_Team
+                                                      From Teams
+                                                      Where TeamName = '"+ nG[0] + "'").Rows[0][0]);
+            int cod2comand = Convert.ToInt32(DBAdapter.DB.RunSelect(@"SELECT ID_Team
+                                                      From Teams
+                                                      Where TeamName = '" + nG[1] + "'").Rows[0][0]);
+            
+            DataTable dt = DBAdapter.DB.RunSelect(@"SELECT *
+                                                    From Stage
+                                                    Where (Team1_ID = '"+ cod1comand + "' and Team2_ID = '"+ cod2comand + "')");
+            if (dt.Rows.Count > 0)
+            {
+                Team1 = nG[0];
+                Team2 = nG[1];
+                TableEvents((int)dt.Rows[0].ItemArray[0]);
+                StageID_ = (int)dt.Rows[0].ItemArray[0];
+
+                Score1_ = (int)dt.Rows[0].ItemArray[3];
+                Score2_ = (int)dt.Rows[0].ItemArray[4];
+                Sc.Content = (Score1_+":"+Score2_).ToString();
+            }
+            Check1.IsChecked = (bool)dt.Rows[0]["IsFinished"];
+
+        }
+
+        private void Check2_Checked(object sender, RoutedEventArgs e)
+        {
+            if (Check2.IsThreeState == false) { Ev.Visibility = Visibility.Visible; Check2.IsThreeState = true; }
+        }
+        private void Button_Click_1(object sender, RoutedEventArgs e)//add event
+        {
+            AddEditGameEvent addEditGameEvent = new AddEditGameEvent(StageID_, Team1, Team2);
+            addEditGameEvent.Show();
+
+
+        }
+        public void Refresh(int sc1, int sc2, int st)
+        {
+            StageID_=st;
+            TableEvent.ItemsSource = null;
+            
+            TableEvent.Items.Refresh();
+            TableEvent.ItemsSource = DBAdapter.DB.RunSelect("SELECT ID_Event, Min, Team_ID, Event, AdditionalInformation from [Events] where Stage_ID ='" + StageID_ + "'").DefaultView;
+            Score1_=sc1;
+            Score2_=sc2;
+            Sc.Content = (Score1_+":"+Score2_).ToString();
+            DBAdapter.DB.RunInsert("Update [Stage] SET [Score1]='"+Score1_+"', [Score2]='"+Score2_+ "'where [ID_Stage] = '"+StageID_+"'");
+        }
+        private void EditEvent_Click(object sender, RoutedEventArgs e)
+        {
+            int id_event = (int) (TableEvent.SelectedItem as DataRowView).Row[0];
+            int Min = (int)(TableEvent.SelectedItem as DataRowView).Row[1];
+            int SelTeam = (int)(TableEvent.SelectedItem as DataRowView).Row[2];
+            string Event = (string)(TableEvent.SelectedItem as DataRowView).Row[3];
+            string Info = (string)(TableEvent.SelectedItem as DataRowView).Row[4];
+            
+            DataTable Sel = DBAdapter.DB.RunSelect("Select TeamName from Teams where ID_Team='"+SelTeam+"'");
+            string s = Sel.Rows[0].ItemArray[0].ToString();
+            AddEditGameEvent addEditGameEvent = new AddEditGameEvent(StageID_, Team1, Team2, id_event, s, Min, Event, Info, Score1_, Score2_);
+
+            addEditGameEvent.Show();
+
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)//delete_event
+        {
+            if (TableEvent.SelectedCells.Count > 0)
+            {
+                MessageBoxResult result = MessageBox.Show("Вы действительно хотите удалить событие?", "Удаление", MessageBoxButton.YesNo, MessageBoxImage.Question);
+                if (result == MessageBoxResult.Yes)
+                {
+                    int id_event = (int)(TableEvent.SelectedItem as DataRowView).Row[0];
+                    var q = "Delete from [Events] where ID_Event ='" + id_event + "'";
+                    DBAdapter.DB.RunInsert(q);
+                    TableEvent.ItemsSource = DBAdapter.DB.RunSelect("SELECT ID_Event, Min, Team_ID, Event, AdditionalInformation from [Events] where Stage_ID ='" + StageID_ + "'").DefaultView;
+                }
+            }
+            else
+            {
+                MessageBox.Show("Выберите строку, которую необходимо удалить!");
+            }
+        }
+        public int StageID_; string Team1; string Team2; int Score1_; int Score2_;
+        public void TableEvents(int StageId) {
+            TableEvent.ItemsSource = DBAdapter.DB.RunSelect("SELECT ID_Event, Min, Team_ID, Event, AdditionalInformation from [Events] where Stage_ID ='"+StageId+"'").DefaultView;
+          
+
+        }
     }
 }

@@ -68,6 +68,8 @@ namespace Football
         private void Edit1_Click(object sender, RoutedEventArgs e)
         {
             EditGameStartingGrid gameStartingGrid = new EditGameStartingGrid();
+            gameStartingGrid.Namegroup = Country1.Content.ToString() + "-" + Country2.Content.ToString();
+            gameStartingGrid.Score = Point1.Content.ToString() + ":" + Point2.Content.ToString();
             gameStartingGrid.Owner = this;
             gameStartingGrid.ShowDialog();
         }
@@ -75,6 +77,8 @@ namespace Football
         private void Edit2_Click(object sender, RoutedEventArgs e)
         {
             EditGameStartingGrid gameStartingGrid = new EditGameStartingGrid();
+            gameStartingGrid.Namegroup = Country3.Content.ToString() + "-" + Country4.Content.ToString();
+            gameStartingGrid.Score = Point3.Content.ToString() + ":" + Point4.Content.ToString();
             gameStartingGrid.Owner = this;
             gameStartingGrid.ShowDialog();
         }
