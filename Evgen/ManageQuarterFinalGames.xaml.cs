@@ -32,6 +32,7 @@ namespace Football
             if (main != null)
             {
                 main.label4.Content = "Yes";
+                this.Close();
             }
         }
 
