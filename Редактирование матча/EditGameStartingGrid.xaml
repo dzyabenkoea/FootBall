@@ -17,8 +17,7 @@
             </TransformGroup>
         </Grid.RenderTransform>
         <Label Name="Result" Content="Result Switzerland - France 0:1*" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,16,0,0" FontFamily="Tahoma"/>
-        <CheckBox Name="Check2"  Content="Game started" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="618,37,0,0" FontFamily="Tahoma" Checked="Check2_Checked"/>
-        <CheckBox Name="Check1" IsChecked="{Binding ElementName=this, Path=IsEnded}" Content="Game finished" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="618,16,0,0" FontFamily="Tahoma"/>
+        <CheckBox Name="Check1" IsChecked="{Binding ElementName=this, Path=IsEnded}" Content="Game finished" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="631,21,0,0" FontFamily="Tahoma"/>
         <TabControl HorizontalAlignment="Left" Height="289" Margin="10,68,0,0" VerticalAlignment="Top" Width="723">
             <TabItem Header="Starting Grid" FontFamily="Tahoma">
                 <Grid Background="#FFE5E5E5" Margin="0,0,8,-2" Height="261" VerticalAlignment="Top">
@@ -35,7 +34,7 @@
                     <DataGrid x:Name="Grid2" HorizontalAlignment="Left" Height="182" Margin="254,32,0,0" VerticalAlignment="Top" Width="315" Grid.Column="3"/>
                 </Grid>
             </TabItem>
-            <TabItem x:Name="Ev" Header="Events" FontFamily="Tahoma" Visibility="Hidden">
+            <TabItem x:Name="Ev" Header="Events" FontFamily="Tahoma" Visibility="Visible">
                 <Grid Background="#FFE5E5E5" Margin="0,0,-5,-4">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="47*"/>

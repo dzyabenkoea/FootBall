@@ -21,12 +21,14 @@ namespace Football
     public partial class AddEditGameEvent : Window
     {
         int StageID_; string Team1_; string Team2_; int IDEvent_=0; int Minute_; string Event_; string AdditionalInfo_; int Score1_; int Score2_;
-        public AddEditGameEvent(int StageID, string T1, string T2)
+        public AddEditGameEvent(int StageID, string T1, string T2, int sc1, int sc2)
         {
             InitializeComponent();
              StageID_ = StageID;
              Team1_ = T1;
              Team2_ = T2;
+            Score1_ = sc1;
+            Score2_ = sc2;
         }
         public AddEditGameEvent(int StageID, string T1, string T2, int id_Event, string SelectionTeam, int Min, string Event, string Info, int sc1, int sc2)
         {
@@ -119,6 +121,7 @@ namespace Football
                 else//add
                 {
                     DBAdapter.DB.RunInsert("Insert Into [Events] (Stage_ID, Min, Team_ID,  Event, AdditionalInformation) values('" + StageID_ + "','" + Minute_ + "','" + selectedTeam + "','" + Event_ + "','" + AdditionalInfo_ + "')");
+
                     editGameStartingGrid.Refresh(Score1_, Score2_,StageID_,Team1_,Team2_);
                 }
                 Close();

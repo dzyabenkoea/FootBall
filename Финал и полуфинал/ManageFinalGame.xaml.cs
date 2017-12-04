@@ -42,15 +42,15 @@ namespace Football
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            DataTable dt = DBAdapter.DB.RunSelect("SELECT Stage.ID_Stage AS [ID_Stage], Teams.TeamName, Stage.Score1, Stage.Score2, Stage.Tournament_ID FROM Stage, Teams WHERE (StageType_ID = 11)AND(Teams.ID_Team = Stage.Team1_ID)");
+            DataTable dt = DBAdapter.DB.RunSelect("SELECT Stage.ID_Stage AS [ID_Stage], Teams.TeamName, Stage.Score1, Stage.Score2, Stage.Tournament_ID FROM Stage, Teams WHERE (StageType_ID = 12)AND(Teams.ID_Team = Stage.Team1_ID)");
             DataTable dt1 = DBAdapter.DB.RunSelect("SELECT Teams.TeamName FROM Stage, Teams WHERE (StageType_ID = 12)AND(Teams.ID_Team = Stage.Team2_ID)");
 
             Country1.Content = dt.Rows[0].ItemArray[1];
             Country2.Content = dt1.Rows[0].ItemArray[0];
-            Point1.Content = dt.Rows[0].ItemArray[3];
+            Point1.Content = dt.Rows[0].ItemArray[2];
             Point2.Content = dt.Rows[0].ItemArray[3];
             ID_Stage = (int)dt.Rows[0]["ID_Stage"];
-            IsEnded = (bool)dt.Rows[0]["IsEnded"];
+            //IsEnded = (bool)dt.Rows[0]["IsEnded"];
 
 
         }
@@ -79,10 +79,10 @@ namespace Football
 
             Country1.Content = dt.Rows[0].ItemArray[1];
             Country2.Content = dt1.Rows[0].ItemArray[0];
-            Point1.Content = dt.Rows[0].ItemArray[3];
+            Point1.Content = dt.Rows[0].ItemArray[2];
             Point2.Content = dt.Rows[0].ItemArray[3];
             ID_Stage = (int)dt.Rows[0]["ID_Stage"];
-            IsEnded = (bool)dt.Rows[0]["IsEnded"];
+            //IsEnded = (bool)dt.Rows[0]["IsEnded"];
         }
     }
 }

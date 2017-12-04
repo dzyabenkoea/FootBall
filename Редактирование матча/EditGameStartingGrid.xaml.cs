@@ -23,9 +23,8 @@ namespace Football
         public EditGameStartingGrid()
         {
             InitializeComponent();
-            if (Check2.IsThreeState==true)
-            { Ev.Visibility = Visibility.Visible; }
-          
+            //if (Check2.IsThreeState==true)
+            //{ Ev.Visibility = Visibility.Visible; }
         }
 
         int cod1comand;
@@ -96,13 +95,10 @@ namespace Football
 
         }
 
-        private void Check2_Checked(object sender, RoutedEventArgs e)
-        {
-            if (Check2.IsThreeState == false) { Ev.Visibility = Visibility.Visible; Check2.IsThreeState = true; }
-        }
         private void Button_Click_1(object sender, RoutedEventArgs e)//add event
         {
-            AddEditGameEvent addEditGameEvent = new AddEditGameEvent(StageID_, Team1, Team2);
+          //  AddEditGameEvent addEditGameEvent = new AddEditGameEvent(StageID_, Team1, Team2, id_event, s, Min, Event, Info, Score1_, Score2_);
+            AddEditGameEvent addEditGameEvent = new AddEditGameEvent(StageID_, Team1, Team2,Score1_,Score2_);
             addEditGameEvent.Show();
 
 
