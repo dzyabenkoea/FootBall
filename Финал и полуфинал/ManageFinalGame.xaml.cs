@@ -37,6 +37,7 @@ namespace Football
             if (main != null)
             {
                 main.label5.Content = "Yes";
+                this.Close();
             }
         }
 
@@ -74,7 +75,7 @@ namespace Football
 
         private void Window_Activated(object sender, EventArgs e)
         {
-            DataTable dt = DBAdapter.DB.RunSelect("SELECT Stage.ID_Stage AS [ID_Stage], Teams.TeamName, Stage.Score1, Stage.Score2, Stage.Tournament_ID FROM Stage, Teams WHERE (StageType_ID = 11)AND(Teams.ID_Team = Stage.Team1_ID)");
+            DataTable dt = DBAdapter.DB.RunSelect("SELECT Stage.ID_Stage AS [ID_Stage], Teams.TeamName, Stage.Score1, Stage.Score2, Stage.Tournament_ID FROM Stage, Teams WHERE (StageType_ID = 12)AND(Teams.ID_Team = Stage.Team1_ID)");
             DataTable dt1 = DBAdapter.DB.RunSelect("SELECT Teams.TeamName FROM Stage, Teams WHERE (StageType_ID = 12)AND(Teams.ID_Team = Stage.Team2_ID)");
 
             Country1.Content = dt.Rows[0].ItemArray[1];

@@ -87,6 +87,7 @@ namespace Football
             if (main != null)
             {
                 main.label5.Content = "Yes";
+                this.Close();
             }
         }
 
