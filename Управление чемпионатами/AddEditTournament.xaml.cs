@@ -34,27 +34,43 @@ namespace Football
         public AddEditTournament()
         {
             InitializeComponent();
-            LoadAllTeams();
+            LoadParticipants();
         }
-        public AddEditTournament(DataGridRow dataGridRow)
+        public AddEditTournament(DataRowView dataGridRow)
         {
             InitializeComponent();
+            FillFields(dataGridRow);
         }
 
+        /// <summary>
+        /// Фильтрует записи по выбранному региону.
+        /// </summary>
+        /// <param name="region">Регион</param>
         void FilterByRegion(string region)//Заменить на фильтрацию
         {
             //countriesSelectionTable.ItemsSource = DB.RunSelect("select ID_Team,TeamName from Teams where Region ='" + region + "'").DefaultView;
         }
 
+        /// <summary>
+        /// Заполняет поля формы на основании выбранной строки списка чемпионатов.
+        /// </summary>
+        /// <param name="tournament"></param>
         internal void FillFields(DataRowView tournament)
         {
+
             tournamentID = (int)tournament.Row["ID_Tournament"];
             tournamentNameText.Text = (string)tournament.Row["TournamentName"];
             startDate.SelectedDate = (DateTime)tournament.Row["Start_Date"];
             endDate.SelectedDate = (DateTime)tournament.Row["End_Date"];
-            LoadAllTeams();
+            LoadParticipants();
         }
-        void LoadAllTeams()
+
+
+        /// <summary>
+        /// Заполняет таблицу участников.
+        /// </summary>
+        /// <param name="tournament"></param>
+        void LoadParticipants()
         {
             participants = new List<TeamParticipant>();
             DataTable teams = DB.RunSelect(@"select
@@ -135,19 +151,23 @@ namespace Football
                     }
                 }
 
-                foreach (TeamParticipant team in participants)
+                if (ammountToInsert != 0)
                 {
-                    if (team.Participates)
+                    foreach (TeamParticipant team in participants)
                     {
-                        insertCommand += "(" + tournamentID + "," + team.Id + ")";
-                        if (insertedCounter != ammountToInsert - 1)
-                            insertCommand += ",";
+                        if (team.Participates)
+                        {
+                            insertCommand += "(" + tournamentID + "," + team.Id + ")";
+                            if (insertedCounter != ammountToInsert - 1)
+                                insertCommand += ",";
 
-                        insertedCounter++;
+                            insertedCounter++;
+                        }
+
                     }
 
+                    DB.RunInsert(insertCommand);
                 }
-                DB.RunInsert(insertCommand);
             }
         }
         private void closeButton_Click(object sender, RoutedEventArgs e)
