@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Football"
         xmlns:System="clr-namespace:System;assembly=mscorlib" x:Class="Football.MainWindow"
         mc:Ignorable="d"
-        Title="Tournament Dashboard" Height="775.399" Width="957.237" Loaded="Window_Loaded">
+        Title="Tournament Dashboard" Height="775.399" Width="957.237" Loaded="Window_Loaded" Activated="Window_Activated">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="433*"/>

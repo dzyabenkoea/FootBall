@@ -114,12 +114,12 @@ namespace Football
                 {
                    DBAdapter.DB.RunInsert("Update [Events] SET [Min] = '"+Minute_+"', [Team_ID] = '"+selectedTeam+"', [Event] = '"+Event_+"', [AdditionalInformation] = '"+AdditionalInfo_+"' where [ID_Event] = '"+IDEvent_+"'");
                    
-                    editGameStartingGrid.Refresh(Score1_, Score2_,StageID_);
+                    editGameStartingGrid.Refresh(Score1_, Score2_,StageID_, Team1_, Team2_);
                 }
                 else//add
                 {
                     DBAdapter.DB.RunInsert("Insert Into [Events] (Stage_ID, Min, Team_ID,  Event, AdditionalInformation) values('" + StageID_ + "','" + Minute_ + "','" + selectedTeam + "','" + Event_ + "','" + AdditionalInfo_ + "')");
-                    editGameStartingGrid.Refresh(Score1_, Score2_,StageID_);
+                    editGameStartingGrid.Refresh(Score1_, Score2_,StageID_,Team1_,Team2_);
                 }
                 Close();
             }

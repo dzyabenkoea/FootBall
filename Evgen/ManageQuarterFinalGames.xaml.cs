@@ -105,5 +105,41 @@ namespace Football
             gameStartingGrid.Owner = this;
             gameStartingGrid.ShowDialog();
         }
+
+        private void Window_FocusableChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+
+         
+        }
+
+        private void Window_Activated(object sender, EventArgs e)
+        {
+            try
+            {
+                DataTable dt = DBAdapter.DB.RunSelect("SELECT Teams.TeamName, Stage.Score1, Stage.Score2, Stage.Tournament_ID FROM Stage, Teams WHERE (StageType_ID = 10)AND(Teams.ID_Team = Stage.Team1_ID)");
+                DataTable dt1 = DBAdapter.DB.RunSelect("SELECT Teams.TeamName FROM Stage, Teams WHERE (StageType_ID = 10)AND(Teams.ID_Team = Stage.Team2_ID)");
+
+                Country1.Content = dt.Rows[0].ItemArray[0];
+                Country2.Content = dt1.Rows[0].ItemArray[0];
+                Point1.Content = dt.Rows[0].ItemArray[1];
+                Point2.Content = dt.Rows[0].ItemArray[2];
+
+                Country3.Content = dt.Rows[1].ItemArray[0];
+                Country4.Content = dt1.Rows[1].ItemArray[0];
+                Point3.Content = dt.Rows[1].ItemArray[1];
+                Point4.Content = dt.Rows[1].ItemArray[2];
+
+                Country5.Content = dt.Rows[2].ItemArray[0];
+                Country6.Content = dt1.Rows[2].ItemArray[0];
+                Point5.Content = dt.Rows[2].ItemArray[1];
+                Point6.Content = dt.Rows[2].ItemArray[2];
+
+                Country7.Content = dt.Rows[3].ItemArray[0];
+                Country8.Content = dt1.Rows[3].ItemArray[0];
+                Point7.Content = dt.Rows[3].ItemArray[1];
+                Point8.Content = dt.Rows[3].ItemArray[2];
+            }
+            catch { }
+        }
     }
 }

@@ -27,14 +27,18 @@ namespace Football
             { Ev.Visibility = Visibility.Visible; }
           
         }
-       
+
+        int cod1comand;
+        int cod2comand;
+
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Close();
         }
         string nameG;
         string score;
-       public string Namegroup
+        string[] nG = new string[2];
+        public string Namegroup
         {
               set { nameG = value; }
         }
@@ -50,6 +54,7 @@ namespace Football
         {
             var q = $"Update [Stage] SET [IsFinished] = {Convert.ToInt32(Check1.IsChecked)} WHERE ID_Stage = {StageID_}";
             DBAdapter.DB.RunInsert(q);
+            
 
             
             Close();
@@ -58,7 +63,6 @@ namespace Football
         {
             
             Result.Content = nameG;
-            string[] nG = new string[2];
 
             nG = nameG.Split('-');
             Grid.ItemsSource = DBAdapter.DB.RunSelect("SELECT ID_Player AS [ID], lastname AS [Lastname], firstname as[Firstname], position AS Position FROM [Players] inner join Teams on Players.team_id=Teams.ID_Team Where TeamName ='" + nG[0] + "'").DefaultView;
@@ -67,10 +71,10 @@ namespace Football
             //Grid2.Columns[3].Visibility = Visibility.Hidden;
 
             // найти код команд
-            int cod1comand = Convert.ToInt32( DBAdapter.DB.RunSelect(@"SELECT ID_Team
+             cod1comand = Convert.ToInt32( DBAdapter.DB.RunSelect(@"SELECT ID_Team
                                                       From Teams
                                                       Where TeamName = '"+ nG[0] + "'").Rows[0][0]);
-            int cod2comand = Convert.ToInt32(DBAdapter.DB.RunSelect(@"SELECT ID_Team
+             cod2comand = Convert.ToInt32(DBAdapter.DB.RunSelect(@"SELECT ID_Team
                                                       From Teams
                                                       Where TeamName = '" + nG[1] + "'").Rows[0][0]);
             
@@ -103,9 +107,17 @@ namespace Football
 
 
         }
-        public void Refresh(int sc1, int sc2, int st)
+        public void Refresh(int sc1, int sc2, int st,string t1,string t2)
         {
-            StageID_=st;
+            cod1comand = Convert.ToInt32(DBAdapter.DB.RunSelect(@"SELECT ID_Team
+                                                      From Teams
+                                                      Where TeamName = '" +t1 + "'").Rows[0][0]);
+            cod2comand = Convert.ToInt32(DBAdapter.DB.RunSelect(@"SELECT ID_Team
+                                                      From Teams
+                                                      Where TeamName = '" + t2 + "'").Rows[0][0]);
+
+
+            StageID_ =st;
             TableEvent.ItemsSource = null;
             
             TableEvent.Items.Refresh();
@@ -113,7 +125,13 @@ namespace Football
             Score1_=sc1;
             Score2_=sc2;
             Sc.Content = (Score1_+":"+Score2_).ToString();
-            DBAdapter.DB.RunInsert("Update [Stage] SET [Score1]='"+Score1_+"', [Score2]='"+Score2_+ "'where [ID_Stage] = '"+StageID_+"'");
+
+            if (Score1_ > Score2_)
+                DBAdapter.DB.RunInsert("Update [Stage] SET [Score1]='" + Score1_ + "', [Score2]='" + Score2_ + "', [win]='"+ cod1comand + "' where [ID_Stage] = '" + StageID_ + "'");
+            else
+                DBAdapter.DB.RunInsert("Update [Stage] SET [Score1]='" + Score1_ + "', [Score2]='" + Score2_ + "', [win]='" + cod2comand + "' where [ID_Stage] = '" + StageID_ + "'");
+
+
         }
         private void EditEvent_Click(object sender, RoutedEventArgs e)
         {
@@ -154,6 +172,49 @@ namespace Football
             TableEvent.ItemsSource = DBAdapter.DB.RunSelect("SELECT ID_Event, Min, Team_ID, Event, AdditionalInformation from [Events] where Stage_ID ='"+StageId+"'").DefaultView;
           
 
+        }
+
+        private void Button_FocusableChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+           
+        }
+
+        private void this_FocusableChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+          
+        }
+
+        private void this_Activated(object sender, EventArgs e)
+        {
+            Result.Content = nameG;
+
+            nG = nameG.Split('-');
+            Grid.ItemsSource = DBAdapter.DB.RunSelect("SELECT ID_Player AS [ID], lastname AS [Lastname], firstname as[Firstname], position AS Position FROM [Players] inner join Teams on Players.team_id=Teams.ID_Team Where TeamName ='" + nG[0] + "'").DefaultView;
+            //Grid.Columns[3].Visibility = Visibility.Hidden;
+            Grid2.ItemsSource = DBAdapter.DB.RunSelect("SELECT ID_Player AS [ID], lastname AS [Lastname], firstname as[Firstname], position AS Position FROM [Players] inner join Teams on Players.team_id=Teams.ID_Team Where TeamName ='" + nG[1] + "'").DefaultView;
+            //Grid2.Columns[3].Visibility = Visibility.Hidden;
+
+            cod1comand = Convert.ToInt32(DBAdapter.DB.RunSelect(@"SELECT ID_Team
+                                                      From Teams
+                                                      Where TeamName = '" + nG[0] + "'").Rows[0][0]);
+            cod2comand = Convert.ToInt32(DBAdapter.DB.RunSelect(@"SELECT ID_Team
+                                                      From Teams
+                                                      Where TeamName = '" + nG[1] + "'").Rows[0][0]);
+
+            DataTable dt = DBAdapter.DB.RunSelect(@"SELECT *
+                                                    From Stage
+                                                    Where (Team1_ID = '" + cod1comand + "' and Team2_ID = '" + cod2comand + "')");
+            if (dt.Rows.Count > 0)
+            {
+                Team1 = nG[0];
+                Team2 = nG[1];
+                TableEvents((int)dt.Rows[0].ItemArray[0]);
+                StageID_ = (int)dt.Rows[0].ItemArray[0];
+
+                Score1_ = (int)dt.Rows[0].ItemArray[3];
+                Score2_ = (int)dt.Rows[0].ItemArray[4];
+                Sc.Content = (Score1_ + ":" + Score2_).ToString();
+            }
         }
     }
 }
