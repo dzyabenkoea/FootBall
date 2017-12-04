@@ -84,7 +84,7 @@ namespace Football
             new AddEditTournament().Show();
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void EditButtonClick(object sender, RoutedEventArgs e)
         {
             AddEditTournament addEdit = new AddEditTournament(tournamentsTable.SelectedItem as DataGridRow);
             addEdit.Owner = this;
