@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Football"
         mc:Ignorable="d"
         x:Name="this"
-        Title="EditGame_StartingGrid" Height="474" Width="753" Loaded="Window_Loaded">
+        Title="EditGame_StartingGrid" Height="474" Width="753" Loaded="Window_Loaded" FocusableChanged="this_FocusableChanged" Activated="this_Activated">
     <Grid Margin="0,0,12,0" RenderTransformOrigin="0.5,0.5">
         <Grid.RenderTransform>
             <TransformGroup>
@@ -48,7 +48,7 @@
                 </Grid>
             </TabItem>
         </TabControl>
-        <Button Content="Save and Close" HorizontalAlignment="Left" Margin="529,382,0,0" VerticalAlignment="Top" Width="87" Height="38" FontFamily="Tahoma" Click="Button_Click_5"/>
+        <Button Content="Save and Close" HorizontalAlignment="Left" Margin="529,382,0,0" VerticalAlignment="Top" Width="87" Height="38" FontFamily="Tahoma" Click="Button_Click_5" FocusableChanged="Button_FocusableChanged"/>
         <Button Content="Close" HorizontalAlignment="Left" Margin="648,382,0,0" VerticalAlignment="Top" Width="75" Height="38" FontFamily="Tahoma" Click="Button_Click"/>
         <Label Name="Sc" Content="" HorizontalAlignment="Left" Margin="197,13,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.54,-0.321"/>
     </Grid>

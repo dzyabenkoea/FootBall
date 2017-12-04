@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Football"
         mc:Ignorable="d"
-        Title="Manage  Quarter-Final Games" Height="294.613" Width="404" Loaded="Window_Loaded">
+        Title="Manage  Quarter-Final Games" Height="294.613" Width="404" Loaded="Window_Loaded" FocusableChanged="Window_FocusableChanged" Activated="Window_Activated">
     <Grid>
         <Label x:Name="Game" Content="Game" HorizontalAlignment="Left" Margin="20,20,0,0" VerticalAlignment="Top" FontFamily="Tahoma" FontWeight="Bold"/>
         <Label x:Name="Result" Content="Result" HorizontalAlignment="Left" Margin="235,18,0,0" VerticalAlignment="Top" FontFamily="Tahoma" FontWeight="Bold"/>

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Football"
         mc:Ignorable="d"
-        Title="Manage Round of 8 Games" Height="401.811" Width="490" Loaded="Window_Loaded">
+        Title="Manage Round of 8 Games" Height="401.811" Width="490" Loaded="Window_Loaded" Activated="Window_Activated">
     <Grid Name="Grid1">
         <Label x:Name="Game" Content="Game" HorizontalAlignment="Left" Margin="18,10,0,0" VerticalAlignment="Top" FontFamily="Tahoma" FontWeight="Bold"/>
         <Label x:Name="Result" Content="Result" HorizontalAlignment="Left" Margin="293,8,0,0" VerticalAlignment="Top" FontFamily="Tahoma" FontWeight="Bold"/>
